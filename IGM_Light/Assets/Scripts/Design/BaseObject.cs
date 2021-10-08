@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScriptObject : MonoBehaviour
+public class BaseObject : MonoBehaviour
 {
     public string prefabName;
     public float speed;
@@ -12,7 +12,7 @@ public class ScriptObject : MonoBehaviour
     public Collider2D collider;
     public bool isDead;
 
-    public Dictionary<string, List<ScriptObject>> m_cachedAllObjectDict;
+    public Dictionary<string, List<BaseObject>> m_cachedAllObjectDict;
 
 
     private void Awake()
@@ -29,7 +29,7 @@ public class ScriptObject : MonoBehaviour
 
         else
         {
-            m_cachedAllObjectDict[prefabName] = new List<ScriptObject> { this };
+            m_cachedAllObjectDict[prefabName] = new List<BaseObject> { this };
         }
     }
 
@@ -47,7 +47,7 @@ public class ScriptObject : MonoBehaviour
         if (ObjectManager.Instance.spawnedObjDict.ContainsKey(prefabName))
         {
             if (ObjectManager.Instance.spawnedObjDict[prefabName].Contains(this))
-                ObjectManager.Instance.Despawn<ScriptObject>(this);
+                ObjectManager.Instance.Despawn<BaseObject>(this);
         }
        
         isDead = false;

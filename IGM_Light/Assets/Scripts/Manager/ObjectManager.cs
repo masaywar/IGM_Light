@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class ObjectManager : Singleton<ObjectManager>
 {
-    public List<Transform> childrenTransform = new List<Transform>();
-
-    [System.Serializable]
-    private class PoolPrefab
+    [System.Serializable] private class PoolPrefab
     {
         public string path;
         public int poolNum;
@@ -19,47 +16,53 @@ public class ObjectManager : Singleton<ObjectManager>
             this.poolNum = poolNum;
         }
     }
+
+    [Header("Path and Quantity for spawned objects")]
+    [SerializeField] private string _resourcesPath;
+    [SerializeField] private List<PoolPrefab> prefabPath;
+
+    [Space(4)]
+    public List<Transform> childrenTransform = new List<Transform>();
+    
     private bool isLoaded = false;
 
-    [SerializeField]
-    private List<PoolPrefab> prefabPath;
 
-    private Dictionary<string, List<ScriptObject>> m_allObjectDict;
-    private Dictionary<string, List<ScriptObject>> m_despawnedObjDict;
-    private Dictionary<string, List<ScriptObject>> m_spawnedObjDict;
+    private Dictionary<string, List<BaseObject>> m_allObjectDict;
+    private Dictionary<string, List<BaseObject>> m_despawnedObjDict;
+    private Dictionary<string, List<BaseObject>> m_spawnedObjDict;
 
-    public Dictionary<string, List<ScriptObject>> allObjectDict
+    public Dictionary<string, List<BaseObject>> allObjectDict
     {
         get
         {
             if (m_allObjectDict == null)
             {
-                m_allObjectDict = new Dictionary<string, List<ScriptObject>>();
+                m_allObjectDict = new Dictionary<string, List<BaseObject>>();
             }
             return m_allObjectDict;
         }
     }
 
-    public Dictionary<string, List<ScriptObject>> spawnedObjDict
+    public Dictionary<string, List<BaseObject>> spawnedObjDict
     {
         get
         {
             if (m_spawnedObjDict == null)
             {
-                m_spawnedObjDict = new Dictionary<string, List<ScriptObject>>();
+                m_spawnedObjDict = new Dictionary<string, List<BaseObject>>();
             }
 
             return m_spawnedObjDict;
         }
     }
 
-    public Dictionary<string, List<ScriptObject>> despawnedObjDict
+    public Dictionary<string, List<BaseObject>> despawnedObjDict
     {
         get
         {
             if (m_despawnedObjDict == null)
             {
-                m_despawnedObjDict = new Dictionary<string, List<ScriptObject>>();
+                m_despawnedObjDict = new Dictionary<string, List<BaseObject>>();
             }
             return m_despawnedObjDict;
         }
@@ -67,19 +70,7 @@ public class ObjectManager : Singleton<ObjectManager>
     
     public void Initialize()
     {
-        prefabPath = new List<PoolPrefab> {
-            new PoolPrefab("Prefab/PlayerSprite/knightSprite", 1),
-            new PoolPrefab("Prefab/PlayerSprite/archerSprite", 1),
-            new PoolPrefab("Prefab/PlayerSprite/mageSprite", 1),
-            new PoolPrefab("Prefab/Player/knight", 1),
-            new PoolPrefab("Prefab/Player/archer", 1),
-            new PoolPrefab("Prefab/Player/mage", 1),
-            new PoolPrefab("Prefab/PlayerIcon/knightIcon", 1),
-            new PoolPrefab("Prefab/PlayerIcon/archerIcon", 1),
-            new PoolPrefab("Prefab/PlayerIcon/mageIcon", 1),
-            new PoolPrefab("Prefab/Enemy/UpDestroyableEnemy", 250),
-            new PoolPrefab("Prefab/Enemy/DownDestroyableEnemy", 250),
-            new PoolPrefab("Prefab/Enemy/UnDestroyableEnemy", 50)};
+        prefabPath = new List<PoolPrefab> {};
 
         DontDestroyOnLoad(this);
         StartCoroutine(LoadPrefabs());
@@ -90,19 +81,19 @@ public class ObjectManager : Singleton<ObjectManager>
         foreach (var prefab in prefabPath)
         {
             GameObject parentGo = new GameObject();
-            ScriptObject go = Resources.Load<ScriptObject>(prefab.path);
+            BaseObject go = Resources.Load<BaseObject>(_resourcesPath + prefab.path);
 
             go.name = prefab.path.Split('/').GetTop();
             go.prefabName = go.name;
 
             parentGo.name = go.name;
 
-            spawnedObjDict[go.name] = new List<ScriptObject>();
-            despawnedObjDict[go.name] = new List<ScriptObject>();
+            spawnedObjDict[go.name] = new List<BaseObject>();
+            despawnedObjDict[go.name] = new List<BaseObject>();
 
             for (int k = 0; k < prefab.poolNum; k++)
             {
-                ScriptObject obj = Instantiate(go);
+                BaseObject obj = Instantiate(go);
                 InitSpawnedObject(obj, parentGo.transform);
             }
 
@@ -121,13 +112,13 @@ public class ObjectManager : Singleton<ObjectManager>
         return isLoaded;
     }
 
-    private void InitSpawnedObject(ScriptObject spawned, Transform parentGo) 
+    private void InitSpawnedObject(BaseObject spawned, Transform parentGo) 
     {
         spawned.transform.SetParent(parentGo);
-        Despawn<ScriptObject>(spawned);
+        Despawn<BaseObject>(spawned);
     }
 
-    public T Find<T>(ScriptObject obj) where T : ScriptObject
+    public T Find<T>(BaseObject obj) where T : BaseObject
     {
         string name = obj.prefabName;
         if (!m_allObjectDict.TryGetValue(name, out var value))
@@ -145,7 +136,7 @@ public class ObjectManager : Singleton<ObjectManager>
         return default(T);
     }
 
-    public T FindByName<T>(string name, GameObject go) where T : ScriptObject
+    public T FindByName<T>(string name, GameObject go) where T : BaseObject
     {
         if (!m_allObjectDict.TryGetValue(name, out var value))
         {
@@ -172,7 +163,7 @@ public class ObjectManager : Singleton<ObjectManager>
             spawnedTransform.SetParent(parent);
     }
 
-    public T Spawn<T>(string type, Vector3 position, Quaternion rotation, Transform parent) where T : ScriptObject
+    public T Spawn<T>(string type, Vector3 position, Quaternion rotation, Transform parent) where T : BaseObject
     {
         if (!despawnedObjDict.TryGetValue(type, out var value))
         {
@@ -190,31 +181,31 @@ public class ObjectManager : Singleton<ObjectManager>
         return spawnedObject;
     }
 
-    public T Spawn<T>(string type) where T : ScriptObject
+    public T Spawn<T>(string type) where T : BaseObject
     {
         return Spawn<T>(type, Vector3.zero, Quaternion.identity, null);
     }
 
-    public T Spawn<T>(string type, Transform parent) where T : ScriptObject
+    public T Spawn<T>(string type, Transform parent) where T : BaseObject
     {
         return Spawn<T>(type, Vector3.zero, Quaternion.identity, parent);
     }
-    public T Spawn<T>(string type, Vector3 position) where T : ScriptObject
+    public T Spawn<T>(string type, Vector3 position) where T : BaseObject
     {
         return Spawn<T>(type, position, Quaternion.identity, null);
     }
 
-    public T Spawn<T>(string type, Vector3 position, Transform parent) where T : ScriptObject
+    public T Spawn<T>(string type, Vector3 position, Transform parent) where T : BaseObject
     {
         return Spawn<T>(type, position, Quaternion.identity, parent);
     }
 
-    public T Spawn<T>(string type, Vector3 position, Quaternion rotation) where T : ScriptObject
+    public T Spawn<T>(string type, Vector3 position, Quaternion rotation) where T : BaseObject
     {
         return Spawn<T>(type, position, rotation, null);
     }
 
-    public void Despawn<T>(ScriptObject obj) where T : ScriptObject
+    public void Despawn<T> (BaseObject obj) where T : BaseObject
     {
         string prefabName = obj.prefabName;
         if (spawnedObjDict.TryGetValue(prefabName, out var value))
@@ -226,18 +217,18 @@ public class ObjectManager : Singleton<ObjectManager>
         obj.gameObject.SetActive(false);
     }
 
-    public void DespawnAllWithName<T>(string key) where T : ScriptObject
+    public void DespawnAllWithName<T>(string key) where T : BaseObject
     {
         if (spawnedObjDict.TryGetValue(key, out var value))
         {
-            List<ScriptObject> despawnList = new List<ScriptObject>();
+            List <BaseObject> despawnList = new List <BaseObject>();
 
             value.ForEach(obj =>
             {
                 despawnList.Add(obj);
             });
 
-            despawnList.ForEach(obj => Despawn<ScriptObject>(obj));
+            despawnList.ForEach(obj => Despawn <BaseObject>(obj));
         }
     }
 
@@ -247,14 +238,14 @@ public class ObjectManager : Singleton<ObjectManager>
         {
             if (spawnedObjDict.TryGetValue(key, out var value))
             {
-                List<ScriptObject> despawnList = new List<ScriptObject>();
+                List <BaseObject> despawnList = new List <BaseObject>();
 
                 value.ForEach(obj =>
                 {
                     despawnList.Add(obj);
                 });
 
-                despawnList.ForEach(obj => Despawn<ScriptObject>(obj));
+                despawnList.ForEach(obj => Despawn <BaseObject>(obj));
             }
         }
     }
