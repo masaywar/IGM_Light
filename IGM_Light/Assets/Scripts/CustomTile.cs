@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
-public class Tile : MonoBehaviour
+public class CustomTile : MonoBehaviour
 {
     public int Column
     {
@@ -14,14 +15,6 @@ public class Tile : MonoBehaviour
     {
         get;
         private set;
-    }
-
-    [SerializeField] private int col, row;
-
-    private void Update()
-    {
-        col = Column;
-        row = Row;
     }
 
     public void SetTilePosition(int row, int column)

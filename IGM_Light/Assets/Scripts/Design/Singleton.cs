@@ -43,5 +43,3 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     }
 }
 
-
-//출처: https://skuld2000.tistory.com/26 [아마군의 Dev로그]

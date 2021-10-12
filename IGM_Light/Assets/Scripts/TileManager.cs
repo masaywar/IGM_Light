@@ -1,32 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileManager: MonoBehaviour
+public class TileManager: Singleton<TileManager>
 {
-    [SerializeField] private Tile _baseTile;
+    [Range(3, 5)]
     [SerializeField] private int _length;
     public int Length
     {
         get=>_length;
     }
     
-    [SerializeField] private Tile[] _tiles;
-
-    public Tile[] Tiles
-    {
-        get 
-        {
-            if(_tiles == null)
-            {
-                _tiles = new Tile[Length*Length];
-            }
-
-            return _tiles;
-        }
-    } 
-
-   
+    public CustomTile[] Tiles;
 
     private void Awake()
     {
@@ -35,16 +21,16 @@ public class TileManager: MonoBehaviour
 
     private void TryInitialize()
     {
-        _tiles = new Tile[Length*Length];
-        SpawnTiles();
+        Tiles = new CustomTile[Length * Length];
     }
 
-    private void SpawnTiles()
+    public CustomTile GetTile(int row, int col)
     {
-        for (int idx=0; idx < Length*Length; idx++)
-        {
-            Tiles[idx] = Instantiate(_baseTile, transform);
-            Tiles[idx].SetTilePosition(idx/Length, idx%Length);
-        }
+        return Tiles[col*Length + row%Length];
+    }
+
+    public void Subscribe(CustomTile tile)
+    {
+        Tiles[tile.Column*Length + tile.Column%Length] = tile;
     }
 }
