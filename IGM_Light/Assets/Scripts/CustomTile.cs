@@ -1,25 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
+using System;
 
 public class CustomTile : MonoBehaviour
 {
-    public int Column
-    {
-        get;
-        private set;
-    }
 
-    public int Row
-    {
-        get;
-        private set;
-    }
+    [Header("Tile Properties")]
 
-    public void SetTilePosition(int row, int column)
+    public int Column;
+    public int  Row;
+
+    public ColorType TileColor;
+
+    public GameObject Occupied;
+    public GameObject[] Candidates;
+
+    public void ModTileColor(ColorType colorType)
     {
-        Row = row;
-        Column = column;    
-    }
+        TileColor = colorType;
+        var former = Occupied;
+        Occupied = Candidates[(int)colorType];
+
+        former.SetActive(false);
+        Occupied.SetActive(true);
+    }    
 }
