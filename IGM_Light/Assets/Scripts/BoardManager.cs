@@ -3,16 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardManager: Singleton<BoardManager>
+public class BoardManager: MonoBehaviour
 {
-    [Tooltip("It must be executing on editor, Not in-game system.")]
-    [Header("For Generating Board")]
-    [SerializeField] private CustomTile _tilePrefab;
-
     [Space(2)]
     [Header("Board Properties")]
     
     [SerializeField] Transform _tilesParentTransform;
+
+    public int Level=0;
 
     [Range(3, 5)]
     [SerializeField] private int _length=3;
@@ -73,35 +71,4 @@ public class BoardManager: Singleton<BoardManager>
     {
         Tiles[tile.Column*Length + tile.Row%Length] = tile;
     }
-
-    /// <summary>
-    /// DO NOT USE THIS METHOD IN YOUR CUSTOM CODE!!!
-    /// IT'S ONLY FOR EDITOR.
-    /// </summary>
-    public void GenerateTiles()
-    {
-        Tiles = new CustomTile[Length * Length];
-
-        if (_tilesParentTransform.childCount > 0)
-        {
-            while(_tilesParentTransform.childCount > 0)
-            {
-                DestroyImmediate(_tilesParentTransform.GetChild(0).gameObject);
-            }
-        }
-    
-        for (int col=0; col<Length; col++)
-        {
-            for (int row=0; row<Length; row++)
-            {
-                var tile = Instantiate<CustomTile>(_tilePrefab, _tilesParentTransform);
-                tile.Column = col;
-                tile.Row = row;
-
-                tile.transform.SetPositionAndRotation(new Vector3(row, -col), Quaternion.identity);
-
-                Subscribe(tile);     
-            }
-        }
-    }   
 }

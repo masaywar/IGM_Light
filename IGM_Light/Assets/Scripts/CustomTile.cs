@@ -5,16 +5,22 @@ using System;
 
 public class CustomTile : MonoBehaviour
 {
+    private BoardManager m_boardManager;
 
     [Header("Tile Properties")]
+    public int  Row;
 
     public int Column;
-    public int  Row;
 
     public ColorType TileColor;
 
     public GameObject Occupied;
     public GameObject[] Candidates;
+
+    private void Awake()
+    {
+        m_boardManager = transform.parent.GetComponent<BoardManager>();
+    }
 
     public void ModTileColor(ColorType colorType)
     {
