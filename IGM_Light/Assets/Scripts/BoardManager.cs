@@ -10,7 +10,8 @@ public class BoardManager: MonoBehaviour
     
     [SerializeField] Transform _tilesParentTransform;
 
-    public int Level=0;
+    public int World=0;
+    public int Stage=0;
 
     [Range(3, 5)]
     [SerializeField] private int _length=3;
