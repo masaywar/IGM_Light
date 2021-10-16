@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    int row = 0;
-    int col = 0;
+    [SerializeField]
+    private BoardManager m_boardManager;
+
+    public int row = 0;
+    public int col = 0;
     public CustomTile goTile;  //will go 
     public CustomTile onTile;  //recent Tile
     string color = "gray";
-    public Sprite[] colortiles = new Sprite[9];
+   // public Sprite[] colortiles = new Sprite[9];
     private Vector2 nowPos, prePos;
 
     // Start is called before the first frame update
     void Start()
     {
-        SetFirstLoc(1, 0);
+        if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row + 1, out onTile))
+        {
+            Debug.Log("onTile" + onTile.transform.position);
+            //this.transform.position = new Vector3(0,-1f,0);
+        }
         //gameObject.SetActive(false);
         // GameObject up1 = transform.Find("up1").gameObject;
     }
@@ -26,16 +33,6 @@ void Update()
         Move();
     }
     
-    void SetFirstLoc(int c, int r)
-    {
-        row = r;
-        col = c;
-        if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row, out onTile))
-        {
-            //Debug.Log(onTile.transform.position);
-            this.transform.position = new Vector3(0,-1f,0);
-        }
-    }
     void Move()
     {
         int speed = 10;
@@ -47,43 +44,25 @@ void Update()
         //방향키 상하좌우 이동
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col - 1, row, out goTile))
-            {
-                //goTile = GameObject.Find("Board").GetComponent<BoardManager>().GetTile(row, col - 1);
-                this.transform.position = goTile.transform.position;
-                col--;
-            }
+            TestMove(row, col-1);
+            col--;
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             Debug.Log("down");
-            //Debug.Log("c:"+col+"r:"+row);
-            if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col+1,row, out goTile))
-            {
-                //goTile = GameObject.Find("Board").GetComponent<BoardManager>().GetTile(row, col);
-                //Debug.Log(onTile.transform.position);
-                this.transform.position = goTile.transform.position;
-                col ++;
-            }
-            //Debug.Log("c:" + col + "r:" + row);
+            Debug.Log("c:"+col+"r:"+row);
+            row++;
+            TestMove(row, col);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row-1, out goTile))
-            {
-                //goTile = GameObject.Find("Board").GetComponent<BoardManager>().GetTile(row-1, col);
-                this.transform.position = goTile.transform.position;
-                row --;
-            }
+            TestMove(row - 1, col);
+            row--;
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row +1, out goTile))
-            {
-                //goTile = GameObject.Find("Board").GetComponent<BoardManager>().GetTile(row+1, col);
-                this.transform.position = goTile.transform.position;
-                row ++;
-            }
+            TestMove(row + 1, col);
+            row++;
         }
 
         //드래그시 무빙
@@ -103,6 +82,16 @@ void Update()
 
     }
 
+    private void TestMove(int p_row, int p_col)
+    {
+        Debug.Log("c:" + col + "r:" + row);
+        if (m_boardManager.TryGetTile(p_col, p_row, out goTile))
+        {
+            //goTile = GameObject.Find("Board").GetComponent<BoardManager>().GetTile(row+1, col);
+            this.transform.position = goTile.transform.position;
+        }
+    }
+
     void SetColor(string c)
     {
         color = c;
@@ -110,7 +99,7 @@ void Update()
 
    void Draw()  //캐릭터의 색과 같은 Tile 색 변경
     {
-        if(GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row, out onTile))
+        /*if(GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row, out onTile))
         {
             if(color == "red")
               onTile.GetComponent<SpriteRenderer>().sprite = colortiles[0];
@@ -130,6 +119,6 @@ void Update()
                 onTile.GetComponent<SpriteRenderer>().sprite = colortiles[7];
             if (color == "yellow")
                 onTile.GetComponent<SpriteRenderer>().sprite = colortiles[8];
-        }
+        }*/
     }
 }
