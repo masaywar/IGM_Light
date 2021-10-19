@@ -13,22 +13,18 @@ public class CustomTile : MonoBehaviour
     public int Column;
 
     public ColorType TileColor;
+    public SpriteRenderer m_SpriteRenderer;
 
-    public GameObject Occupied;
-    public GameObject[] Candidates;
+   
 
     private void Awake()
     {
         m_boardManager = transform.parent.GetComponent<BoardManager>();
     }
 
-    public void ModTileColor(ColorType colorType)
+    public void ModTileColor(Sprite tileColor, ColorType colorType)
     {
         TileColor = colorType;
-        var former = Occupied;
-        Occupied = Candidates[(int)colorType];
-
-        former.SetActive(false);
-        Occupied.SetActive(true);
+        m_SpriteRenderer.sprite = tileColor;
     }    
 }

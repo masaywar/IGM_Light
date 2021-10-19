@@ -11,10 +11,6 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
   m_Name: Worlds Loader
-  m_EditorClassIdentifier: Assembly-CSharp-Editor::WorldsLoader
-  path: Assets/Resources/Prefabs/Worlds
-  WorldsTable:
-  - Stages:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::WorldsLoader
+  WorldsTable: []
+  path: 

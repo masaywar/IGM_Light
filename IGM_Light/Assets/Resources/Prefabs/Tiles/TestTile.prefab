@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 01a6a33bf0925334c80502e7183df0a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e5ce16067108e748bea18e3feeb10ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 7479257790404195969}
   - component: {fileID: 7479257790404195982}
   m_Layer: 0
-  m_Name: TestTile 1
+  m_Name: TestTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,6 +128,4 @@ MonoBehaviour:
   Row: 0
   Column: 0
   TileColor: 0
-  Occupied: {fileID: 6622722010422627960}
-  Candidates:
-  - {fileID: 6622722010422627960}
+  m_SpriteRenderer: {fileID: 6622722010422627961}

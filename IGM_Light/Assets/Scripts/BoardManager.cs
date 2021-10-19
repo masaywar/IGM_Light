@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class BoardManager: MonoBehaviour
 {
+    [SerializeField] private SpriteDatabaseLoader m_spriteDatabase;
+
+    private List<Sprite> _sprites;
+
+
     [Space(2)]
     [Header("Board Properties")]
     
-    [SerializeField] Transform _tilesParentTransform;
-
     public int World=0;
     public int Stage=0;
 
@@ -29,6 +32,7 @@ public class BoardManager: MonoBehaviour
 
     private void TryInitialize()
     {
+        _sprites = m_spriteDatabase.Sprites;
     }
 
     /// <summary>
@@ -39,6 +43,14 @@ public class BoardManager: MonoBehaviour
     /// <returns></returns>
     public CustomTile GetTile(int col, int row)
     {
+        if (col < 0 || row < 0)
+            return null;
+
+        int index = col*Length + row%Length;
+        
+        if (index > Length*Length)
+            return null;
+
         return Tiles[col*Length + row%Length];
     }
 
@@ -59,13 +71,31 @@ public class BoardManager: MonoBehaviour
 
     public void SetTileColor(CustomTile tile, ColorType colorType)
     {
-        tile?.ModTileColor(colorType);
+        Debug.Log((int)colorType);
+
+        tile?.ModTileColor(m_spriteDatabase.Sprites[(int)colorType], colorType);
     }
 
     public void SetTileColor(int col, int row, ColorType colorType)
     {
         if (TryGetTile(col, row, out var target))
             SetTileColor(target, colorType);
+    }
+
+    public Sprite GetSprite(ColorType colorType)
+    {
+        int index = (int)colorType;
+
+        if (m_spriteDatabase.Sprites.Count <= index)
+            return null;
+
+        return m_spriteDatabase.Sprites[index];
+    }
+
+    public bool TryGetSprite(ColorType colorType, out Sprite sprite)
+    {
+        sprite = GetSprite(colorType);
+        return sprite != null;
     }
 
     public void Subscribe(CustomTile tile)
