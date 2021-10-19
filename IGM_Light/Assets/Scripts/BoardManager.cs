@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BoardManager: MonoBehaviour
 {
-    [SerializeField] private SpriteDatabaseLoader m_spriteDatabase;
+    [SerializeField] public SpriteDatabaseLoader m_spriteDatabase;
 
     private List<Sprite> _sprites;
 
@@ -32,7 +32,7 @@ public class BoardManager: MonoBehaviour
 
     private void TryInitialize()
     {
-        _sprites = m_spriteDatabase.Sprites;
+        _sprites = m_spriteDatabase.TileSprites;
     }
 
     /// <summary>
@@ -73,7 +73,7 @@ public class BoardManager: MonoBehaviour
     {
         Debug.Log((int)colorType);
 
-        tile?.ModTileColor(m_spriteDatabase.Sprites[(int)colorType], colorType);
+        tile?.ModTileColor(m_spriteDatabase.TileSprites[(int)colorType], colorType);
     }
 
     public void SetTileColor(int col, int row, ColorType colorType)
@@ -82,19 +82,33 @@ public class BoardManager: MonoBehaviour
             SetTileColor(target, colorType);
     }
 
-    public Sprite GetSprite(ColorType colorType)
+    public Sprite GetTileSprite(ColorType colorType)
     {
         int index = (int)colorType;
 
-        if (m_spriteDatabase.Sprites.Count <= index)
+        if (m_spriteDatabase.TileSprites.Count <= index)
             return null;
 
-        return m_spriteDatabase.Sprites[index];
+        return m_spriteDatabase.TileSprites[index];
     }
 
-    public bool TryGetSprite(ColorType colorType, out Sprite sprite)
+    public bool TryGetTileSprite(ColorType colorType, out Sprite sprite)
     {
-        sprite = GetSprite(colorType);
+        sprite = GetTileSprite(colorType);
+        return sprite != null;
+    }
+
+    public Sprite GetCharacterSprite(ColorType colorType, int index)
+    {
+        if(m_spriteDatabase.CharacterSprites[colorType].Count <= index)
+            return null;
+
+        return m_spriteDatabase.CharacterSprites[colorType][index];
+    }
+
+    public bool TryGetCharacterSprite(ColorType colorType, int index, out Sprite sprite)
+    {
+        sprite = GetCharacterSprite(colorType, index);
         return sprite != null;
     }
 

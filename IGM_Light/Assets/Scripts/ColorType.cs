@@ -1,6 +1,6 @@
 ﻿
 public enum ColorType
 {
-    Blue, Cyan, Green, Mint, Orange, 
+    Basic,Blue, Cyan, Green, Mint, Orange, 
     Pink, Purple, Red, Yellow
 }

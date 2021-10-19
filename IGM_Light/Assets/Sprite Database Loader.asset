@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 613f43f9435ffbe4aa6d9a22b700b659, type: 3}
   m_Name: Sprite Database Loader
   m_EditorClassIdentifier: 
-  Sprites: []
-  path: Assets/Resources/Sprites/TileColor
+  TileSprites: []
+  FilterSprites: []
+  BackgroundSprites: []
+  path:
+  - Assets/Resources/Sprites/TileColor
+  - Assets/Resources/Sprites/character_sprite
+  - 
+  - 

@@ -8,9 +8,16 @@ using System.Linq;
 [CreateAssetMenu(menuName = "IGM_Light/SpriteDatabaseLoader")]
 public class SpriteDatabaseLoader : ScriptableObject
 {
-    public List<Sprite> Sprites;
+    public List<Sprite> TileSprites;
+    public List<Sprite> FilterSprites;
+    public List<Sprite> BackgroundSprites;
+    public Dictionary<ColorType, List<Sprite>> CharacterSprites = new Dictionary<ColorType, List<Sprite>>();
 
-    public Dictionary<Enum, Dictionary<string, Sprite>> SpritesDict;
-
-    public string path;
+    /// <summary>
+    ///  0 : Tile Sprite
+    ///  1 : Charachter Sprite
+    ///  2 : Filter Sprite
+    ///  3 : Background Sprite
+    /// </summary>
+    public string[] path;
 }
