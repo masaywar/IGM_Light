@@ -4,23 +4,28 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
+    //[SerializeField]
     private BoardManager m_boardManager;
 
     public int row = 0;
     public int col = 0;
     public CustomTile goTile;  //will go 
     public CustomTile onTile;  //recent Tile
-    string color = "gray";
-   // public Sprite[] colortiles = new Sprite[9];
+    public Sprite T_sprite;
+    public Sprite m_sprite;
+    public ColorType _color;
+   // public ColorType standard;
+
+    public Sprite[] colortiles = new Sprite[9];
+    public Sprite[] colorPlayer = new Sprite[9];
     private Vector2 nowPos, prePos;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row + 1, out onTile))
+        if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row , out onTile))  //row,col은 시작위치
         {
-            Debug.Log("onTile" + onTile.transform.position);
+            Debug.Log("onTile" + onTile.transform.position);  //0,0
             //this.transform.position = new Vector3(0,-1f,0);
         }
         //gameObject.SetActive(false);
@@ -31,6 +36,11 @@ public class Player : MonoBehaviour
 void Update()
     {
         Move();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //Debug.Log("Space Down");
+            Draw();
+        }
     }
     
     void Move()
@@ -44,29 +54,32 @@ void Update()
         //방향키 상하좌우 이동
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            TestMove(row, col-1);
-            col--;
+            //Debug.Log("up");
+            row--;
+            TestMove(row, col);
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            Debug.Log("down");
-            Debug.Log("c:"+col+"r:"+row);
+            //Debug.Log("down");
+            //Debug.Log("c:"+col+"r:"+row);
             row++;
             TestMove(row, col);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            TestMove(row - 1, col);
-            row--;
+            //Debug.Log("left");
+            col--;
+            TestMove(row, col);
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            TestMove(row + 1, col);
-            row++;
+            //Debug.Log("right");
+            col++;
+            TestMove(row, col);
         }
 
         //드래그시 무빙
-        if (Input.touchCount == 1)
+        /*if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
@@ -78,47 +91,119 @@ void Update()
                 nowPos = touch.position - touch.deltaPosition;
                 //Debug("nowPos"+nowPos); 
             }
-        }
+        }*/
 
     }
 
     private void TestMove(int p_row, int p_col)
     {
-        Debug.Log("c:" + col + "r:" + row);
-        if (m_boardManager.TryGetTile(p_col, p_row, out goTile))
+        //Debug.Log("c:" + p_col + "r:" + p_row);
+        if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(p_col, p_row, out goTile))
         {
             //goTile = GameObject.Find("Board").GetComponent<BoardManager>().GetTile(row+1, col);
             this.transform.position = goTile.transform.position;
         }
-    }
-
-    void SetColor(string c)
-    {
-        color = c;
-    }
-
-   void Draw()  //캐릭터의 색과 같은 Tile 색 변경
-    {
-        /*if(GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row, out onTile))
+        if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row, out onTile))  //onTile에는 현재위치
         {
-            if(color == "red")
-              onTile.GetComponent<SpriteRenderer>().sprite = colortiles[0];
-            if (color == "orange")
-                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[1];
-            if (color == "blue")
-                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[2];
-            if (color == "cyan")
-                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[3];
-            if (color == "green")
-                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[4];
-            if (color == "mint")
-                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[5];
-            if (color == "pink")
-                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[6];
-            if (color == "purple")
-                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[7];
-            if (color == "yellow")
-                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[8];
+            if (onTile.HasItem == true)
+            {
+                _color = onTile.Filter.color;
+                Debug.Log(_color);
+                ChangeColor(_color);
+            }
+        }
+    }
+
+   void ChangeColor(ColorType color)
+    {
+        if (color == ColorType.Red)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[0];
+        }
+        if (color == ColorType.Orange)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[1];
+        }
+        if (color == ColorType.Yellow)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[2];
+        }
+        if (color == ColorType.Green)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[3];
+        }
+        if (color == ColorType.Mint)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[4];
+        }
+        if (color == ColorType.Cyan)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[5];
+        }
+        if (color == ColorType.Blue)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[6];
+        }
+        if (color == ColorType.Purple)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[7];
+        }
+        if (color == ColorType.Pink)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[8];
+        }
+    } 
+   void Draw()  //필터의 색과 같은 Tile 색,캐릭터 색 변경
+    {
+        Debug.Log("Draw");
+        
+        /*if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetCharacterSprite(_color,6,out m_sprite)) //6은 stand
+        {
+            Sprite spriteR = gameObject.GetComponent<SpriteRenderer>().sprite;
+            spriteR = m_sprite;
+        }
+        if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTileSprite(_color, out T_sprite))
+        {
+            onTile.ModTileColor(T_sprite, _color);
         }*/
+        //if(GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row, out onTile))
+        //{
+            if(_color == ColorType.Red)
+            {
+                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[0];
+            }
+            if (_color == ColorType.Orange)
+            {
+                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[1];
+            }
+            if (_color == ColorType.Yellow)
+            {
+                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[2];
+            }
+            if (_color == ColorType.Green)
+            {
+                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[3];
+            }
+            if (_color == ColorType.Mint)
+            {
+                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[4];
+            }
+            if (_color == ColorType.Cyan)
+            {
+                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[5];
+            }
+            if (_color == ColorType.Blue)
+            {
+                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[6];
+            }
+            if (_color == ColorType.Purple)
+            {
+                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[7];
+            }
+            if (_color == ColorType.Pink)
+            {
+                onTile.GetComponent<SpriteRenderer>().sprite = colortiles[8];
+            }
+        //}
     }
 }
