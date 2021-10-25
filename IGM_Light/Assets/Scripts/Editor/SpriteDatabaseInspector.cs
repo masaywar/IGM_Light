@@ -27,6 +27,10 @@ public class SpriteDatabaseInspector : Editor
         {
             LoadCharacter();
         }
+        if (GUILayout.Button("Load Filters"))
+        {
+            LoadFilters();
+        }
     }
 
     public void LoadTile()
@@ -49,24 +53,17 @@ public class SpriteDatabaseInspector : Editor
     public void LoadCharacter()
     {
         var path = _spriteDatabase.path;
-        var Sprites = _spriteDatabase.TileSprites;
-
         var CharSpriteDic = _spriteDatabase.CharacterSprites;
 
         if (CharSpriteDic.Count > 0){
             CharSpriteDic.Clear();
         }
 
-        if (Sprites.Count > 0 )
-            Sprites.Clear();
-
         string[] dirPaths = Directory.GetDirectories(path[1]);
         ColorType cType = ColorType.Basic;
         
         dirPaths.ForEach(dirPath=>
         {
-            Debug.Log(cType);
-
             CharSpriteDic.Add(cType, new List<Sprite>());
 
             Directory.GetFiles(dirPath)
@@ -77,4 +74,18 @@ public class SpriteDatabaseInspector : Editor
             cType++;
         });
     }
+
+    public void LoadFilters()
+    {
+        var path = _spriteDatabase.path[2];
+        var filters = _spriteDatabase.FilterSprites;
+
+        if (filters.Count > 0)
+            filters.Clear();
+
+        Directory.GetFiles(path)
+        .Where(file => !file.Contains(".meta")&&!file.Contains(".spriteatlas"))
+        .ForEach(file=>filters.Add(AssetDatabase.LoadAssetAtPath<Sprite>(file)));
+    }
+
 }

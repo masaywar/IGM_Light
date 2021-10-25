@@ -15,7 +15,18 @@ public class CustomTile : MonoBehaviour
     public ColorType TileColor;
     public SpriteRenderer m_SpriteRenderer;
 
-   
+    public bool HasObstacle
+    {
+        get=>Obstacle!=null;
+    }
+
+    public bool HasItem
+    {
+        get=>Filter!=null;
+    }
+
+    public Filter Filter;
+    public Obstacle Obstacle;
 
     private void Awake()
     {

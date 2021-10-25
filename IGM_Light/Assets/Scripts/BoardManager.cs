@@ -18,6 +18,7 @@ public class BoardManager: MonoBehaviour
 
     [Range(3, 5)]
     [SerializeField] private int _length=3;
+    
     public int Length
     {
         get=>_length;
@@ -50,7 +51,7 @@ public class BoardManager: MonoBehaviour
         
         if (index > Length*Length)
             return null;
-
+        
         return Tiles[col*Length + row%Length];
     }
 
@@ -66,7 +67,7 @@ public class BoardManager: MonoBehaviour
         var target = GetTile(col, row);
         customTile = target;
 
-        return target != null;        
+        return target != null;
     }
 
     public void SetTileColor(CustomTile tile, ColorType colorType)
@@ -110,6 +111,17 @@ public class BoardManager: MonoBehaviour
     {
         sprite = GetCharacterSprite(colorType, index);
         return sprite != null;
+    }
+
+    public Sprite GetFilter(ColorType colorType)
+    {
+        return null;
+    }
+
+    public bool TryGetFileter(ColorType colorType, out Sprite sprite)
+    {
+        sprite = GetFilter(colorType);
+        return sprite!=null;
     }
 
     public void Subscribe(CustomTile tile)

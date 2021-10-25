@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TileAtlas
+  m_Name: TileFilterAtlas
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -22,15 +22,15 @@ SpriteAtlas:
       sRGB: 1
     platformSettings:
     - serializedVersion: 3
-      m_BuildTarget: Android
-      m_MaxTextureSize: 4096
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 8192
       m_ResizeAlgorithm: 0
-      m_TextureFormat: 47
+      m_TextureFormat: -1
       m_TextureCompression: 1
       m_CompressionQuality: 50
       m_CrunchedCompression: 0
       m_AllowsAlphaSplitting: 0
-      m_Overridden: 1
+      m_Overridden: 0
       m_AndroidETC2FallbackOverride: 0
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
@@ -42,28 +42,51 @@ SpriteAtlas:
       enableTightPacking: 1
     variantMultiplier: 1
     packables:
+    - {fileID: 102900000, guid: c053ad33504516f48bda6fb3b1f6c7d1, type: 3}
     - {fileID: 102900000, guid: f81f2c4b2cb582547a00359e74e0f5a5, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 3e5ce16067108e748bea18e3feeb10ee, type: 3}
   - {fileID: 21300000, guid: 87123212081766a45859fb1638b3da52, type: 3}
+  - {fileID: 21300000, guid: 110c6042bf0987545bf7cecb5cdeec8a, type: 3}
+  - {fileID: 21300000, guid: ee4c9682e56e47f4aa3b1adece0bbe31, type: 3}
+  - {fileID: 21300000, guid: ea26eb13f1e6420448b77b6ae3ccb48b, type: 3}
+  - {fileID: 21300000, guid: e7ca54346ab2d074997ced1122faface, type: 3}
+  - {fileID: 21300000, guid: 01dcf215236d8f54aa1e6573f8ecd86c, type: 3}
+  - {fileID: 21300000, guid: 3ea07b758511ea449a2f7a0ccbbe7c06, type: 3}
+  - {fileID: 21300000, guid: 1a7946f50db00d444a6a233ce602985e, type: 3}
   - {fileID: 21300000, guid: 93ca1556c1c41dd418de0e6c2d8eab4b, type: 3}
   - {fileID: 21300000, guid: 0fd51aa637874894e9af9fb13f7c0f47, type: 3}
+  - {fileID: 21300000, guid: 31c1e5f660ad2a2479212b32de9e603c, type: 3}
   - {fileID: 21300000, guid: d27b97c95a3988c4da8451aa59ca1f50, type: 3}
   - {fileID: 21300000, guid: f146d89a68072a04bb1bb7781c40b56f, type: 3}
+  - {fileID: 21300000, guid: 9a2ececa1429c9c47ae3c13cab9638e5, type: 3}
+  - {fileID: 21300000, guid: 45da68ead43622f4f819b5386a3fe367, type: 3}
   - {fileID: 21300000, guid: ea7cdf7c38f94e042aa2c70a00f0aff3, type: 3}
   - {fileID: 21300000, guid: e9dc996fdae75e346a9cb2933bc143c2, type: 3}
   - {fileID: 21300000, guid: b54c6e7fa0eb2b74389084ca9346f3b2, type: 3}
+  - {fileID: 21300000, guid: a17496efcf846b24b812f99207bbe02b, type: 3}
   m_PackedSpriteNamesToIndex:
   - TILE_Blue
   - TILE_Pink
+  - Filter_Mint
+  - Filter_Cyan
+  - Filter_Red
+  - Filter_Blue
+  - TILE_Basic
+  - Filter_Green
+  - Filter_Purple
   - TILE_Purple
   - TILE_Red
+  - Filter_Yellow
   - TILE_Green
   - TILE_Cyan
+  - Filter_Basic
+  - Filter_Orange
   - TILE_Yellow
   - TILE_Mint
   - TILE_Orange
-  m_Tag: TileAtlas
+  - Filter_Pink
+  m_Tag: TileFilterAtlas
   m_IsVariant: 0

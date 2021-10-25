@@ -13,11 +13,14 @@ public class SpriteDatabaseLoader : ScriptableObject
     public List<Sprite> BackgroundSprites;
     public Dictionary<ColorType, List<Sprite>> CharacterSprites = new Dictionary<ColorType, List<Sprite>>();
 
+
+    [Tooltip("0 : Tile, 1 : Character, 2 : Filter, 3 : Background")]
     /// <summary>
     ///  0 : Tile Sprite
-    ///  1 : Charachter Sprite
+    ///  1 : Character Sprite
     ///  2 : Filter Sprite
     ///  3 : Background Sprite
     /// </summary>
+    
     public string[] path;
 }
