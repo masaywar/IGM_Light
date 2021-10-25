@@ -101,10 +101,10 @@ public class BoardManager: MonoBehaviour
 
     public Sprite GetCharacterSprite(ColorType colorType, int index)
     {
-        if(m_spriteDatabase.CharacterSprites[colorType].Count <= index)
+        if(m_spriteDatabase.CharacterSprites[(int)colorType].sprites.Count <= index)
             return null;
 
-        return m_spriteDatabase.CharacterSprites[colorType][index];
+        return m_spriteDatabase.CharacterSprites[(int)colorType].sprites[index];
     }
 
     public bool TryGetCharacterSprite(ColorType colorType, int index, out Sprite sprite)

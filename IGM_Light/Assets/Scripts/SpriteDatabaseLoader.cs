@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Xml.Serialization;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,22 @@ using System.Linq;
 [CreateAssetMenu(menuName = "IGM_Light/SpriteDatabaseLoader")]
 public class SpriteDatabaseLoader : ScriptableObject
 {
+    [Serializable]
+    public struct Sprites
+    {
+        public List<Sprite> sprites;
+
+        public Sprites(List<Sprite> sprites)
+        {
+            this.sprites = sprites;
+        }
+    }
+
     public List<Sprite> TileSprites;
     public List<Sprite> FilterSprites;
     public List<Sprite> BackgroundSprites;
-    public Dictionary<ColorType, List<Sprite>> CharacterSprites = new Dictionary<ColorType, List<Sprite>>();
+
+    public List<Sprites> CharacterSprites = new List<Sprites>(); 
 
 
     [Tooltip("0 : Tile, 1 : Character, 2 : Filter, 3 : Background")]
