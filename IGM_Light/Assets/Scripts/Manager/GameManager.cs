@@ -51,6 +51,15 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    private IEnumerator FadeIn(float time, float threshHold)
+    {
+        while(time <= threshHold)
+        {
+            time += 0.2f;
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
     public void LoadScene(int index)
     {
         _sceneIndex = index;

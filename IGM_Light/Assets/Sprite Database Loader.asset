@@ -15,6 +15,7 @@ MonoBehaviour:
   TileSprites: []
   FilterSprites: []
   BackgroundSprites: []
+  CharacterSprites: []
   path:
   - Assets/Resources/Sprites/TileColor
   - Assets/Resources/Sprites/character_sprite

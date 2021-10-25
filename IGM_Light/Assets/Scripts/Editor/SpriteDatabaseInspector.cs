@@ -5,14 +5,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
-using UnityEngine.U2D;
 
 [CustomEditor(typeof(SpriteDatabaseLoader))]
 [CanEditMultipleObjects]
 public class SpriteDatabaseInspector : Editor
 {
     SpriteDatabaseLoader _spriteDatabase;
-
 
     public override void OnInspectorGUI()
     {
@@ -53,26 +51,28 @@ public class SpriteDatabaseInspector : Editor
     public void LoadCharacter()
     {
         var path = _spriteDatabase.path;
-        var CharSpriteDic = _spriteDatabase.CharacterSprites;
-
-        if (CharSpriteDic.Count > 0){
-            CharSpriteDic.Clear();
-        }
+        var CharSprites = _spriteDatabase.CharacterSprites;
+        
+        CharSprites.Clear();
 
         string[] dirPaths = Directory.GetDirectories(path[1]);
         ColorType cType = ColorType.Basic;
         
         dirPaths.ForEach(dirPath=>
         {
-            CharSpriteDic.Add(cType, new List<Sprite>());
+            CharSprites.Add(new SpriteDatabaseLoader.Sprites(new List<Sprite>()));
+            
+            Debug.Log(dirPath);
 
             Directory.GetFiles(dirPath)
             .Where(file => !file.Contains(".meta"))
-            .ForEach(file=> _spriteDatabase.CharacterSprites[cType]
+            .ForEach(file=> CharSprites[(int)cType].sprites
             .Add(AssetDatabase.LoadAssetAtPath<Sprite>(file)));
 
             cType++;
         });
+
+        Debug.Log(CharSprites);
     }
 
     public void LoadFilters()
@@ -87,5 +87,4 @@ public class SpriteDatabaseInspector : Editor
         .Where(file => !file.Contains(".meta")&&!file.Contains(".spriteatlas"))
         .ForEach(file=>filters.Add(AssetDatabase.LoadAssetAtPath<Sprite>(file)));
     }
-
 }

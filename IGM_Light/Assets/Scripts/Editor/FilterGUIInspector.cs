@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(Filter))]
+[CanEditMultipleObjects]
 public class FilterGUIInspector : Editor
 {
     public SpriteDatabaseLoader spriteDatabase;
