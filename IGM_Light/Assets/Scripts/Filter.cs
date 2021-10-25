@@ -5,6 +5,7 @@ using UnityEngine;
 public class Filter : MonoBehaviour
 {
     //public Sprite[] colorFilters = new Sprite[9];
+    public ColorType color;
 
     // Start is called before the first frame update
     void Start()
@@ -15,16 +16,6 @@ public class Filter : MonoBehaviour
     void Update()
     {
         
-    }
-
-    private void OnCollisionEnter2D(Collision2D o)
-    {
-        Debug.Log("boom");
-        if (o.gameObject.tag.Equals("Player"))
-        //부딪힌 객체의 태그를 비교해서 적인지 판단합니다.
-        {
-            Destroy(this.gameObject);
-        }
     }
 
 }
