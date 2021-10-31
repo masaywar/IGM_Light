@@ -2,6 +2,6 @@
 [System.Serializable]
 public enum ColorType
 {
-    Basic,Blue, Cyan, Green, Mint, Orange, 
+    Basic, Blue, Cyan, Green, 
     Pink, Purple, Red, Yellow
 }

@@ -31,5 +31,30 @@ public static class ExtensionMethod
         yield return new WaitForSeconds(time);
         action();
     }
+
+    public static bool HasSameValue(this Vector2Int[] source, Vector2Int[] target)
+    {
+        if (source.Length != target.Length)
+            return false;
+
+        foreach(Vector2Int originEle in source)
+        {
+            bool flag = false;
+
+            foreach(Vector2Int targetEle in target)
+            {
+                if (originEle == targetEle)
+                {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag)
+                return false;
+        
+        }
+
+        return true;
+    }
 }
 

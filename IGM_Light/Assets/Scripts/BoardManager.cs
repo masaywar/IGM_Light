@@ -62,9 +62,9 @@ public class BoardManager: MonoBehaviour
 /// <param name="row"></param>
 /// <param name="customTile"></param>
 /// <returns></returns>
-    public bool TryGetTile(int col, int row, out CustomTile customTile)
+    public bool TryGetTile(int row, int col, out CustomTile customTile)
     {
-        var target = GetTile(col, row);
+        var target = GetTile(row, col);
         customTile = target;
 
         return target != null;
@@ -72,14 +72,12 @@ public class BoardManager: MonoBehaviour
 
     public void SetTileColor(CustomTile tile, ColorType colorType)
     {
-        Debug.Log((int)colorType);
-
         tile?.ModTileColor(m_spriteDatabase.TileSprites[(int)colorType], colorType);
     }
 
-    public void SetTileColor(int col, int row, ColorType colorType)
+    public void SetTileColor(int row, int col, ColorType colorType)
     {
-        if (TryGetTile(col, row, out var target))
+        if (TryGetTile(row, col, out var target))
             SetTileColor(target, colorType);
     }
 
