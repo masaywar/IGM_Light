@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public Sprite T_sprite;
     public Sprite m_sprite;
     public ColorType _color;
+    public int mov = 0;
    // public ColorType standard;
 
     public Sprite[] colortiles = new Sprite[9];
@@ -97,6 +98,7 @@ void Update()
 
     private void TestMove(int p_row, int p_col)
     {
+        mov++;
         //Debug.Log("c:" + p_col + "r:" + p_row);
         if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(p_col, p_row, out goTile))
         {
@@ -114,96 +116,35 @@ void Update()
         }
     }
 
+   void UnMovable(bool move)
+    {
+        if (!move)
+        {
+            row = onTile.Row;
+            col = onTile.Column;
+        }
+    }
    void ChangeColor(ColorType color)
     {
-    //     if (color == ColorType.Red)
-    //     {
-    //         gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[0];
-    //     }
-    //     if (color == ColorType.Orange)
-    //     {
-    //         gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[1];
-    //     }
-    //     if (color == ColorType.Yellow)
-    //     {
-    //         gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[2];
-    //     }
-    //     if (color == ColorType.Green)
-    //     {
-    //         gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[3];
-    //     }
-    //     if (color == ColorType.Mint)
-    //     {
-    //         gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[4];
-    //     }
-    //     if (color == ColorType.Cyan)
-    //     {
-    //         gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[5];
-    //     }
-    //     if (color == ColorType.Blue)
-    //     {
-    //         gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[6];
-    //     }
-    //     if (color == ColorType.Purple)
-    //     {
-    //         gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[7];
-    //     }
-    //     if (color == ColorType.Pink)
-    //     {
-    //         gameObject.GetComponent<SpriteRenderer>().sprite = colorPlayer[8];
-    //     }
+
+        if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetCharacterSprite(color, 6, out m_sprite)) //6은 stand
+        {
+            SpriteRenderer spriteR = gameObject.GetComponent<SpriteRenderer>();
+            //gameObject.
+            spriteR.sprite = m_sprite;
+        }
+ 
     } 
    void Draw()  //필터의 색과 같은 Tile 색,캐릭터 색 변경
     {
         Debug.Log("Draw");
         
-        /*if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetCharacterSprite(_color,6,out m_sprite)) //6은 stand
-        {
-            Sprite spriteR = gameObject.GetComponent<SpriteRenderer>().sprite;
-            spriteR = m_sprite;
-        }
         if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTileSprite(_color, out T_sprite))
         {
             onTile.ModTileColor(T_sprite, _color);
-        }*/
+        }
         //if(GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row, out onTile))
         //{
-            // if(_color == ColorType.Red)
-            // {
-            //     onTile.GetComponent<SpriteRenderer>().sprite = colortiles[0];
-            // }
-            // if (_color == ColorType.Orange)
-            // {
-            //     onTile.GetComponent<SpriteRenderer>().sprite = colortiles[1];
-            // }
-            // if (_color == ColorType.Yellow)
-            // {
-            //     onTile.GetComponent<SpriteRenderer>().sprite = colortiles[2];
-            // }
-            // if (_color == ColorType.Green)
-            // {
-            //     onTile.GetComponent<SpriteRenderer>().sprite = colortiles[3];
-            // }
-            // if (_color == ColorType.Mint)
-            // {
-            //     onTile.GetComponent<SpriteRenderer>().sprite = colortiles[4];
-            // }
-            // if (_color == ColorType.Cyan)
-            // {
-            //     onTile.GetComponent<SpriteRenderer>().sprite = colortiles[5];
-            // }
-            // if (_color == ColorType.Blue)
-            // {
-            //     onTile.GetComponent<SpriteRenderer>().sprite = colortiles[6];
-            // }
-            // if (_color == ColorType.Purple)
-            // {
-            //     onTile.GetComponent<SpriteRenderer>().sprite = colortiles[7];
-            // }
-            // if (_color == ColorType.Pink)
-            // {
-            //     onTile.GetComponent<SpriteRenderer>().sprite = colortiles[8];
-            // }
-        //}
+
     }
 }
