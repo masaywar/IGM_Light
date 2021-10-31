@@ -25,7 +25,6 @@ public class TileGUIInspector : Editor {
         if(GUILayout.Button("Mod Color"))
         {
             manager.SetTileColor(_tile, _colorType);
-            //_tile.ModTileColor(manager.SpriteDatabase.Sprites[(int)_colorType], _colorType);
         }
         
         EditorGUILayout.EndHorizontal();
