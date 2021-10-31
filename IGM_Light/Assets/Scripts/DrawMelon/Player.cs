@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //[SerializeField]
-    private BoardManager m_boardManager;
+    [SerializeField]private BoardManager m_boardManager;
 
     public int row = 0;
     public int col = 0;
@@ -100,14 +100,14 @@ void Update()
     {
         mov++;
         //Debug.Log("c:" + p_col + "r:" + p_row);
-        if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(p_col, p_row, out goTile))
+        if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(p_row, p_col, out goTile))
         {
             //goTile = GameObject.Find("Board").GetComponent<BoardManager>().GetTile(row+1, col);
             this.transform.position = goTile.transform.position;
         }
-        if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row, out onTile))  //onTile에는 현재위치
+        if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(row, col, out onTile))  //onTile에는 현재위치
         {
-            if (onTile.HasItem == true)
+            if (onTile.HasFilter == true)
             {
                 _color = onTile.Filter.color;
                 Debug.Log(_color);
@@ -137,11 +137,11 @@ void Update()
     } 
    void Draw()  //필터의 색과 같은 Tile 색,캐릭터 색 변경
     {
-        Debug.Log("Draw");
-        
         if (GameObject.Find("Board").GetComponent<BoardManager>().TryGetTileSprite(_color, out T_sprite))
         {
             onTile.ModTileColor(T_sprite, _color);
+            if(m_boardManager.GetComponent<GameController>().TryMakeBlock(row, col))
+                m_boardManager.GetComponent<GameController>().Match(_color);
         }
         //if(GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row, out onTile))
         //{

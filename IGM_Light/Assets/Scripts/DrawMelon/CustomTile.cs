@@ -20,10 +20,12 @@ public class CustomTile : MonoBehaviour
         get=>Obstacle!=null;
     }
 
-    public bool HasItem
+    public bool HasFilter
     {
         get=>Filter!=null;
     }
+
+    public bool IsInteractable = true;
 
     public Filter Filter;
     public Obstacle Obstacle;

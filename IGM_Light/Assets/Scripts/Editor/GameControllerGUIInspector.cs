@@ -18,8 +18,10 @@ public class GameControllerGUIInspector : Editor
         
         var skin = GUI.skin;
         
+        GUILayout.Space(32);
+        GUILayout.Label("Choos Size of blocks and Put the block with pushing a button");
         GUILayout.BeginHorizontal();
-
+    
         int newSize = 0;
 
         if (size!=(newSize=EditorGUILayout.IntPopup(size, new string[2]{"3", "4"}, new int[2]{3, 4})))

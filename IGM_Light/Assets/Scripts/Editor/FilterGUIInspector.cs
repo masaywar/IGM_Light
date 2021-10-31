@@ -23,7 +23,8 @@ public class FilterGUIInspector : Editor
         {
             var targetSprite = spriteDatabase.FilterSprites[(int)_colorType];
 
-            filter.GetComponent<SpriteRenderer>().sprite = targetSprite;            
+            filter.GetComponent<SpriteRenderer>().sprite = targetSprite; 
+            filter.color = _colorType;           
         }
 
         EditorGUILayout.EndHorizontal();

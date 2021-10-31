@@ -42,17 +42,17 @@ public class BoardManager: MonoBehaviour
     /// <param name="col"></param>
     /// <param name="row"></param>
     /// <returns></returns>
-    public CustomTile GetTile(int col, int row)
+    public CustomTile GetTile(int row, int col)
     {
         if (col < 0 || row < 0)
             return null;
 
-        int index = col*Length + row%Length;
+        int index = row*Length + col%Length;
         
-        if (index > Length*Length)
+        if (index >= Length*Length)
             return null;
         
-        return Tiles[col*Length + row%Length];
+        return Tiles[row*Length + col%Length];
     }
 
 /// <summary>
@@ -124,6 +124,6 @@ public class BoardManager: MonoBehaviour
 
     public void Subscribe(CustomTile tile)
     {
-        Tiles[tile.Column*Length + tile.Row%Length] = tile;
+        Tiles[tile.Row*Length + tile.Column%Length] = tile;
     }
 }

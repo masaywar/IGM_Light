@@ -51,6 +51,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 87123212081766a45859fb1638b3da52, type: 3}
   - {fileID: 21300000, guid: 110c6042bf0987545bf7cecb5cdeec8a, type: 3}
   - {fileID: 21300000, guid: ee4c9682e56e47f4aa3b1adece0bbe31, type: 3}
+  - {fileID: 21300000, guid: 7d3e3b827aa1c374f9fa4fcaddb4a0f1, type: 3}
   - {fileID: 21300000, guid: e7ca54346ab2d074997ced1122faface, type: 3}
   - {fileID: 21300000, guid: 3ea07b758511ea449a2f7a0ccbbe7c06, type: 3}
   - {fileID: 21300000, guid: 1a7946f50db00d444a6a233ce602985e, type: 3}
@@ -69,6 +70,7 @@ SpriteAtlas:
   - TILE_Pink
   - Filter_Mint
   - Filter_Cyan
+  - TILE_Basic
   - Filter_Blue
   - Filter_Green
   - Filter_Purple
