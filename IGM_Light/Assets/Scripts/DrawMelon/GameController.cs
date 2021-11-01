@@ -48,14 +48,11 @@ public partial class GameController : MonoBehaviour
         for(int k=0; k < elements.Blocks.Count; k++)
         {
            var element = elements.Blocks[k];
-           foreach(var form in element.Form)
-           {
-                if(_formData.HasSameValue(form))
-                {
-                    elements.Blocks.RemoveAt(k);
-                    return true;
-                }
-           } 
+            if(_formData.HasSameValue(element.Form))
+            {
+                elements.Blocks.RemoveAt(k);
+                return true;
+            }
         }
         
         return false;

@@ -4,18 +4,33 @@ using UnityEngine;
 
 public static class BlockFormation
 {
-    public static Vector2Int[][] THREE_S = 
+    public static Vector2Int[] THREE_S_1 = 
     {
-        new Vector2Int[]{new Vector2Int(0,0), new Vector2Int(0,1), new Vector2Int(1,1)},
-        new Vector2Int[]{new Vector2Int(0,0), new Vector2Int(0,1), new Vector2Int(1,0)},
-        new Vector2Int[]{new Vector2Int(0,0), new Vector2Int(1,0), new Vector2Int(1,1)},
-        new Vector2Int[]{new Vector2Int(0,1), new Vector2Int(1,1), new Vector2Int(1,0)}
+        new Vector2Int(0,0), new Vector2Int(0,1), new Vector2Int(1,1),
     };
 
-    public static Vector2Int[][] THREE_I = 
+    public static Vector2Int[] THREE_S_2 = 
     {
-       new Vector2Int[]{new Vector2Int(0,0), new Vector2Int(0,1), new Vector2Int(0,2)},
-       new Vector2Int[]{new Vector2Int(0,0), new Vector2Int(1,0), new Vector2Int(2,0)}
+        new Vector2Int(0,0), new Vector2Int(0,1), new Vector2Int(1,0),
+    };
+
+    public static Vector2Int[] THREE_S_3 = 
+    {
+        new Vector2Int(0,0), new Vector2Int(1,0), new Vector2Int(1,1),
+    };
+
+    public static Vector2Int[] THREE_S_4 = 
+    {
+        new Vector2Int(0,1), new Vector2Int(1,1), new Vector2Int(1,0)
+    };
+
+    public static Vector2Int[] THREE_I_1 = 
+    {
+      new Vector2Int(0,0), new Vector2Int(0,1), new Vector2Int(0,2),
+    };
+    public static Vector2Int[] THREE_I_2 = 
+    {
+       new Vector2Int(0,0), new Vector2Int(1,0), new Vector2Int(2,0)
     };
     
     public static Vector2Int[][] FOUR_S =

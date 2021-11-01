@@ -40,13 +40,29 @@ public class GameControllerGUIInspector : Editor
         {
             
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("ㄴ",  GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            if (GUILayout.Button("ㄱ",  GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
             {
-                CreateBlock(BlockType.THREE_S);
+                CreateBlock(BlockType.THREE_S_1);
+            }
+            if (GUILayout.Button("┌",  GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.THREE_S_2);
+            }
+            if(GUILayout.Button("ㄴ",  GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.THREE_S_3);
+            }
+            if(GUILayout.Button("┘",  GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.THREE_S_3);
+            }
+            if(GUILayout.Button("ㅡ",  GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.THREE_I_1);
             }
             if(GUILayout.Button("I",  GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
             {
-                CreateBlock(BlockType.THREE_I);
+                CreateBlock(BlockType.THREE_I_2);
             }
             GUILayout.EndHorizontal();
         }
@@ -98,6 +114,9 @@ public class GameControllerGUIInspector : Editor
 
     private void CreateBlock(BlockType blockType)
     {
+        if(colorType == ColorType.Basic)
+            return;
+
         if (controller.TargetTable[(int)colorType].Blocks == null)
                     controller.TargetTable[(int)colorType] = new GameController.CustomBlocks(new List<CustomBlock>());
 
