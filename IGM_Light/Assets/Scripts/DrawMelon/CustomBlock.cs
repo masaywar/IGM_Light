@@ -13,43 +13,44 @@ public class CustomBlock
     {
         get
         {
-            switch(BlockType)
-            {
-                case BlockType.THREE_S_1:
-                case BlockType.THREE_S_2:
-                case BlockType.THREE_S_3:
-                case BlockType.THREE_S_4:
-                case BlockType.THREE_I_1:
-                case BlockType.THREE_I_2:
-                    return 3;
-                default:
-                    return 4;
-            }
+            if (BlockType == BlockType.THREE_S || BlockType == BlockType.THREE_I)
+                return 3;
+
+            return 4;
         }
     }
 
-    public Vector2Int[] Form
+    public Vector2Int[][] Form
     {
         get
         {
-            switch(BlockType)
-            {
-                case BlockType.THREE_S_1:
-                    return BlockFormation.THREE_S_1;
-                case BlockType.THREE_S_2:
-                    return BlockFormation.THREE_S_2;
-                case BlockType.THREE_S_3:
-                    return BlockFormation.THREE_S_3;
-                case BlockType.THREE_S_4:
-                    return BlockFormation.THREE_S_4;
-                case BlockType.THREE_I_1:
-                    return BlockFormation.THREE_I_1;
-                case BlockType.THREE_I_2:
-                    return BlockFormation.THREE_I_2;
+            if (BlockType == BlockType.THREE_S)
+                return BlockFormation.THREE_S;
 
-                default:
-                    return BlockFormation.THREE_S_1;
-            }
+            else if(BlockType == BlockType.THREE_I)
+                return BlockFormation.THREE_I;
+
+            else if(BlockType == BlockType.FOUR_I)
+                return BlockFormation.FOUR_I;
+            
+            else if(BlockType == BlockType.FOUR_J)
+                return BlockFormation.FOUR_J;
+            
+            else if(BlockType == BlockType.FOUR_S)
+                return BlockFormation.FOUR_S;
+            
+            else if(BlockType == BlockType.FOUR_Z)
+                return BlockFormation.FOUR_Z;
+           
+            else if(BlockType == BlockType.FOUR_I)
+                return BlockFormation.FOUR_I;
+            
+            else if(BlockType == BlockType.FOUR_T)
+                return BlockFormation.FOUR_T;
+            
+            else
+                return BlockFormation.FOUR_O;
+            
         }
     }
   
