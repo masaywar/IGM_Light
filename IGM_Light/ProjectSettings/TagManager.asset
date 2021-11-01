@@ -44,12 +44,12 @@ TagManager:
   - name: Background
     uniqueID: 2818028661
     locked: 0
-  - name: UI
-    uniqueID: 3707083481
-    locked: 0
   - name: Tile
     uniqueID: 932994975
     locked: 0
   - name: Player
     uniqueID: 3197849699
+    locked: 0
+  - name: Foreground
+    uniqueID: 2637242463
     locked: 0

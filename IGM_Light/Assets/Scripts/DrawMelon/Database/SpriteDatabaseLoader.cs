@@ -26,7 +26,6 @@ public class SpriteDatabaseLoader : ScriptableObject
 
     public List<Sprites> CharacterSprites = new List<Sprites>(); 
 
-
     [Tooltip("0 : Tile, 1 : Character, 2 : Filter, 3 : Background")]
     /// <summary>
     ///  0 : Tile Sprite
