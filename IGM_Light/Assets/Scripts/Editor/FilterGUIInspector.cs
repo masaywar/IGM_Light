@@ -18,7 +18,7 @@ public class FilterGUIInspector : Editor
 
         EditorGUILayout.BeginHorizontal();
         _colorType = (ColorType)EditorGUILayout.EnumPopup(_colorType);
-
+        
         if(GUILayout.Button("Mod Color"))
         {
             var targetSprite = spriteDatabase.FilterSprites[(int)_colorType];

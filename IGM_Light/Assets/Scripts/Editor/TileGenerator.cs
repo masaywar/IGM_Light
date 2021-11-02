@@ -100,15 +100,23 @@ public class TileGenerator : BaseGenerator
             }
         }   
 
-        float baseRes = 9 / 16;
+        float targetResolution = 9f / 16f;
 
-        var width = Camera.main.pixelWidth;
-        var height = Camera.main.pixelHeight;
+        float width = Camera.main.pixelWidth;
+        float height = Camera.main.pixelHeight;
+        
+        float thisResolution = width / height;
+        
+        float scalar = targetResolution / thisResolution;
 
+        Debug.Log(scalar);
 
+        Camera.main.orthographicSize = boardManager.Length*scalar;
+        var demandedCameraPos = sumVec/(boardManager.Length*boardManager.Length);
+        demandedCameraPos.y = 0;
 
-        Camera.main.orthographicSize = boardManager.Length+(float)width/height;
-        Camera.main.transform.position = sumVec/(boardManager.Length*boardManager.Length);
+        Camera.main.transform.position = demandedCameraPos;
+
     }
 
     public void CreatePrefab()

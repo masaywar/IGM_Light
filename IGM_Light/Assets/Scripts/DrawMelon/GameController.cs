@@ -19,6 +19,11 @@ public partial class GameController : MonoBehaviour
 
     public int Size;
     
+    public bool IsSolved
+    {
+        get => TargetTable.Length == 0;
+    }
+
     private BoardManager m_boardManager;
     private int _length;    
 
@@ -50,6 +55,7 @@ public partial class GameController : MonoBehaviour
            var element = elements.Blocks[k];
             if(_formData.HasSameValue(element.Form))
             {
+                elements.Blocks[k].OnSolved();
                 elements.Blocks.RemoveAt(k);
                 return true;
             }

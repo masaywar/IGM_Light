@@ -9,6 +9,16 @@ public class CustomBlock
     public BlockType BlockType;
 
     public ColorType ColorType;
+
+    public GameObject ShowingBlock = null;
+
+    public CustomBlock(BlockType blockType, ColorType colorType, GameObject obj)
+    {
+        BlockType = blockType;
+        ColorType = colorType;
+        ShowingBlock = obj;
+    }
+
     public int Size
     {
         get
@@ -52,5 +62,9 @@ public class CustomBlock
             }
         }
     }
-  
+
+    public void OnSolved()
+    {
+        ShowingBlock?.SetActive(false);
+    }
 }

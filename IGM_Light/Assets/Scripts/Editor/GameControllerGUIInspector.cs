@@ -120,9 +120,8 @@ public class GameControllerGUIInspector : Editor
         if (controller.TargetTable[(int)colorType].Blocks == null)
                     controller.TargetTable[(int)colorType] = new GameController.CustomBlocks(new List<CustomBlock>());
 
-        CustomBlock customBlock = new CustomBlock();
-        customBlock.ColorType = colorType;
-        customBlock.BlockType = blockType;
+        CustomBlock customBlock = new CustomBlock(blockType, colorType, null);
+
         controller.TargetTable[(int)colorType].Blocks.Add(customBlock);
     }
 }
