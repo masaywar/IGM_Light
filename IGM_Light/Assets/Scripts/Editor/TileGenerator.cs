@@ -21,7 +21,7 @@ public class TileGenerator : BaseGenerator
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI(); 
-
+        
         boardManager = FindObjectOfType<BoardManager>();
         _tilesParentTransform = boardManager.transform;
 
@@ -100,7 +100,14 @@ public class TileGenerator : BaseGenerator
             }
         }   
 
-        Camera.main.orthographicSize = boardManager.Length;
+        float baseRes = 9 / 16;
+
+        var width = Camera.main.pixelWidth;
+        var height = Camera.main.pixelHeight;
+
+
+
+        Camera.main.orthographicSize = boardManager.Length+(float)width/height;
         Camera.main.transform.position = sumVec/(boardManager.Length*boardManager.Length);
     }
 
