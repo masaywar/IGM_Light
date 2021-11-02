@@ -143,7 +143,7 @@ public class TileGenerator : BaseGenerator
 
         player.transform.SetAsFirstSibling();
 
-        player.col = _playerPos.x;
-        player.row = _playerPos.y;
+        player.row = _playerPos.x;
+        player.col = _playerPos.y;
     }
 }

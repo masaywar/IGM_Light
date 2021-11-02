@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BoardManager: MonoBehaviour
 {
-    [SerializeField] public SpriteDatabaseLoader m_spriteDatabase;
+    public SpriteDatabaseLoader m_spriteDatabase;
 
     private List<Sprite> _sprites;
 

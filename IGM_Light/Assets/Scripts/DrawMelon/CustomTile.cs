@@ -17,12 +17,24 @@ public class CustomTile : MonoBehaviour
 
     public bool HasObstacle
     {
-        get=>Obstacle!=null;
+        get
+        {
+            if(Obstacle == null)
+                return false;
+
+            return Obstacle.gameObject.activeSelf;
+        }
     }
 
     public bool HasFilter
     {
-        get=>Filter!=null;
+        get
+        {
+            if(Filter == null)
+                return false;
+
+            return Filter.gameObject.activeSelf;
+        }
     }
 
     public bool IsInteractable = true;
