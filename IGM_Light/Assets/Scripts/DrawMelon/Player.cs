@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -77,7 +77,10 @@ void Update()
             {
                 if (!goTile.HasObstacle)
                 {
-                    row--;
+                    if (row > 0)
+                    {
+                        row--;
+                    }
                     TestMove(row, col);
                 }
             }
@@ -89,7 +92,7 @@ void Update()
                 if (!goTile.HasObstacle)
                 {
 
-                    if (row < length)
+                    if (row < length-1)
                     {
                         row++;
                     }
@@ -103,7 +106,10 @@ void Update()
             {
                 if (!goTile.HasObstacle)
                 {
-                    col--;
+                    if (col > 0)
+                    {
+                        col--;
+                    }
                     TestMove(row, col);
                 }
             }
@@ -114,7 +120,7 @@ void Update()
             {
                 if (!goTile.HasObstacle)
                 {
-                    if (col < length)
+                    if (col < length-1)
                         col++;
                     TestMove(row, col);
                 }
@@ -153,7 +159,7 @@ void Update()
             {
                 _color = onTile.Filter.color;
                 onTile.Filter.gameObject.SetActive(false);
-                //Debug.Log(_color);
+                Debug.Log(_color);
                 ChangeColor(_color);
             }
         }
