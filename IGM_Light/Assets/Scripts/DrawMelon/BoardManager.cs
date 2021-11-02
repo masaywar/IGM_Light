@@ -44,7 +44,7 @@ public class BoardManager: MonoBehaviour
     /// <returns></returns>
     public CustomTile GetTile(int row, int col)
     {
-        if (col < 0 || row < 0 || col >= Length || row >= Length)
+        if (col < 0 || row < 0)
             return null;
 
         int index = row*Length + col%Length;
