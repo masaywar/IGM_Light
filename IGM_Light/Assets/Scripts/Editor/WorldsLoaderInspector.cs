@@ -7,7 +7,7 @@ using System.IO;
 [CustomEditor(typeof(WorldsLoader))]
 public class WorldsLoaderInspector : Editor
 {
-    public WorldsLoader loader;
+    /*public WorldsLoader loader;
 
     public override void OnInspectorGUI()
     {
@@ -43,5 +43,5 @@ public class WorldsLoaderInspector : Editor
                 loader.WorldsTable.Add(table);
             }
         );
-    }
+    }*/
 }

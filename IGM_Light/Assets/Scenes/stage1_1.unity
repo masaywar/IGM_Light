@@ -1316,6 +1316,8 @@ MonoBehaviour:
   - Blocks:
     - BlockType: 0
       ColorType: 6
+    - BlockType: 0
+      ColorType: 6
   - Blocks: []
 --- !u!1 &1021314211
 GameObject:
