@@ -1,3 +1,4 @@
+using System.Data;
 using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,10 +22,22 @@ public partial class GameController : MonoBehaviour
     
     public bool IsSolved
     {
-        get => TargetTable.Length == 0;
+        get 
+        {
+            foreach(var row in TargetTable)
+            {
+                if (row.Blocks.Count != 0)
+                    return false;
+            }
+
+            return true;
+        }
     }
 
     private BoardManager m_boardManager;
+    public Player Player;
+    public int[] Standard;
+
     private int _length;    
 
     private Queue<CustomTile> _drawingQueue = new Queue<CustomTile>();
@@ -41,6 +54,7 @@ public partial class GameController : MonoBehaviour
     private void TryInitialize()
     {
         m_boardManager = GetComponent<BoardManager>();
+        Player = m_boardManager.GetComponentInChildren<Player>();
         _formData = new Vector2Int[Size];
         _length = m_boardManager.Length;
     }
@@ -57,10 +71,14 @@ public partial class GameController : MonoBehaviour
             {
                 elements.Blocks[k].OnSolved();
                 elements.Blocks.RemoveAt(k);
+
+                if(IsSolved)
+                    OnSolved();
+
                 return true;
             }
         }
-        
+
         return false;
     }
 
@@ -136,6 +154,25 @@ public partial class GameController : MonoBehaviour
         }
             
         return false;
+    }
+
+    public void OnSolved()
+    {
+        int step = Player.mov;
+        
+        int score = 0;
+
+        if (step <= Standard[0])
+            score = 3;
+        else if(step <= Standard[1])
+            score = 2;
+        else
+            score = 1;
+
+        var uiScore = GameUIManager.Instance.GetWindow<UIScore>("UIScore");
+
+        uiScore.Open(true);
+        uiScore.ShowScore(score);
     }
 }
 

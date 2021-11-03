@@ -65,6 +65,7 @@ public class CustomBlock
 
     public void OnSolved()
     {
-        ShowingBlock?.SetActive(false);
+        if(ShowingBlock)
+            ShowingBlock.SetActive(false);
     }
 }

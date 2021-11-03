@@ -30,13 +30,18 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
-    public void Initialize()
+    private void Awake()
+    {
+        Initialize();
+    }
+
+    protected virtual void Initialize()
     {
         DontDestroyOnLoad(this);
     }
 
 
-    public T GetActiveWindow<T>(T window) where T : UIWindow
+    public T FindActiveWindow<T>(T window) where T : UIWindow
     {
         if (window == null)
             return null;
@@ -44,7 +49,7 @@ public class UIManager : Singleton<UIManager>
         return (T)openedWindowList.Find(w => w.gameObject == window.gameObject);
     }
 
-    public T GetActiveWindow<T>(string name) where T : UIWindow
+    public T FindActiveWindow<T>(string name) where T : UIWindow
     {
         var windows = openedWindowList.FindAll(w => w.name == name);
 

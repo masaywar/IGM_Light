@@ -15,7 +15,7 @@ public class UIWindow : MonoBehaviour
     private void Awake()
     {
         cachedUIManager = UIManager.Instance;
-        canvasGroup = GetComponent<CanvasGroup>();
+        canvasGroup = gameObject.GetComponent<CanvasGroup>();
 
         if (!cachedUIManager.uiWindowDict.ContainsKey(this.name))
         {
@@ -43,11 +43,21 @@ public class UIWindow : MonoBehaviour
         canvasGroup.blocksRaycasts = true;
     }
 
+    public virtual void Open(bool isAnim)
+    {
+        Open();
+    }
+
     public virtual void Close()
     {
         gameObject.SetActive(false);
         cachedUIManager.openedWindowList.Remove(this);
-        cachedUIManager.GetTop().EnableBlockRaycast();
+        cachedUIManager.GetTop()?.EnableBlockRaycast();
+    }
+
+    public virtual void Close(bool isAnim)
+    {
+        Close();
     }
 
     public bool IsTop()

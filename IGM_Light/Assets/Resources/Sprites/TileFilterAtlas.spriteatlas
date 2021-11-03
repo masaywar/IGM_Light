@@ -49,7 +49,6 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: 3e5ce16067108e748bea18e3feeb10ee, type: 3}
   - {fileID: 21300000, guid: 87123212081766a45859fb1638b3da52, type: 3}
-  - {fileID: 21300000, guid: 110c6042bf0987545bf7cecb5cdeec8a, type: 3}
   - {fileID: 21300000, guid: ee4c9682e56e47f4aa3b1adece0bbe31, type: 3}
   - {fileID: 21300000, guid: 7d3e3b827aa1c374f9fa4fcaddb4a0f1, type: 3}
   - {fileID: 21300000, guid: e7ca54346ab2d074997ced1122faface, type: 3}
@@ -62,13 +61,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 359b1af931d85884e8f62371a2f590f4, type: 3}
   - {fileID: 21300000, guid: f146d89a68072a04bb1bb7781c40b56f, type: 3}
   - {fileID: 21300000, guid: 9a2ececa1429c9c47ae3c13cab9638e5, type: 3}
-  - {fileID: 21300000, guid: 45da68ead43622f4f819b5386a3fe367, type: 3}
   - {fileID: 21300000, guid: ea7cdf7c38f94e042aa2c70a00f0aff3, type: 3}
   - {fileID: 21300000, guid: a17496efcf846b24b812f99207bbe02b, type: 3}
   m_PackedSpriteNamesToIndex:
   - TILE_Blue
   - TILE_Pink
-  - Filter_Mint
   - Filter_Cyan
   - TILE_Basic
   - Filter_Blue
@@ -81,7 +78,6 @@ SpriteAtlas:
   - Filter_Red
   - TILE_Cyan
   - Filter_Basic
-  - Filter_Orange
   - TILE_Yellow
   - Filter_Pink
   m_Tag: TileFilterAtlas
