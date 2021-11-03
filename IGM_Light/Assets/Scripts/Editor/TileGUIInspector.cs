@@ -46,6 +46,10 @@ public class TileGUIInspector : Editor {
             DestroyImmediate(_tile.Obstacle?.gameObject);
 
             //Instantiate obstacles;
+            var obstacle = AssetDatabase.LoadAssetAtPath<Obstacle>("Assets/Resources/Prefabs/Obstacles/Basic.prefab");
+            var obstacleObject = Instantiate(obstacle, _tile.transform.position, Quaternion.identity, _tile.transform);
+
+            _tile.Obstacle = obstacleObject.GetComponent<Obstacle>();
         }
 
         if (GUILayout.Button("Clear"))
