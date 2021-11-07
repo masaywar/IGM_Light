@@ -1,0 +1,524 @@
+fileFormatVersion: 2
+guid: 6a6eb113ddd178e49929798035f448d6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8610645565145070855
+    second: Animation_Yellow_0
+  - first:
+      213: -6513756671482290719
+    second: Animation_Yellow_1
+  - first:
+      213: -3272477245363620557
+    second: Animation_Yellow_2
+  - first:
+      213: -4285375351060484029
+    second: Animation_Yellow_3
+  - first:
+      213: -7007388538693926511
+    second: Animation_Yellow_4
+  - first:
+      213: 1060042612022565691
+    second: Animation_Yellow_5
+  - first:
+      213: -6397938143887601823
+    second: Animation_Yellow_6
+  - first:
+      213: 1039185724884521799
+    second: Animation_Yellow_7
+  - first:
+      213: 8048398930743090308
+    second: Animation_Yellow_8
+  - first:
+      213: 4492463386759804852
+    second: Animation_Yellow_9
+  - first:
+      213: -6914987460275540375
+    second: Animation_Yellow_10
+  - first:
+      213: 6704316813448810504
+    second: Animation_Yellow_11
+  - first:
+      213: 8367777361833525449
+    second: Animation_Yellow_12
+  - first:
+      213: 988411654489383223
+    second: Animation_Yellow_13
+  - first:
+      213: 4665956679408726678
+    second: Animation_Yellow_14
+  - first:
+      213: -7195610616060500450
+    second: Animation_Yellow_15
+  - first:
+      213: -1883390367066170533
+    second: Animation_Yellow_16
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Animation_Yellow_0
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 1122
+        width: 869
+        height: 833
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f24cbaca77d08880800000000000000
+      internalID: -8610645565145070855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_1
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 1126
+        width: 1008
+        height: 829
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ed97f291dc7a95a0800000000000000
+      internalID: -6513756671482290719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_2
+      rect:
+        serializedVersion: 2
+        x: 2055
+        y: 1126
+        width: 1002
+        height: 829
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3357d8e9843d592d0800000000000000
+      internalID: -3272477245363620557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_3
+      rect:
+        serializedVersion: 2
+        x: 3083
+        y: 1126
+        width: 998
+        height: 829
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34033d6b2d94784c0800000000000000
+      internalID: -4285375351060484029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_4
+      rect:
+        serializedVersion: 2
+        x: 4104
+        y: 1126
+        width: 1006
+        height: 829
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19141043041c0ce90800000000000000
+      internalID: -7007388538693926511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_5
+      rect:
+        serializedVersion: 2
+        x: 5133
+        y: 1126
+        width: 1002
+        height: 829
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3bd168a32706be00800000000000000
+      internalID: 1060042612022565691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_6
+      rect:
+        serializedVersion: 2
+        x: 6155
+        y: 1126
+        width: 997
+        height: 829
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f48a6e725f537a0800000000000000
+      internalID: -6397938143887601823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_7
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 941
+        width: 45
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 743166339edeb6e00800000000000000
+      internalID: 1039185724884521799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_8
+      rect:
+        serializedVersion: 2
+        x: 2699
+        y: 941
+        width: 45
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c539d6f28a1bf60800000000000000
+      internalID: 8048398930743090308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_9
+      rect:
+        serializedVersion: 2
+        x: 3735
+        y: 941
+        width: 48
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b7344ee5af685e30800000000000000
+      internalID: 4492463386759804852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_10
+      rect:
+        serializedVersion: 2
+        x: 4251
+        y: 107
+        width: 703
+        height: 836
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96eeef3ca870900a0800000000000000
+      internalID: -6914987460275540375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_11
+      rect:
+        serializedVersion: 2
+        x: 4771
+        y: 941
+        width: 45
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8009b4fee948a0d50800000000000000
+      internalID: 6704316813448810504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_12
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 70
+        width: 711
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c084ab1d21502470800000000000000
+      internalID: 8367777361833525449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_13
+      rect:
+        serializedVersion: 2
+        x: 1178
+        y: 89
+        width: 710
+        height: 851
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73122b5b92b87bd00800000000000000
+      internalID: 988411654489383223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_14
+      rect:
+        serializedVersion: 2
+        x: 2207
+        y: 70
+        width: 710
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 692b48de0eec0c040800000000000000
+      internalID: 4665956679408726678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_15
+      rect:
+        serializedVersion: 2
+        x: 3232
+        y: 96
+        width: 704
+        height: 844
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e162fa7c44e042c90800000000000000
+      internalID: -7195610616060500450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Yellow_16
+      rect:
+        serializedVersion: 2
+        x: 5273
+        y: 96
+        width: 703
+        height: 844
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5bd0a5907adcd5e0800000000000000
+      internalID: -1883390367066170533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
