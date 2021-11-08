@@ -5,13 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameFlow/Title/Title_impl_1.unity
     guid: 7107073d14a7ec748a0a390f65229ece
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameFlow/World/WorldChoose_impl_1.unity
     guid: 222c3130b9793a149abb7ced07bd38f2
   - enabled: 1
     path: Assets/Scenes/04 Finger Swipe.unity
     guid: e36b63a4ae51f394abdf3edf4c81a515
+  - enabled: 1
+    path: Assets/Scenes/GameFlow/Title/Title.unity
+    guid: 8c11bd96a28e4b54caf8291b848587f2
+  - enabled: 1
+    path: Assets/Scenes/stage1_1_woohyun.unity
+    guid: be9bfcc6f919e2a49a343c689f1ef02a
   m_configObjects: {}

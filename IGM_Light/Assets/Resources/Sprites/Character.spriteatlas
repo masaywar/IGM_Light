@@ -49,6 +49,7 @@ SpriteAtlas:
   - {fileID: 2779023822413464520, guid: 42ccfa002f49aae499544aab36360fac, type: 3}
   - {fileID: -8942378133922232818, guid: 5ff51f60fac86974aabaa5cb05c45865, type: 3}
   - {fileID: -5103774297068511883, guid: 02c59ee07369d414aad94932e874161b, type: 3}
+  - {fileID: -7468824277456972237, guid: 4a62c311835e1884bb7138cc3510709b, type: 3}
   - {fileID: 7363616937194186986, guid: 8c789c215d9f72741a920825b05deb22, type: 3}
   - {fileID: 7793274025828119711, guid: f7f1023183cf06549a3e04925690ef71, type: 3}
   - {fileID: -1391105646017509002, guid: c8cb3861d9039c24da9e9727c8de4543, type: 3}
@@ -97,6 +98,7 @@ SpriteAtlas:
   - stand_0
   - down2_0
   - stand_Red_0
+  - stand_Blue_0
   - down3_0
   - side6_0
   - side2_Blue_0

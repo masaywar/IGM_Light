@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class background : MonoBehaviour
+public class background : UIWindow
 {
     // Start is called before the first frame update
     void Start()
     {
-
-        transform.GetComponent<Image>().color = new Color(1, 1, 1, 0f);
-        StartCoroutine(ShowReady());
+        
+        //transform.GetComponent<Image>().color = new Color(1, 1, 1, 0f);
+        //StartCoroutine(ShowReady());
        
     }
 
-IEnumerator ShowReady()
+/*IEnumerator ShowReady()
 {
     int count = 0;
     while (true)
@@ -26,8 +26,20 @@ IEnumerator ShowReady()
             yield return new WaitForSeconds(1f);
    
     }
-}
+}*/
 void Update()
     {
+        Invoke("Off", 2f);
+    }
+
+    void ON()
+    {
+        Open();
+    }
+
+    void Off()
+    {
+        Close();
+        Invoke("ON", 2f);
     }
 }
