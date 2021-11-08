@@ -7,11 +7,6 @@ public class UIBackground : UIWindow
 {
     [SerializeField] Text _text;
 
-    private void Start()
-    {
-
-    }
-
     private void Update()
     {
         if (!GameUIManager.instance.Controller.IsSolved)

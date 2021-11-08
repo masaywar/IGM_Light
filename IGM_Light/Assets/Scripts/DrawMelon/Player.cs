@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
 
     public int row = 0;
     public int col = 0;
+
+    private int _originRow;
+    private int _originCol;
+
     public ColorType _color;
     public int mov = 0;
     // public ColorType standard;
@@ -18,6 +22,9 @@ public class Player : MonoBehaviour
     void Start()
     {
         m_boardManager = transform.parent.GetComponent<BoardManager>();
+
+        _originRow = row;
+        _originCol = col;
 
         _length = m_boardManager.Length;
     }
@@ -46,30 +53,42 @@ public class Player : MonoBehaviour
         {
             col = TryMove(row, col+1) ? col+1 : col;
         }
-#else
         
 #endif
 
     }
 
+    bool isAnim = false;
+
     public void Move(Vector2 direction)
     {
+        int animDirect = 0;
+
         if (direction.x == -1)
         {
             row = TryMove(row-1, col) ? row-1 : row;
+            animDirect = 1;
         }
         else if (direction.x == 1)
         {
             row = TryMove(row+1, col) ? row+1 : row;
+            animDirect = 2;
         }
         else if (direction.y == -1)
         {
             col = TryMove(row, col-1) ? col-1 : col;
+            animDirect = 3;
         }
         else if (direction.y == 1)
         {
             col = TryMove(row, col+1) ? col+1 : col;
+            animDirect = 3;
         }
+
+        print(animDirect);
+
+        var animator = GetComponent<Animator>();
+        animator.SetInteger("Move", animDirect);
     }
 
     public bool TryMove(int p_row, int p_col)
@@ -84,11 +103,11 @@ public class Player : MonoBehaviour
 
             if (onTile.HasFilter)
             {
-                _color = onTile.Filter.color;
                 onTile.Filter.gameObject.SetActive(false);
-                ChangeColor(_color);
+                ChangeColor(onTile.Filter.color);
             }
 
+            isAnim = true;
             return true;
         }
 
@@ -97,9 +116,9 @@ public class Player : MonoBehaviour
 
     void ChangeColor(ColorType color)
     {
-
         if (m_boardManager.TryGetCharacterSprite(color, 6, out var sprite)) //6은 stand
         {
+            _color = color;
             SpriteRenderer spriteR = gameObject.GetComponent<SpriteRenderer>();
             spriteR.sprite = sprite;
         }
@@ -119,5 +138,16 @@ public class Player : MonoBehaviour
         //if(GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row, out onTile))
         //{
 
+    }
+
+    public void ResetPlayer()
+    {
+        transform.position = m_boardManager.GetTile(_originRow, _originCol).transform.position;
+        
+        row = _originRow;
+        col = _originCol;
+        mov = 0;
+
+        ChangeColor(ColorType.Basic);
     }
 }

@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 117364898}
   - component: {fileID: 117364897}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Retry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -310,7 +310,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 117364898}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 851461848}
+        m_MethodName: ResetGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &117364898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,6 +582,17 @@ MonoBehaviour:
       - m_Target: {fileID: 24064370}
         m_MethodName: Close
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 851461848}
+        m_MethodName: ResetGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1235,6 +1257,7 @@ MonoBehaviour:
   Size: 3
   Player: {fileID: 0}
   Standard: 0400000007000000
+  ResetCount: 0
   _formData: []
   TargetTable:
   - Blocks: []
@@ -1248,6 +1271,17 @@ MonoBehaviour:
       ColorType: 6
       ShowingBlock: {fileID: 0}
   - Blocks: []
+  SolvedTable:
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
+  UsingTable: []
+  StoredTable: []
 --- !u!1 &914435051
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,6 +2528,7 @@ GameObject:
   - component: {fileID: 1679932949}
   - component: {fileID: 1679932951}
   - component: {fileID: 1679932950}
+  - component: {fileID: 1679932952}
   m_Layer: 9
   m_Name: TestPlayer(Clone)
   m_TagString: Player
@@ -2582,6 +2617,25 @@ MonoBehaviour:
   col: 0
   _color: 0
   mov: 0
+--- !u!95 &1679932952
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679932948}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3a781a32ed380c748b8a5616c1490f0c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1721308052
 GameObject:
   m_ObjectHideFlags: 0
