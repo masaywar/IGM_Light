@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,18 +7,24 @@ using DG.Tweening;
 public class Player : MonoBehaviour
 {
     //[SerializeField]
-    [SerializeField] private BoardManager m_boardManager;
+    [SerializeField] private BoardManager _boardManager;
+    [SerializeField] private GameController _gameController;
+    
+    private WaitForSeconds[] _waits;
 
     public int row = 0;
     public int col = 0;
     public ColorType _color;
     public int mov = 0;
+
+    private int _originRow;
+    private int _originCol;
+
     // public ColorType standard;
 
-    private int _length;
-    public bool IsUp;
+    private Animator animator;
 
-    public Animator animator;
+    private Queue<CustomTile> AnimationQueue = new Queue<CustomTile>();
 
     enum States{
         up = 1,
@@ -41,11 +48,22 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_boardManager = transform.parent.GetComponent<BoardManager>();
+        _boardManager = transform.parent.GetComponent<BoardManager>();
+        _gameController = transform.parent.GetComponent<GameController>();
+        _waits = new WaitForSeconds[]{
+            new WaitForSeconds(0.05f),
+            new WaitForSeconds(0.25f),
+            new WaitForSeconds(0.5f),
+        };
 
-        _length = m_boardManager.Length;
+        animator = GetComponent<Animator>();
+
+        _originCol = col;
+        _originRow = row;
 
         GetComponent<Animator>().SetInteger("color", (int)Colors.Basic);
+
+        StartCoroutine(AnimMove());
         //GetComponent<Animator>().SetInteger("direction",1);
     }
 
@@ -59,23 +77,23 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.UpArrow)&&Input.GetAxis("Vertical")>0)
         {
-            GetComponent<Animator>().SetInteger("direction", (int)States.up);
-            row = TryMove(row-1, col) ? row-1 : row;
+            //GetComponent<Animator>().SetInteger("direction", (int)States.up);
+            TryMove(row-1, col);
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow)&&Input.GetAxis("Vertical")<0)
         {
-           GetComponent<Animator>().SetInteger("direction", (int)States.down);
-            row = TryMove(row+1, col) ? row+1 : row;
+           //GetComponent<Animator>().SetInteger("direction", (int)States.down);
+            TryMove(row+1, col);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-           GetComponent<Animator>().SetInteger("direction", (int)States.left);
-            col = TryMove(row, col-1) ? col-1 : col;
+           //GetComponent<Animator>().SetInteger("direction", (int)States.left);
+            TryMove(row, col-1);
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-           GetComponent<Animator>().SetInteger("direction", (int)States.right);
-            col = TryMove(row, col+1) ? col+1 : col;
+           //GetComponent<Animator>().SetInteger("direction", (int)States.right);
+            TryMove(row, col+1);
         }
         /*else if(onTile!=null){
            if (this.transform.position == onTile.transform.position)  //move 확인
@@ -91,104 +109,75 @@ public class Player : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
-
         if (direction.x == -1)
         {
-            GetComponent<Animator>().SetInteger("direction", (int)States.up);
+            //GetComponent<Animator>().SetInteger("direction", (int)States.up);
             //GetComponent<Animator>().SetFloat("direction_x", direction.x);
+            
             row = TryMove(row-1, col) ? row-1 : row;  //up
         }
         else if (direction.x == 1)
         {
-            GetComponent<Animator>().SetInteger("direction", (int)States.down);
+            //GetComponent<Animator>().SetInteger("direction", (int)States.down);
             row = TryMove(row+1, col) ? row+1 : row;  //down
         }
         else if (direction.y == -1)
         {
-            GetComponent<Animator>().SetInteger("direction", (int)States.left);
+            //GetComponent<Animator>().SetInteger("direction", (int)States.left);
             col = TryMove(row, col-1) ? col-1 : col;  //left
         }
         else if (direction.y == 1)
         {
-            GetComponent<Animator>().SetInteger("direction", (int)States.right);
+            //GetComponent<Animator>().SetInteger("direction", (int)States.right);
             col = TryMove(row, col+1) ? col+1 : col;  //right
         }
     }
 
     public bool TryMove(int p_row, int p_col)
     {
-        if (m_boardManager.TryGetTile(p_row, p_col, out var onTile))  //onTile에는 갈 위치
+        if (_boardManager.TryGetTile(p_row, p_col, out var onTile))  //onTile에는 갈 위치
         {
             if (onTile.HasObstacle)
                 return false;
 
-            mov++;
-            this.transform.DOMove(onTile.transform.position,2); //애니메이션
-            Invoke("stand", 2f);
+            AnimationQueue.Enqueue(onTile);
+            print(AnimationQueue.Count);
 
-            if (onTile.HasFilter)
-            {
-                _color = onTile.Filter.color;
-                onTile.Filter.gameObject.SetActive(false);
-                ChangeColor(_color);
-            }
             return true;
         }
 
         return false;
     }
 
-    void stand()
+    private void CheckTile(CustomTile tile)
     {
-        GetComponent<Animator>().SetInteger("direction", (int)States.idle);
+        if (tile.HasFilter)
+        {
+            _color = tile.Filter.color;
+            tile.Filter.gameObject.SetActive(false);
+            ChangeColor(_color);
+        }
+    }
+
+    void Stand()
+    {
+        animator.SetInteger("direction", (int)States.idle);
     }
 
     void ChangeColor(ColorType color)
     {
-        switch (color)
-        {
-            case ColorType.Basic:
-                GetComponent<Animator>().SetInteger("color", (int)Colors.Basic);
-                break;
-            case ColorType.Red:
-                GetComponent<Animator>().SetInteger("color", (int)Colors.Red);
-                break;
-            case ColorType.Blue:
-                GetComponent<Animator>().SetInteger("color", (int)Colors.Blue);
-                break;
-            case ColorType.Cyan:
-                GetComponent<Animator>().SetInteger("color", (int)Colors.Cyan);
-                break;
-            case ColorType.Green:
-                GetComponent<Animator>().SetInteger("color", (int)Colors.Green);
-                break;
-            case ColorType.Pink:
-                GetComponent<Animator>().SetInteger("color", (int)Colors.Pink);
-                break;
-            case ColorType.Purple:
-                GetComponent<Animator>().SetInteger("color", (int)Colors.Purple);
-                break;
-            case ColorType.Yellow:
-                GetComponent<Animator>().SetInteger("color", (int)Colors.Yellow);
-                break;
-        }
-        /*if (m_boardManager.TryGetCharacterSprite(color, 6, out var sprite)) //6은 stand
-        {
-            SpriteRenderer spriteR = gameObject.GetComponent<SpriteRenderer>();
-            spriteR.sprite = sprite;
-        }*/
-
+        animator.SetInteger("color", (int)color);
     }
     public void Draw()  //필터의 색과 같은 Tile 색,캐릭터 색 변경
     {
         if (_color == ColorType.Basic)
             return;
 
-        if (m_boardManager.GetComponent<BoardManager>().TryGetTileSprite(_color, out var sprite))
+        if (_boardManager.TryGetTileSprite(_color, out var sprite))
         {
-            m_boardManager.GetTile(row, col).ModTileColor(sprite, _color);
-            if (m_boardManager.GetComponent<GameController>().TryMakeBlock(row, col))
-                m_boardManager.GetComponent<GameController>().Match(_color);
+            _boardManager.GetTile(row, col).ModTileColor(sprite, _color);
+            if (_gameController.TryMakeBlock(row, col))
+                _gameController.Match(_color);
         }
         else
         {
@@ -197,5 +186,43 @@ public class Player : MonoBehaviour
         //if(GameObject.Find("Board").GetComponent<BoardManager>().TryGetTile(col, row, out onTile))
         //{
 
+    }
+
+    public void ResetPlayer()
+    {
+        row = _originRow;
+        col = _originCol;
+
+        if(_boardManager.TryGetTile(row, col, out var tile))
+        {
+            transform.position = tile.transform.position;
+            animator.SetInteger("color", (int)Colors.Basic);
+        }
+    }
+
+    private IEnumerator AnimMove()
+    {
+        while(true)
+        {
+            if (AnimationQueue.Count <= 0)
+            {
+                yield return _waits[0];
+                continue;
+            }
+
+            var tile = AnimationQueue.Dequeue();
+            mov++;
+            row = tile.Row;
+            col = tile.Column;
+            transform
+            .DOMove(tile.transform.position, 0.5f)
+            .OnStepComplete(()=>{
+                CheckTile(tile);
+                Stand();    
+            });
+
+            yield return _waits[0];
+            //yield return new WaitForSeconds(1f);
+        }
     }
 }

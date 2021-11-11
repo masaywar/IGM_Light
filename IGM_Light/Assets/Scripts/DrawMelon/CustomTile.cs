@@ -8,9 +8,14 @@ public class CustomTile : MonoBehaviour
     private BoardManager m_boardManager;
 
     [Header("Tile Properties")]
-    public int  Row;
+    public int Row;
 
     public int Column;
+
+    public Vector3 Position
+    {
+        get => new Vector3(Row, Column);
+    }
 
     public ColorType TileColor;
     public SpriteRenderer m_SpriteRenderer;

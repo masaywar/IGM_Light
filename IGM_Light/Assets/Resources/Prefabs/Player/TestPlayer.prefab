@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4091427835230239490}
   - component: {fileID: 4091427835230239491}
   - component: {fileID: 4091427835230239488}
+  - component: {fileID: -7982087423454461774}
   m_Layer: 9
   m_Name: TestPlayer
   m_TagString: Player
@@ -44,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263f9eafc3e3868479eba3d9b4ab657a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_boardManager: {fileID: 0}
+  _boardManager: {fileID: 0}
+  _gameController: {fileID: 0}
   row: 0
   col: 0
   _color: 0
@@ -96,6 +98,25 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &-7982087423454461774
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091427835230239501}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38e752394018b1e43971b98fd2e3ccee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
