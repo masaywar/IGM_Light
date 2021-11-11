@@ -24,7 +24,7 @@ public partial class GameController : MonoBehaviour
     {
         get 
         {
-            foreach(var row in TargetTable)
+            foreach(var row in UsingTable)
             {
                 if (row.Blocks.Count != 0)
                     return false;
@@ -39,16 +39,23 @@ public partial class GameController : MonoBehaviour
     public int[] Standard;
 
     private int _length;    
+    public int ResetCount=0;
 
     private Queue<CustomTile> _drawingQueue = new Queue<CustomTile>();
     [SerializeField] private Vector2Int[] _formData;
 
     [Tooltip("0 : Basic, 1 : Blue, 2 : Cyan, 3 : Green, 4 : Pink, 5 : Purple, 6 : Red, 7 : Yellow")]
     public CustomBlocks[] TargetTable;
+    public CustomBlocks[] SolvedTable;
+
+    public CustomBlocks[] UsingTable;
+    public CustomBlocks[] StoredTable;
 
     private void Awake()
     {
         TryInitialize();
+        UsingTable = TargetTable;
+        StoredTable = SolvedTable;
     }   
 
     private void TryInitialize()
@@ -62,7 +69,7 @@ public partial class GameController : MonoBehaviour
     
     public bool Match(ColorType colorType)
     {
-        var elements = TargetTable[(int)colorType];
+        var elements = UsingTable[(int)colorType];
 
         for(int k=0; k < elements.Blocks.Count; k++)
         {
@@ -70,6 +77,12 @@ public partial class GameController : MonoBehaviour
             if(_formData.HasSameValue(element.Form))
             {
                 elements.Blocks[k].OnSolved();
+
+                if (StoredTable[(int)colorType].Blocks == null)
+                    StoredTable[(int)colorType].Blocks = new List<CustomBlock>();
+
+                var ele = elements.Blocks[k];
+                StoredTable[(int)colorType].Blocks.Add(ele);
                 elements.Blocks.RemoveAt(k);
 
                 if(IsSolved)
@@ -173,6 +186,23 @@ public partial class GameController : MonoBehaviour
 
         uiScore.Open(true);
         uiScore.ShowScore(score);
+    }
+
+    public void ResetGame()
+    {
+        if(IsSolved)
+        {
+            UsingTable = ResetCount++%2 == 0 ? SolvedTable : TargetTable;
+            StoredTable = ResetCount%2 == 0 ? SolvedTable : TargetTable;
+        }
+        
+        Player.ResetPlayer();
+
+        _drawingQueue.Clear();
+        for(int k=0; k<_formData.Length; k++)
+            _formData[k] = Vector2Int.zero;
+
+        GetComponent<BoardManager>().ResetBoard();
     }
 }
 

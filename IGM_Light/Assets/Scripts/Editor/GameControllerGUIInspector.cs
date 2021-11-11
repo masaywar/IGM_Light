@@ -123,7 +123,9 @@ public class GameControllerGUIInspector : Editor
             return;
 
         if (controller.TargetTable[(int)colorType].Blocks == null)
-                    controller.TargetTable[(int)colorType] = new GameController.CustomBlocks(new List<CustomBlock>());
+        {
+            controller.TargetTable[(int)colorType] = new GameController.CustomBlocks(new List<CustomBlock>());
+        }
 
         CustomBlock customBlock = new CustomBlock(blockType, colorType, null);
 

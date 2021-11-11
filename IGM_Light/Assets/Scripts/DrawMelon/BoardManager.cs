@@ -126,4 +126,15 @@ public class BoardManager: MonoBehaviour
     {
         Tiles[tile.Row*Length + tile.Column%Length] = tile;
     }
+
+    public void ResetBoard()
+    {
+        foreach(var tile in Tiles)
+        {
+            if(tile.transform.childCount > 0)
+                tile.transform.GetChild(0).gameObject.SetActive(true);
+            tile.ModTileColor(GetTileSprite(ColorType.Basic), ColorType.Basic);
+            tile.IsInteractable = true;
+        }
+    }
 }
