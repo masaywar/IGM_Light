@@ -7,7 +7,7 @@ using System.IO;
 
 [CustomEditor(typeof(BoardManager))]
 [CanEditMultipleObjects]
-public class TileGenerator : BaseGenerator
+public class BoardGenerator : BaseGenerator
 {
     Vector2Int _playerPos;
 
@@ -81,7 +81,7 @@ public class TileGenerator : BaseGenerator
             }
         }
     
-        var sumVec = Vector2.zero;
+        var vectorSum = Vector2.zero;
 
         for (int row=0; row<boardManager.Length; row++)
         {
@@ -96,26 +96,23 @@ public class TileGenerator : BaseGenerator
                 boardManager.Subscribe(tile);     
 
                 Vector2 tilePos = tile.transform.position;
-                sumVec += tilePos;
+                vectorSum += tilePos;
             }
         }   
 
-        float targetResolution = 9f / 16f;
+        float targetRatio = 9f / 16f;
 
         float width = Camera.main.pixelWidth;
         float height = Camera.main.pixelHeight;
         
-        float thisResolution = width / height;
-        
-        float scalar = targetResolution / thisResolution;
-
-        Debug.Log(scalar);
+        float aspectRatio = width / height;
+        float scalar = targetRatio / aspectRatio;
 
         Camera.main.orthographicSize = boardManager.Length*scalar;
-        var demandedCameraPos = sumVec/(boardManager.Length*boardManager.Length);
-        demandedCameraPos.y = 0;
+        var demandedCameraPosition = vectorSum/(boardManager.Length*boardManager.Length);
+        demandedCameraPosition.y = 0;
 
-        Camera.main.transform.position = demandedCameraPos;
+        Camera.main.transform.position = demandedCameraPosition;
 
     }
 
@@ -136,22 +133,20 @@ public class TileGenerator : BaseGenerator
     public void GeneratePlayer()
     {
         if(boardManager.transform.childCount > 0){
-            var child = boardManager.transform.GetChild(0).GetComponent<Player>();
+            Player child = boardManager.GetComponentInChildren<Player>();
 
-            if(child != null && child.GetType() == typeof(Player))
-            {
+            if(child != null)
                 DestroyImmediate(child.gameObject);
-            }
         }
 
         _playerPrefab = Resources.Load<Player>("Prefabs/Player/TestPlayer");
         Player player = Instantiate<Player>(_playerPrefab, boardManager.transform);
-
-        player.transform.position = boardManager.GetTile(_playerPos.x, _playerPos.y).transform.position;
+        player.transform.SetPositionAndRotation(
+            boardManager.GetTile(_playerPos.x, _playerPos.y).transform.position,
+            Quaternion.identity);
 
         player.transform.SetAsFirstSibling();
-
-        player.row = _playerPos.x;
-        player.col = _playerPos.y;
+        player.Row = _playerPos.x;
+        player.Col = _playerPos.y;
     }
 }

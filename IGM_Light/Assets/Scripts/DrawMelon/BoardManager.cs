@@ -7,9 +7,6 @@ public class BoardManager: MonoBehaviour
 {
     public SpriteDatabaseLoader m_spriteDatabase;
 
-    private List<Sprite> _sprites;
-
-
     [Space(2)]
     [Header("Board Properties")]
     
@@ -25,16 +22,6 @@ public class BoardManager: MonoBehaviour
     }
     
     public CustomTile[] Tiles;
-
-    private void Awake()
-    {
-        TryInitialize();
-    }
-
-    private void TryInitialize()
-    {
-        _sprites = m_spriteDatabase.TileSprites;
-    }
 
     /// <summary>
     /// Get Tile with column and row. 
@@ -55,13 +42,13 @@ public class BoardManager: MonoBehaviour
         return Tiles[row*Length + col%Length];
     }
 
-/// <summary>
-/// Get Tile safely with column and row. And return boolean if get target tile successfully. Or return false.
-/// </summary>
-/// <param name="col"></param>
-/// <param name="row"></param>
-/// <param name="customTile"></param>
-/// <returns></returns>
+    /// <summary>
+    /// Get Tile safely with column and row. And return boolean if get target tile successfully. Or return false.
+    /// </summary>
+    /// <param name="col"></param>
+    /// <param name="row"></param>
+    /// <param name="customTile"></param>
+    /// <returns></returns>
     public bool TryGetTile(int row, int col, out CustomTile customTile)
     {
         var target = GetTile(row, col);

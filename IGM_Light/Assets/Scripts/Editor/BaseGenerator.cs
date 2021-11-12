@@ -5,5 +5,7 @@ using UnityEditor;
 
 public abstract class BaseGenerator : Editor
 {
+    public string[] paths;
+
     public abstract void Generate();
 }

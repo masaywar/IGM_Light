@@ -48,8 +48,8 @@ public partial class GameController : MonoBehaviour
     public CustomBlocks[] TargetTable;
     public CustomBlocks[] SolvedTable;
 
-    public CustomBlocks[] UsingTable;
-    public CustomBlocks[] StoredTable;
+    [HideInInspector] public CustomBlocks[] UsingTable;
+    [HideInInspector] public CustomBlocks[] StoredTable;
 
     private void Awake()
     {
@@ -103,7 +103,7 @@ public partial class GameController : MonoBehaviour
 
             for (int k=0; k<Size; k++)
             {
-                var tile = _drawingQueue.Dequeue();
+                CustomTile tile = _drawingQueue.Dequeue();
                 _formData[k] = new Vector2Int(tile.Row, tile.Column);
 
                 minRow = Mathf.Min(minRow, tile.Row);
