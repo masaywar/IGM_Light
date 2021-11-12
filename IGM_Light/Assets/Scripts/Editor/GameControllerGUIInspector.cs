@@ -8,14 +8,19 @@ using UnityEditor;
 public class GameControllerGUIInspector : Editor
 {
     GameController controller;
+    BlcokDatabaseLoader blcokDatabaseLoader;
+    ScrollRect _scrollView;
+
     int size = 3;
     ColorType colorType = ColorType.Basic;
 
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-        controller = target as GameController;
         
+        controller = target as GameController;
+        _scrollView = FindObjectOfType<ScrollRect>();
+
         var skin = GUI.skin;
         
         GUILayout.Space(32);
@@ -125,5 +130,7 @@ public class GameControllerGUIInspector : Editor
         CustomBlock customBlock = new CustomBlock(blockType, colorType, null);
 
         controller.TargetTable[(int)colorType].Blocks.Add(customBlock);
+        
+        Instantiate(blcokDatabaseLoader.Blocks[(int)colorType].Blocks[(int)blockType], _scrollView.content);
     }
 }
