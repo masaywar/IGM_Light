@@ -38,13 +38,13 @@ public static class ExtensionMethod
         if (source.Length != target.Length)
             return false;
 
-        foreach(Vector2Int originEle in source)
+        foreach(Vector2Int sourceEle in source)
         {
             bool flag = false;
 
             foreach(Vector2Int targetEle in target)
             {
-                if (originEle == targetEle)
+                if (sourceEle == targetEle)
                 {
                     flag = true;
                     break;
