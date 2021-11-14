@@ -5,20 +5,20 @@ using System;
 
 public class CustomTile : MonoBehaviour
 {
-    private BoardManager m_boardManager;
+    private BoardManager _boardManager;
 
     [Header("Tile Properties")]
     public int Row;
 
     public int Column;
 
-    public Vector3 Position
+    public Vector2Int Position
     {
-        get => new Vector3(Row, Column);
+        get => new Vector2Int(Row, Column);
     }
 
     public ColorType TileColor;
-    public SpriteRenderer m_SpriteRenderer;
+    public SpriteRenderer SpriteRenderer;
 
     public bool HasObstacle
     {
@@ -49,12 +49,24 @@ public class CustomTile : MonoBehaviour
 
     private void Awake()
     {
-        m_boardManager = transform.parent.GetComponent<BoardManager>();
+        _boardManager = transform.parent.GetComponent<BoardManager>();
+        SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void ModTileColor(Sprite tileColor, ColorType colorType)
     {
         TileColor = colorType;
-        m_SpriteRenderer.sprite = tileColor;
-    }    
+        SpriteRenderer.sprite = tileColor;
+    }
+
+    public void OnMadeBlock()
+    {
+        SpriteRenderer.color = new Color(.7f, .7f, .7f);
+        IsInteractable = false;
+    }
+
+    public override string ToString()
+    {
+        return "Row : " + Row + " Column : " + Column;
+    }
 }

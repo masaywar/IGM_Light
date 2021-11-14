@@ -12,17 +12,18 @@ public class Player : MonoBehaviour
     
     private WaitForSeconds[] _waits;
 
-    public int row = 0;
-    public int col = 0;
-    public ColorType _color;
-    public int mov = 0;
+    public int Row = 0;
+    public int Column = 0;
+    public int Step = 0;
+
+    public ColorType PlayerColorType;
 
     private int _originRow;
     private int _originCol;
 
     // public ColorType standard;
 
-    private Animator animator;
+    private Animator _animator;
 
     private Queue<CustomTile> AnimationQueue = new Queue<CustomTile>();
 
@@ -48,23 +49,24 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _boardManager = transform.parent.GetComponent<BoardManager>();
+        _animator = GetComponent<Animator>();
+
+        _boardManager   = transform.parent.GetComponent<BoardManager>();
         _gameController = transform.parent.GetComponent<GameController>();
+
         _waits = new WaitForSeconds[]{
             new WaitForSeconds(0.05f),
             new WaitForSeconds(0.25f),
             new WaitForSeconds(0.5f),
         };
 
-        animator = GetComponent<Animator>();
 
-        _originCol = col;
-        _originRow = row;
+        _originCol = Column;
+        _originRow = Row;
 
-        GetComponent<Animator>().SetInteger("color", (int)Colors.Basic);
+        _animator.SetInteger("color", (int)Colors.Basic);
 
         StartCoroutine(AnimMove());
-        //GetComponent<Animator>().SetInteger("direction",1);
     }
 
     // Update is called once per frame
@@ -75,44 +77,33 @@ public class Player : MonoBehaviour
         {
             Draw();
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow)&&Input.GetAxis("Vertical")>0)
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            row = TryMove(row-1, col) ? row-1 : row;
+            Row = TryMove(Row-1, Column) ? Row-1 : Row;
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow)&&Input.GetAxis("Vertical")<0)
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            row = TryMove(row+1, col) ? row+1 : row;
+            Row = TryMove(Row+1, Column) ? Row+1 : Row;
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            col = TryMove(row, col-1) ? col-1 : col;
+            Column = TryMove(Row, Column-1) ? Column-1 : Column;
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            col = TryMove(row, col+1) ? col+1 : col;
+            Column = TryMove(Row, Column+1) ? Column+1 : Column;
         }
 #else
 
 #endif
     }
 
-    public void Move(Vector2 direction)
+    public void Move(Vector2Int direction)
     {
-        if (direction.x == -1)
+        if (TryMove(Row+direction.x, Column+direction.y))
         {
-            row = TryMove(row-1, col) ? row-1 : row;  //up
-        }
-        else if (direction.x == 1)
-        {
-            row = TryMove(row+1, col) ? row+1 : row;  //down
-        }
-        else if (direction.y == -1)
-        {
-            col = TryMove(row, col-1) ? col-1 : col;  //left
-        }
-        else if (direction.y == 1)
-        {
-            col = TryMove(row, col+1) ? col+1 : col;  //right
+            Row = Row + direction.x;
+            Column = Column + direction.y;
         }
     }
 
@@ -124,7 +115,6 @@ public class Player : MonoBehaviour
                 return false;
 
             AnimationQueue.Enqueue(onTile);
-
             return true;
         }
 
@@ -135,43 +125,44 @@ public class Player : MonoBehaviour
     {
         if (tile.HasFilter)
         {
-            _color = tile.Filter.color;
+            PlayerColorType = tile.Filter.color;
             tile.Filter.gameObject.SetActive(false);
-            ChangeColor(_color);
+            ChangeColor(PlayerColorType);
         }
     }
 
     void Stand()
     {
-        animator.SetInteger("direction", (int)States.idle);
+        _animator.SetInteger("direction", (int)States.idle);
     }
 
     void ChangeColor(ColorType color)
     {
-        animator.SetInteger("color", (int)color);
+        _animator.SetInteger("color", (int)color);
     }
     public void Draw() 
     {
-        if (_color == ColorType.Basic)
+        if (PlayerColorType == ColorType.Basic)
             return;
 
-        if (_boardManager.TryGetTileSprite(_color, out var sprite))
+        if (_boardManager.TryGetTileSprite(PlayerColorType, out var sprite))
         {
-            _boardManager.GetTile(row, col).ModTileColor(sprite, _color);
-            if (_gameController.TryMakeBlock(row, col))
-                _gameController.Match(_color);
+            _boardManager.GetTile(Row, Column).ModTileColor(sprite, PlayerColorType);
+            _gameController.Match(PlayerColorType);
         }
     }
 
     public void ResetPlayer()
     {
-        row = _originRow;
-        col = _originCol;
+        Row = _originRow;
+        Column = _originCol;
 
-        if(_boardManager.TryGetTile(row, col, out var tile))
+        PlayerColorType = ColorType.Basic;
+
+        if(_boardManager.TryGetTile(Row, Column, out var tile))
         {
             transform.position = tile.transform.position;
-            animator.SetInteger("color", (int)Colors.Basic);
+            _animator.SetInteger("color", (int)Colors.Basic);
         }
     }
 
@@ -185,19 +176,20 @@ public class Player : MonoBehaviour
                 continue;
             }
 
-            var tile = AnimationQueue.Dequeue();
-            mov++;
-            row = tile.Row;
-            col = tile.Column;
+            CustomTile tile = AnimationQueue.Dequeue();
+
+            Row = tile.Row;
+            Column = tile.Column;
+
             transform
             .DOMove(tile.transform.position, 0.5f)
             .OnStepComplete(()=>{
+                Step++;
                 CheckTile(tile);
                 Stand();    
             });
 
             yield return _waits[0];
-            //yield return new WaitForSeconds(1f);
         }
     }
 }

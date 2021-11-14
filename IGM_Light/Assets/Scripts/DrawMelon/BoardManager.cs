@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BoardManager: MonoBehaviour
 {
-    public SpriteDatabaseLoader m_spriteDatabase;
+    public SpriteDatabaseLoader _spriteDatabase;
 
     [Space(2)]
     [Header("Board Properties")]
@@ -49,6 +49,7 @@ public class BoardManager: MonoBehaviour
     /// <param name="row"></param>
     /// <param name="customTile"></param>
     /// <returns></returns>
+    
     public bool TryGetTile(int row, int col, out CustomTile customTile)
     {
         var target = GetTile(row, col);
@@ -59,7 +60,7 @@ public class BoardManager: MonoBehaviour
 
     public void SetTileColor(CustomTile tile, ColorType colorType)
     {
-        tile?.ModTileColor(m_spriteDatabase.TileSprites[(int)colorType], colorType);
+        tile?.ModTileColor(_spriteDatabase.TileSprites[(int)colorType], colorType);
     }
 
     public void SetTileColor(int row, int col, ColorType colorType)
@@ -72,10 +73,10 @@ public class BoardManager: MonoBehaviour
     {
         int index = (int)colorType;
 
-        if (m_spriteDatabase.TileSprites.Count <= index)
+        if (_spriteDatabase.TileSprites.Count <= index)
             return null;
 
-        return m_spriteDatabase.TileSprites[index];
+        return _spriteDatabase.TileSprites[index];
     }
 
     public bool TryGetTileSprite(ColorType colorType, out Sprite sprite)
@@ -86,10 +87,10 @@ public class BoardManager: MonoBehaviour
 
     public Sprite GetCharacterSprite(ColorType colorType, int index)
     {
-        if(m_spriteDatabase.CharacterSprites[(int)colorType].sprites.Count <= index)
+        if(_spriteDatabase.CharacterSprites[(int)colorType].sprites.Count <= index)
             return null;
 
-        return m_spriteDatabase.CharacterSprites[(int)colorType].sprites[index];
+        return _spriteDatabase.CharacterSprites[(int)colorType].sprites[index];
     }
 
     public bool TryGetCharacterSprite(ColorType colorType, int index, out Sprite sprite)
@@ -121,6 +122,7 @@ public class BoardManager: MonoBehaviour
             if(tile.transform.childCount > 0)
                 tile.transform.GetChild(0).gameObject.SetActive(true);
             tile.ModTileColor(GetTileSprite(ColorType.Basic), ColorType.Basic);
+            tile.SpriteRenderer.color = new Color(1,1,1);
             tile.IsInteractable = true;
         }
     }

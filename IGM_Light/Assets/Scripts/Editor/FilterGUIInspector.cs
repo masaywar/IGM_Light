@@ -7,8 +7,9 @@ using UnityEditor;
 [CanEditMultipleObjects]
 public class FilterGUIInspector : Editor
 {
-    public SpriteDatabaseLoader spriteDatabase;
     private ColorType _colorType;
+
+    public SpriteDatabaseLoader _spriteDatabase;
 
     public override void OnInspectorGUI()
     {
@@ -21,7 +22,7 @@ public class FilterGUIInspector : Editor
         
         if(GUILayout.Button("Mod Color"))
         {
-            var targetSprite = spriteDatabase.FilterSprites[(int)_colorType];
+            var targetSprite = _spriteDatabase.FilterSprites[(int)_colorType];
 
             filter.GetComponent<SpriteRenderer>().sprite = targetSprite; 
             filter.color = _colorType;           

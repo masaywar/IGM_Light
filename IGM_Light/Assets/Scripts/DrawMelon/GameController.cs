@@ -24,7 +24,7 @@ public partial class GameController : MonoBehaviour
     {
         get 
         {
-            foreach(var row in UsingTable)
+            foreach(var row in TargetTable)
             {
                 if (row.Blocks.Count != 0)
                     return false;
@@ -34,139 +34,62 @@ public partial class GameController : MonoBehaviour
         }
     }
 
-    private BoardManager m_boardManager;
     public Player Player;
     public int[] Standard;
-
-    private int _length;    
-    public int ResetCount=0;
-
-    private Queue<CustomTile> _drawingQueue = new Queue<CustomTile>();
-    [SerializeField] private Vector2Int[] _formData;
+   
 
     [Tooltip("0 : Basic, 1 : Blue, 2 : Cyan, 3 : Green, 4 : Pink, 5 : Purple, 6 : Red, 7 : Yellow")]
     public CustomBlocks[] TargetTable;
+    [Tooltip("0 : Basic, 1 : Blue, 2 : Cyan, 3 : Green, 4 : Pink, 5 : Purple, 6 : Red, 7 : Yellow")]
     public CustomBlocks[] SolvedTable;
 
-    [HideInInspector] public CustomBlocks[] UsingTable;
-    [HideInInspector] public CustomBlocks[] StoredTable;
+     private BoardManager _boardManager;
+    private int _length;   
 
     private void Awake()
     {
-        TryInitialize();
-        UsingTable = TargetTable;
-        StoredTable = SolvedTable;
-        _formData = new Vector2Int[Size];
+         _boardManager = GetComponent<BoardManager>();
+        Player = _boardManager.GetComponentInChildren<Player>();
+
+        _length = _boardManager.Length;
     }   
 
-    private void TryInitialize()
+    public void Match(ColorType colorType)
     {
-        m_boardManager = GetComponent<BoardManager>();
-        Player = m_boardManager.GetComponentInChildren<Player>();
-        _formData = new Vector2Int[Size];
-        _length = m_boardManager.Length;
-    }
-    
-    public bool Match(ColorType colorType)
-    {
-        var valids = UsingTable[(int)colorType];
+        var valids = TargetTable[(int)colorType];
 
-        for(int k=0; k < valids.Blocks.Count; k++)
+        for(int index=0; index < valids.Blocks.Count; index++)
         {
-           var valid = valids.Blocks[k];
-            if(_formData.HasSameValue(valid.Form))
+            var block = valids.Blocks[index];
+            for(int dRow=0; dRow<Size; dRow++)
             {
-                valids.Blocks[k].OnSolved();
-
-                if (StoredTable[(int)colorType].Blocks == null)
-                    StoredTable[(int)colorType].Blocks = new List<CustomBlock>();
-
-                var ele = valids.Blocks[k];
-                StoredTable[(int)colorType].Blocks.Add(ele);
-                valids.Blocks.RemoveAt(k);
-
-                if(IsSolved)
-                    OnSolved();
-
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public bool TryMakeBlock(int row, int col)
-    {
-        if(DFS(0, row, col))
-        {
-            int minRow = _length, minCol = _length;
-
-            for (int k=0; k<Size; k++)
-            {
-                CustomTile tile = _drawingQueue.Dequeue();
-                _formData[k] = new Vector2Int(tile.Row, tile.Column);
-
-                minRow = Mathf.Min(minRow, tile.Row);
-                minCol = Mathf.Min(minCol, tile.Column);
-
-                tile.IsInteractable = false;
-            }
-
-            for(int k=0; k<Size; k++)
-            {
-                _formData[k].x -= minRow;
-                _formData[k].y -= minCol;
-            }
-            
-            return true;
-        }
-
-        _drawingQueue.Clear();
-        return false;
-    }
-
-    private bool DFS(int count, int row, int col)
-    {
-        if (count == Size)
-        {
-            return true;
-        }
-        
-        if(m_boardManager.TryGetTile(row, col, out var tile))
-        {
-            if(!tile.IsInteractable)
-                return false;
-
-            if (_drawingQueue.Count == 0)
-            {
-                _drawingQueue.Enqueue(tile);
-                return 
-                    DFS(count+1, row+1, col) ||
-                    DFS(count+1, row-1, col) ||
-                    DFS(count+1, row, col+1) ||
-                    DFS(count+1, row, col-1);
-            }
-
-            else
-            {
-                if(_drawingQueue.Peek().TileColor == tile.TileColor)
+                for(int dCol=0; dCol<Size; dCol++)
                 {
-                    if(!_drawingQueue.Contains(tile))
+                    int count = 0;
+                    foreach(var form in block.Form)
                     {
-                        _drawingQueue.Enqueue(tile);
-                        return 
-                            DFS(count+1, row+1, col) ||
-                            DFS(count+1, row-1, col) ||
-                            DFS(count+1, row, col+1) ||
-                            DFS(count+1, row, col-1);
+                        if(!_boardManager.TryGetTile(form.x+dRow, form.y+dCol, out var tile))
+                            break;
+
+                        if(tile.IsInteractable && tile.TileColor == colorType)
+                            count += 1;
+                    }
+
+                    if (count == Size)
+                    {
+                        foreach(var form in block.Form)
+                        {
+                            var tile = _boardManager.GetTile(form.x+dRow, form.y+dCol); 
+                            tile.OnMadeBlock();
+                        }
+
+                        SolvedTable[(int)colorType].Blocks.Add(block);
+                        TargetTable[(int)colorType].Blocks.RemoveAt(index);
+                        return;
                     }
                 }
-                else
-                    return false;
             }
         }
-            
-        return false;
     }
 
     public void OnSolved()
@@ -190,19 +113,14 @@ public partial class GameController : MonoBehaviour
 
     public void ResetGame()
     {
-        if(IsSolved)
+        for(int k=0; k<TargetTable.Length; k++)
         {
-            UsingTable = ResetCount++%2 == 0 ? SolvedTable : TargetTable;
-            StoredTable = ResetCount%2 == 0 ? SolvedTable : TargetTable;
+            TargetTable[k].Blocks.AddRange(SolvedTable[k].Blocks);
+            SolvedTable[k].Blocks.Clear();
         }
-        
+
         Player.ResetPlayer();
-
-        _drawingQueue.Clear();
-        for(int k=0; k<_formData.Length; k++)
-            _formData[k] = Vector2Int.zero;
-
-        GetComponent<BoardManager>().ResetBoard();
+        _boardManager.ResetBoard();
     }
 }
 
