@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: e25ca4e3f430ded4486457e2e53579ed
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -9218235709923471769
+    second: up3_Yellow_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,7 +112,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: up3_Yellow_0
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 63
+        width: 688
+        height: 842
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ec03e467f321080800000000000000
+      internalID: -9218235709923471769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

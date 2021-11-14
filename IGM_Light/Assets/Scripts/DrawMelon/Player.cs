@@ -50,11 +50,11 @@ public class Player : MonoBehaviour
     {
         _boardManager = transform.parent.GetComponent<BoardManager>();
         _gameController = transform.parent.GetComponent<GameController>();
-        _waits = new WaitForSeconds[]{
+        /*_waits = new WaitForSeconds[]{
             new WaitForSeconds(0.05f),
             new WaitForSeconds(0.25f),
             new WaitForSeconds(0.5f),
-        };
+        };*/
 
         animator = GetComponent<Animator>();
 
@@ -63,8 +63,8 @@ public class Player : MonoBehaviour
 
         GetComponent<Animator>().SetInteger("color", (int)Colors.Basic);
 
-        StartCoroutine(AnimMove());
-        //GetComponent<Animator>().SetInteger("direction",1);
+        //StartCoroutine(AnimMove());
+        //GetComponent<Animator>().SetInteger("direction",0);
     }
 
     // Update is called once per frame
@@ -75,11 +75,11 @@ public class Player : MonoBehaviour
         {
             Draw();
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow)&&Input.GetAxis("Vertical")>0)
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             row = TryMove(row-1, col) ? row-1 : row;
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow)&&Input.GetAxis("Vertical")<0)
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             row = TryMove(row+1, col) ? row+1 : row;
         }
@@ -98,6 +98,8 @@ public class Player : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
+        //if (Input.touchCount == 1)
+        //    Draw();
         if (direction.x == -1)
         {
             row = TryMove(row-1, col) ? row-1 : row;  //up
@@ -118,19 +120,20 @@ public class Player : MonoBehaviour
 
     public bool TryMove(int p_row, int p_col)
     {
-        if (_boardManager.TryGetTile(p_row, p_col, out var onTile))  //onTile에는 갈 위치
+
+        if (_boardManager.TryGetTile(p_row, p_col, out var onTile))
         {
             if (onTile.HasObstacle)
                 return false;
 
             AnimationQueue.Enqueue(onTile);
-
-            return true;
+            //AnimationQueue.Enqueue(onTile);
+            // print(AnimationQueue.Count);
         }
-
-        return false;
+       return true;
     }
 
+   
     private void CheckTile(CustomTile tile)
     {
         if (tile.HasFilter)
@@ -148,9 +151,41 @@ public class Player : MonoBehaviour
 
     void ChangeColor(ColorType color)
     {
-        animator.SetInteger("color", (int)color);
+        switch (color)
+        {
+            case ColorType.Red:
+                animator.SetInteger("color", (int)Colors.Red);
+                break;
+            case ColorType.Basic:
+                animator.SetInteger("color", (int)Colors.Basic);
+                break;
+            case ColorType.Blue:
+                animator.SetInteger("color", (int)Colors.Blue);
+                break;
+            case ColorType.Green:
+                animator.SetInteger("color", (int)Colors.Green);
+                break;
+            case ColorType.Cyan:
+                animator.SetInteger("color", (int)Colors.Cyan);
+                break;
+            case ColorType.Purple:
+                animator.SetInteger("color", (int)Colors.Purple);
+                break;
+            case ColorType.Pink:
+                animator.SetInteger("color", (int)Colors.Pink);
+                break;
+            case ColorType.Yellow:
+                animator.SetInteger("color", (int)Colors.Yellow);
+                break;
+
+        }
     }
+<<<<<<< mini
+
+    public void Draw()  //필터의 색과 같은 Tile 색,캐릭터 색 변경
+=======
     public void Draw() 
+>>>>>>> main
     {
         if (_color == ColorType.Basic)
             return;
