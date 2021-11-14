@@ -22,16 +22,7 @@ public partial class GameController : MonoBehaviour
     
     public bool IsSolved
     {
-        get 
-        {
-            foreach(var row in TargetTable)
-            {
-                if (row.Blocks.Count != 0)
-                    return false;
-            }
-
-            return true;
-        }
+        get => SolvedList.Count == _numOfBlocks;
     }
 
     public Player Player;
@@ -41,10 +32,12 @@ public partial class GameController : MonoBehaviour
     [Tooltip("0 : Basic, 1 : Blue, 2 : Cyan, 3 : Green, 4 : Pink, 5 : Purple, 6 : Red, 7 : Yellow")]
     public CustomBlocks[] TargetTable;
     [Tooltip("0 : Basic, 1 : Blue, 2 : Cyan, 3 : Green, 4 : Pink, 5 : Purple, 6 : Red, 7 : Yellow")]
-    public CustomBlocks[] SolvedTable;
+    public List<CustomBlock> SolvedList;
 
-     private BoardManager _boardManager;
-    private int _length;   
+    private BoardManager _boardManager;
+    private int _length; 
+    private int _numOfBlocks;
+
 
     private void Awake()
     {
@@ -52,6 +45,12 @@ public partial class GameController : MonoBehaviour
         Player = _boardManager.GetComponentInChildren<Player>();
 
         _length = _boardManager.Length;
+
+        foreach(var row in TargetTable)
+        {
+            _numOfBlocks += row.Blocks.Count;
+        }
+
     }   
 
     public void Match(ColorType colorType)
@@ -61,6 +60,13 @@ public partial class GameController : MonoBehaviour
         for(int index=0; index < valids.Blocks.Count; index++)
         {
             var block = valids.Blocks[index];
+            bool isFind = false;
+            if(block == null)
+            {
+                valids.Blocks.Add(block);
+                return;
+            }
+
             for(int dRow=0; dRow<Size; dRow++)
             {
                 for(int dCol=0; dCol<Size; dCol++)
@@ -83,11 +89,13 @@ public partial class GameController : MonoBehaviour
                             tile.OnMadeBlock();
                         }
 
-                        SolvedTable[(int)colorType].Blocks.Add(block);
-                        TargetTable[(int)colorType].Blocks.RemoveAt(index);
-                        return;
+                        SolvedList.Add(block);
+                        isFind = true;
+                        break;
                     }
                 }
+                if(isFind)
+                    break;
             }
         }
     }
@@ -113,11 +121,8 @@ public partial class GameController : MonoBehaviour
 
     public void ResetGame()
     {
-        for(int k=0; k<TargetTable.Length; k++)
-        {
-            TargetTable[k].Blocks.AddRange(SolvedTable[k].Blocks);
-            SolvedTable[k].Blocks.Clear();
-        }
+        int loop = SolvedList.Count;
+        SolvedList.Clear();
 
         Player.ResetPlayer();
         _boardManager.ResetBoard();

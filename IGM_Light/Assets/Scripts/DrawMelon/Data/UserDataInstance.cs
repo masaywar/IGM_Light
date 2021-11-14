@@ -8,9 +8,9 @@ using System;
 
 public class UserDataInstance : MonoBehaviour 
 {
-    private UserDataInstance instance = null;
+    private static UserDataInstance instance = null;
 
-    public UserDataInstance Instance
+    public static UserDataInstance Instance
     {
         get
         {
@@ -20,6 +20,7 @@ public class UserDataInstance : MonoBehaviour
             return instance;
         }
     }
+
 
     public UserData UserData;
 
