@@ -18,7 +18,7 @@ public class Counter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        resource = player.mov;
+        resource = player.Step;
         resourceText.text = resource.ToString();
     }
 

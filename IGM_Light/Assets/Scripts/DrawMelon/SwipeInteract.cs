@@ -6,18 +6,17 @@ using System;
 
 public class SwipeInteract : LeanFingerSwipe
 {
-    public Player Player;
-    public int Threshold;
-    
-    private float _distance;
 
+    public int Threshold;
+    private float _distance;
     private Coroutine _coroutine = null;
+    private Player _player;
 
     int count = 0;
     protected override void Start()
     {
         base.Start();
-        Player = FindObjectOfType<Player>();
+        _player = FindObjectOfType<Player>();
     }
 
     public void OnSwipe(Vector3 swipe)
@@ -36,40 +35,40 @@ public class SwipeInteract : LeanFingerSwipe
         }
         else
         {
-            Vector2 direction;
+            Vector2Int direction;
 
             if (swipe.x>=0 && swipe.y>=0)
             {
                 if(swipe.x >= swipe.y)
-                    direction = new Vector2(0, 1);
+                    direction = new Vector2Int(0, 1);
                 else 
-                    direction = new Vector2(-1, 0);
+                    direction = new Vector2Int(-1, 0);
             }
 
             else if (swipe.x < 0 && swipe.y >= 0)
             {
                 if(-swipe.x >= swipe.y)
-                    direction = new Vector2(0, -1);
+                    direction = new Vector2Int(0, -1);
                 else 
-                    direction = new Vector2(-1, 0);
+                    direction = new Vector2Int(-1, 0);
             }
 
             else if (swipe.x >= 0 && swipe.y < 0)
             {
                 if(-swipe.x >= -swipe.y)
-                    direction = new Vector2(0, 1);
+                    direction = new Vector2Int(0, 1);
                 else 
-                    direction = new Vector2(1, 0);
+                    direction = new Vector2Int(1, 0);
             }
             else
             {
                 if(-swipe.x >= -swipe.y)
-                    direction = new Vector2(0, -1);
+                    direction = new Vector2Int(0, -1);
                 else 
-                    direction = new Vector2(1, 0);
+                    direction = new Vector2Int(1, 0);
             }
 
-            Player.Move(direction);
+            _player.Move(direction);
         }
         _coroutine = null;
     }
@@ -77,12 +76,7 @@ public class SwipeInteract : LeanFingerSwipe
     public void OnTouch(Single distance)
     {
         _distance = distance;
-        print(_distance);
         if (distance < Threshold)
-        {
-            Player.Draw();
-        }
+            _player.Draw();
     }
-
-    
 }

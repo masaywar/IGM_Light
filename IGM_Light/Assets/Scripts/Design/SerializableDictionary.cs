@@ -4,35 +4,32 @@ using UnityEngine;
 using System;
 
 [System.Serializable] 
-public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver 
+public class SerializableDictionary<TKey, TValue> : ISerializationCallbackReceiver 
 {
     [SerializeField] private List<TKey> keys = new List<TKey>(); 
     [SerializeField] private List<TValue> values = new List<TValue>();
      // save the dictionary to lists 
+
+    public Dictionary<TKey, TValue> target;
+    public Dictionary<TKey, TValue> ToDictionary() {return target;}
+
+    public SerializableDictionary(Dictionary<TKey, TValue> target)
+    {
+        this.target = target;
+    }
+
     public void OnBeforeSerialize() 
     { 
-        keys.Clear(); 
-        values.Clear(); 
-        foreach (KeyValuePair<TKey, TValue> pair in this) 
-        { 
-            keys.Add(pair.Key); 
-            values.Add(pair.Value); 
-        }
+        keys = new List<TKey>(target.Keys);
+        values = new List<TValue>(target.Values);
     }
     public void OnAfterDeserialize() 
     { 
-        this.Clear(); 
-
-        if (keys.Count != values.Count) 
-            throw new System.Exception(
-                string.Format("there are {0} keys and {1} values after deserialization. Make sure that both key and value types are serializable.")
-            ); 
-
-        for (int i = 0; i < keys.Count; i++) 
-            this.Add(keys[i], values[i]); 
+        var count = Math.Min(keys.Count, values.Count);
+        target = new Dictionary<TKey, TValue>(count);
+        for (int i=0; i< count; i++)
+            target.Add(keys[i], values[i]);
     } 
-
-   
 }
 
-//https://redforce01.tistory.com/243
+//https://202psj.tistory.com/1261

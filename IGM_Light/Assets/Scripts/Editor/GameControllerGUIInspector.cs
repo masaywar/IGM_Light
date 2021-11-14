@@ -11,6 +11,7 @@ public class GameControllerGUIInspector : Editor
     BlcokDatabaseLoader blcokDatabaseLoader;
     ScrollRect _scrollView;
 
+    int size = 3;
     ColorType colorType = ColorType.Basic;
 
     public override void OnInspectorGUI()
@@ -27,7 +28,6 @@ public class GameControllerGUIInspector : Editor
         GUILayout.BeginHorizontal();
     
         int newSize = 0;
-        int size = controller.Size;
 
         if (size!=(newSize=EditorGUILayout.IntPopup(size, new string[2]{"3", "4"}, new int[2]{3, 4})))
         {
@@ -43,6 +43,7 @@ public class GameControllerGUIInspector : Editor
 
         if(size == 3)
         {
+            
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("ㄱ",  GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
             {
@@ -168,16 +169,12 @@ public class GameControllerGUIInspector : Editor
                 CreateBlock(BlockType.FOUR_O);
             }
             GUILayout.EndHorizontal();
-        }
-        if (GUILayout.Button("Clear"))
-        {
-            controller.TargetTable.ForEach(
-                blocks => blocks.Blocks.Clear()
-            );
-        }
 
-        controller.Size = size;
-
+            if (GUILayout.Button("Clear"))
+            {
+                
+            }
+        }
     }
 
     private void CreateBlock(BlockType blockType)
