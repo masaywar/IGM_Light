@@ -1178,12 +1178,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1e2b90ae9c1de4ea2b40eb8dfba8b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Size: 3
+  Size: 4
+  Player: {fileID: 0}
+  Standard: 
+  ResetCount: 0
   _formData: []
   TargetTable:
   - Blocks: []
   - Blocks:
-    - BlockType: 4
+    - BlockType: 3
       ColorType: 1
       ShowingBlock: {fileID: 0}
   - Blocks: []
@@ -1192,6 +1195,17 @@ MonoBehaviour:
   - Blocks: []
   - Blocks: []
   - Blocks: []
+  SolvedTable:
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
+  UsingTable: []
+  StoredTable: []
 --- !u!1 &979307887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,7 +1667,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0.000061035156, y: 701.8}
+  m_AnchoredPosition: {x: 0.00012207031, y: 701.8}
   m_SizeDelta: {x: -0.00012207031, y: 372.34338}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1207975103
@@ -2177,6 +2191,7 @@ GameObject:
   - component: {fileID: 1542589232}
   - component: {fileID: 1542589234}
   - component: {fileID: 1542589233}
+  - component: {fileID: 1542589235}
   m_Layer: 9
   m_Name: TestPlayer(Clone)
   m_TagString: Untagged
@@ -2237,12 +2252,13 @@ SpriteRenderer:
   m_SortingLayerID: -1097117597
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 42ccfa002f49aae499544aab36360fac, type: 3}
+  m_Sprite: {fileID: 2779023822413464520, guid: 54c15ccca11e88741a9170793d8bd0a3,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.847, y: 0.811}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2260,33 +2276,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263f9eafc3e3868479eba3d9b4ab657a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_boardManager: {fileID: 0}
+  _boardManager: {fileID: 0}
+  _gameController: {fileID: 0}
   row: 0
   col: 0
-  T_sprite: {fileID: 0}
-  m_sprite: {fileID: 0}
   _color: 0
   mov: 0
-  colortiles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  colorPlayer:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+--- !u!95 &1542589235
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542589231}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38e752394018b1e43971b98fd2e3ccee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1554469821
 GameObject:
   m_ObjectHideFlags: 0

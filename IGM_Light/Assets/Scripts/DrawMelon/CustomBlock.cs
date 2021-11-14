@@ -40,27 +40,7 @@ public class CustomBlock
 
     public Vector2Int[] Form
     {
-        get
-        {
-            switch(BlockType)
-            {
-                case BlockType.THREE_S_1:
-                    return BlockFormation.THREE_S_1;
-                case BlockType.THREE_S_2:
-                    return BlockFormation.THREE_S_2;
-                case BlockType.THREE_S_3:
-                    return BlockFormation.THREE_S_3;
-                case BlockType.THREE_S_4:
-                    return BlockFormation.THREE_S_4;
-                case BlockType.THREE_I_1:
-                    return BlockFormation.THREE_I_1;
-                case BlockType.THREE_I_2:
-                    return BlockFormation.THREE_I_2;
-
-                default:
-                    return BlockFormation.THREE_S_1;
-            }
-        }
+        get => BlockFormation.Formations[(int)BlockType];
     }
 
     public void OnSolved()

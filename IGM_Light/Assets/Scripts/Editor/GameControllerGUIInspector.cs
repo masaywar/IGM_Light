@@ -11,7 +11,6 @@ public class GameControllerGUIInspector : Editor
     BlcokDatabaseLoader blcokDatabaseLoader;
     ScrollRect _scrollView;
 
-    int size = 3;
     ColorType colorType = ColorType.Basic;
 
     public override void OnInspectorGUI()
@@ -28,6 +27,7 @@ public class GameControllerGUIInspector : Editor
         GUILayout.BeginHorizontal();
     
         int newSize = 0;
+        int size = controller.Size;
 
         if (size!=(newSize=EditorGUILayout.IntPopup(size, new string[2]{"3", "4"}, new int[2]{3, 4})))
         {
@@ -43,7 +43,6 @@ public class GameControllerGUIInspector : Editor
 
         if(size == 3)
         {
-            
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("ㄱ",  GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
             {
@@ -59,7 +58,7 @@ public class GameControllerGUIInspector : Editor
             }
             if(GUILayout.Button("┘",  GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
             {
-                CreateBlock(BlockType.THREE_S_3);
+                CreateBlock(BlockType.THREE_S_4);
             }
             if(GUILayout.Button("ㅡ",  GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
             {
@@ -75,46 +74,110 @@ public class GameControllerGUIInspector : Editor
         else
         {
             GUILayout.BeginHorizontal();
-            if(GUILayout.Button("S", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            if(GUILayout.Button("S_1", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
             {
-                CreateBlock(BlockType.FOUR_S);
+                CreateBlock(BlockType.FOUR_S_1);
+            }
+
+            if(GUILayout.Button("S_2", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.FOUR_S_2);
             }
             
-            if(GUILayout.Button("Z", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            if(GUILayout.Button("Z_1", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
             {
-                CreateBlock(BlockType.FOUR_Z);
+                CreateBlock(BlockType.FOUR_Z_1);
+            }
+
+            if(GUILayout.Button("Z_2", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.FOUR_Z_2);
             }
             
-            if(GUILayout.Button("I", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            if(GUILayout.Button("L_1", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
             {
-                CreateBlock(BlockType.FOUR_I);
+                CreateBlock(BlockType.FOUR_L_1);
             }
             GUILayout.EndHorizontal();
-
             GUILayout.BeginHorizontal();
-            if(GUILayout.Button("L", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            if(GUILayout.Button("L_2", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
             {
-                CreateBlock(BlockType.FOUR_L);
+                CreateBlock(BlockType.FOUR_L_2);
             }
-            if(GUILayout.Button("J", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+
+            if(GUILayout.Button("L_3", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
             {
-                CreateBlock(BlockType.FOUR_J);
+                CreateBlock(BlockType.FOUR_L_3);
             }
-            if(GUILayout.Button("T", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+
+            if(GUILayout.Button("L_4", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
             {
-                CreateBlock(BlockType.FOUR_T);
+                CreateBlock(BlockType.FOUR_L_4);
+            }
+
+            if(GUILayout.Button("J_1", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.FOUR_J_1);
+            }
+
+            if(GUILayout.Button("J_2", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.FOUR_J_2);
             }
             GUILayout.EndHorizontal();
-
             GUILayout.BeginHorizontal();
-            GUILayout.Button("",  skin.label, GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f));
+            if(GUILayout.Button("J_3", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.FOUR_J_3);
+            }
+            if(GUILayout.Button("J_4", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.FOUR_J_4);
+            }
+
+            if(GUILayout.Button("T_1", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.FOUR_T_1);
+            }
+            if(GUILayout.Button("T_2", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.FOUR_T_2);
+            }
+            if(GUILayout.Button("T_3", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.FOUR_T_3);
+            }
+            GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal();
+            if(GUILayout.Button("T_4", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.FOUR_T_4);
+            }
+
+            if(GUILayout.Button("I_1", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.FOUR_I_1);
+            }
+
+            if(GUILayout.Button("I_2", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
+            {
+                CreateBlock(BlockType.FOUR_I_2);
+            }
             if(GUILayout.Button("O", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
             {
                 CreateBlock(BlockType.FOUR_O);
             }
-            GUILayout.Button("",  skin.label, GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f));
             GUILayout.EndHorizontal();
         }
+        if (GUILayout.Button("Clear"))
+        {
+            controller.TargetTable.ForEach(
+                blocks => blocks.Blocks.Clear()
+            );
+        }
+
+        controller.Size = size;
+
     }
 
     private void CreateBlock(BlockType blockType)

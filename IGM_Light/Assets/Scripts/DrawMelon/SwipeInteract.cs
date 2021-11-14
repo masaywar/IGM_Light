@@ -17,7 +17,7 @@ public class SwipeInteract : LeanFingerSwipe
     protected override void Start()
     {
         base.Start();
-        Player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        Player = FindObjectOfType<Player>();
     }
 
     public void OnSwipe(Vector3 swipe)

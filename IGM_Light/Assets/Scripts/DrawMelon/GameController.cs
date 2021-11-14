@@ -56,6 +56,7 @@ public partial class GameController : MonoBehaviour
         TryInitialize();
         UsingTable = TargetTable;
         StoredTable = SolvedTable;
+        _formData = new Vector2Int[Size];
     }   
 
     private void TryInitialize()
@@ -65,25 +66,24 @@ public partial class GameController : MonoBehaviour
         _formData = new Vector2Int[Size];
         _length = m_boardManager.Length;
     }
-
     
     public bool Match(ColorType colorType)
     {
-        var elements = UsingTable[(int)colorType];
+        var valids = UsingTable[(int)colorType];
 
-        for(int k=0; k < elements.Blocks.Count; k++)
+        for(int k=0; k < valids.Blocks.Count; k++)
         {
-           var element = elements.Blocks[k];
-            if(_formData.HasSameValue(element.Form))
+           var valid = valids.Blocks[k];
+            if(_formData.HasSameValue(valid.Form))
             {
-                elements.Blocks[k].OnSolved();
+                valids.Blocks[k].OnSolved();
 
                 if (StoredTable[(int)colorType].Blocks == null)
                     StoredTable[(int)colorType].Blocks = new List<CustomBlock>();
 
-                var ele = elements.Blocks[k];
+                var ele = valids.Blocks[k];
                 StoredTable[(int)colorType].Blocks.Add(ele);
-                elements.Blocks.RemoveAt(k);
+                valids.Blocks.RemoveAt(k);
 
                 if(IsSolved)
                     OnSolved();
@@ -154,13 +154,13 @@ public partial class GameController : MonoBehaviour
                     if(!_drawingQueue.Contains(tile))
                     {
                         _drawingQueue.Enqueue(tile);
-                        return DFS(count+1, row+1, col) ||
+                        return 
+                            DFS(count+1, row+1, col) ||
                             DFS(count+1, row-1, col) ||
                             DFS(count+1, row, col+1) ||
                             DFS(count+1, row, col-1);
                     }
                 }
-
                 else
                     return false;
             }
