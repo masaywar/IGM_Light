@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     //[SerializeField]
     [SerializeField] private BoardManager _boardManager;
     [SerializeField] private GameController _gameController;
-    
+    [SerializeField] private Anim _animator;
     private WaitForSeconds[] _waits;
 
     public int row = 0;
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
         idle = 0
     }
 
-    enum Colors
+    /*enum Colors
     {
         Basic = 0,
         Red = 1,
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
         Pink = 7,
         Purple = 8,
         Green = 9
-    }
+    }*/
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         _originCol = col;
         _originRow = row;
 
-        GetComponent<Animator>().SetInteger("color", (int)Colors.Basic);
+        animator.SetInteger("color", 0);
 
         //StartCoroutine(AnimMove());
         //GetComponent<Animator>().SetInteger("direction",0);
@@ -77,18 +77,22 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
+            _animator.Directioning((int) States.up);
             row = TryMove(row-1, col) ? row-1 : row;
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
+            _animator.Directioning((int) States.down);
             row = TryMove(row+1, col) ? row+1 : row;
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            _animator.Directioning((int) States.left);
             col = TryMove(row, col-1) ? col-1 : col;
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
+            _animator.Directioning((int) States.right);
             col = TryMove(row, col+1) ? col+1 : col;
         }
 #else
@@ -102,18 +106,22 @@ public class Player : MonoBehaviour
         //    Draw();
         if (direction.x == -1)
         {
+            _animator.Directioning((int)States.up);
             row = TryMove(row-1, col) ? row-1 : row;  //up
         }
         else if (direction.x == 1)
         {
+            _animator.Directioning((int)States.down);
             row = TryMove(row+1, col) ? row+1 : row;  //down
         }
         else if (direction.y == -1)
         {
+            _animator.Directioning((int)States.left);
             col = TryMove(row, col-1) ? col-1 : col;  //left
         }
         else if (direction.y == 1)
         {
+            _animator.Directioning((int)States.right);
             col = TryMove(row, col+1) ? col+1 : col;  //right
         }
     }
@@ -127,6 +135,12 @@ public class Player : MonoBehaviour
                 return false;
 
             AnimationQueue.Enqueue(onTile);
+            transform
+           .DOMove(onTile.transform.position, 0.5f)
+           .OnStepComplete(() => {
+               CheckTile(onTile);
+               Stand();
+           });
             //AnimationQueue.Enqueue(onTile);
             // print(AnimationQueue.Count);
         }
@@ -151,7 +165,9 @@ public class Player : MonoBehaviour
 
     void ChangeColor(ColorType color)
     {
-        switch (color)
+        Debug.Log((int)color);
+        _animator.Coloring((int)color);
+        /*switch (color)
         {
             case ColorType.Red:
                 animator.SetInteger("color", (int)Colors.Red);
@@ -178,14 +194,9 @@ public class Player : MonoBehaviour
                 animator.SetInteger("color", (int)Colors.Yellow);
                 break;
 
-        }
+        }*/
     }
-<<<<<<< mini
-
-    public void Draw()  //필터의 색과 같은 Tile 색,캐릭터 색 변경
-=======
     public void Draw() 
->>>>>>> main
     {
         if (_color == ColorType.Basic)
             return;
@@ -206,7 +217,7 @@ public class Player : MonoBehaviour
         if(_boardManager.TryGetTile(row, col, out var tile))
         {
             transform.position = tile.transform.position;
-            animator.SetInteger("color", (int)Colors.Basic);
+            animator.SetInteger("color",  0);
         }
     }
 
@@ -232,7 +243,7 @@ public class Player : MonoBehaviour
             });
 
             yield return _waits[0];
-            //yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1f);
         }
     }
 }

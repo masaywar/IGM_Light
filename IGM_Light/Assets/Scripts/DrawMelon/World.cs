@@ -10,6 +10,7 @@ public class World : UIWindow
     void Start()
     {
         Close();
+        //ShowProgress(0);
     }
 
     public void ShowProgress(int success)  //success는 한 stage 개수
