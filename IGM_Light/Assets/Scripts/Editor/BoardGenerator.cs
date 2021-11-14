@@ -146,7 +146,7 @@ public class BoardGenerator : BaseGenerator
             Quaternion.identity);
 
         player.transform.SetAsFirstSibling();
-        player.Row = _playerPos.x;
-        player.Col = _playerPos.y;
+        player.row = _playerPos.x;
+        player.col = _playerPos.y;
     }
 }

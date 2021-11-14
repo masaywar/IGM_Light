@@ -50,11 +50,11 @@ public class Player : MonoBehaviour
     {
         _boardManager = transform.parent.GetComponent<BoardManager>();
         _gameController = transform.parent.GetComponent<GameController>();
-        _waits = new WaitForSeconds[]{
+        /*_waits = new WaitForSeconds[]{
             new WaitForSeconds(0.05f),
             new WaitForSeconds(0.25f),
             new WaitForSeconds(0.5f),
-        };
+        };*/
 
         animator = GetComponent<Animator>();
 
@@ -63,8 +63,8 @@ public class Player : MonoBehaviour
 
         GetComponent<Animator>().SetInteger("color", (int)Colors.Basic);
 
-        StartCoroutine(AnimMove());
-        //GetComponent<Animator>().SetInteger("direction",1);
+        //StartCoroutine(AnimMove());
+        //GetComponent<Animator>().SetInteger("direction",0);
     }
 
     // Update is called once per frame
@@ -75,25 +75,25 @@ public class Player : MonoBehaviour
         {
             Draw();
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow)&&Input.GetAxis("Vertical")>0)
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            //GetComponent<Animator>().SetInteger("direction", (int)States.up);
-            TryMove(row-1, col);
+            GetComponent<Animator>().SetInteger("direction", (int)States.up);
+            row = TryMove(row-1, col) ? row-1 : row;
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow)&&Input.GetAxis("Vertical")<0)
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-           //GetComponent<Animator>().SetInteger("direction", (int)States.down);
-            TryMove(row+1, col);
+           GetComponent<Animator>().SetInteger("direction", (int)States.down);
+           row = TryMove(row+1, col) ? row+1 : row;
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-           //GetComponent<Animator>().SetInteger("direction", (int)States.left);
-            TryMove(row, col-1);
+           GetComponent<Animator>().SetInteger("direction", (int)States.left);
+            col = TryMove(row, col-1) ? col-1 : col;
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-           //GetComponent<Animator>().SetInteger("direction", (int)States.right);
-            TryMove(row, col+1);
+           GetComponent<Animator>().SetInteger("direction", (int)States.right);
+            col = TryMove(row, col+1) ? col+1 : col; 
         }
         /*else if(onTile!=null){
            if (this.transform.position == onTile.transform.position)  //move 확인
@@ -109,46 +109,60 @@ public class Player : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
+        //if (Input.touchCount == 1)
+        //    Draw();
         if (direction.x == -1)
         {
-            //GetComponent<Animator>().SetInteger("direction", (int)States.up);
-            //GetComponent<Animator>().SetFloat("direction_x", direction.x);
-            
+            GetComponent<Animator>().SetInteger("direction", (int)States.up);
             row = TryMove(row-1, col) ? row-1 : row;  //up
         }
         else if (direction.x == 1)
         {
-            //GetComponent<Animator>().SetInteger("direction", (int)States.down);
+           GetComponent<Animator>().SetInteger("direction", (int)States.down);
             row = TryMove(row+1, col) ? row+1 : row;  //down
         }
         else if (direction.y == -1)
         {
-            //GetComponent<Animator>().SetInteger("direction", (int)States.left);
+            GetComponent<Animator>().SetInteger("direction", (int)States.left);
             col = TryMove(row, col-1) ? col-1 : col;  //left
         }
         else if (direction.y == 1)
         {
-            //GetComponent<Animator>().SetInteger("direction", (int)States.right);
+            GetComponent<Animator>().SetInteger("direction", (int)States.right);
             col = TryMove(row, col+1) ? col+1 : col;  //right
         }
     }
 
     public bool TryMove(int p_row, int p_col)
     {
-        if (_boardManager.TryGetTile(p_row, p_col, out var onTile))  //onTile에는 갈 위치
+
+        if (_boardManager.TryGetTile(p_row, p_col, out var onTile))
         {
             if (onTile.HasObstacle)
+            {
+                Debug.Log("obstacle");
                 return false;
+            }
+            //goTile = GameObject.Find("Board").GetComponent<BoardManager>().GetTile(row+1, col);
+            //this.transform.position = goTile.transform.position;
+            if (onTile.HasFilter)
+            {
+                _color = onTile.Filter.color;
+                onTile.Filter.gameObject.SetActive(false);
+                Debug.Log(_color);
+                ChangeColor(_color);
+            }
 
-            AnimationQueue.Enqueue(onTile);
-            print(AnimationQueue.Count);
+            transform.DOMove(onTile.transform.position, 2f);
+            Invoke("Stand", 2f);
 
-            return true;
+            //AnimationQueue.Enqueue(onTile);
+            // print(AnimationQueue.Count);
         }
-
-        return false;
+       return true;
     }
 
+   
     private void CheckTile(CustomTile tile)
     {
         if (tile.HasFilter)
@@ -166,8 +180,36 @@ public class Player : MonoBehaviour
 
     void ChangeColor(ColorType color)
     {
-        animator.SetInteger("color", (int)color);
+        switch (color)
+        {
+            case ColorType.Red:
+                animator.SetInteger("color", (int)Colors.Red);
+                break;
+            case ColorType.Basic:
+                animator.SetInteger("color", (int)Colors.Basic);
+                break;
+            case ColorType.Blue:
+                animator.SetInteger("color", (int)Colors.Blue);
+                break;
+            case ColorType.Green:
+                animator.SetInteger("color", (int)Colors.Green);
+                break;
+            case ColorType.Cyan:
+                animator.SetInteger("color", (int)Colors.Cyan);
+                break;
+            case ColorType.Purple:
+                animator.SetInteger("color", (int)Colors.Purple);
+                break;
+            case ColorType.Pink:
+                animator.SetInteger("color", (int)Colors.Pink);
+                break;
+            case ColorType.Yellow:
+                animator.SetInteger("color", (int)Colors.Yellow);
+                break;
+
+        }
     }
+
     public void Draw()  //필터의 색과 같은 Tile 색,캐릭터 색 변경
     {
         if (_color == ColorType.Basic)

@@ -131,6 +131,6 @@ public class GameControllerGUIInspector : Editor
 
         controller.TargetTable[(int)colorType].Blocks.Add(customBlock);
         
-        Instantiate(blcokDatabaseLoader.Blocks[(int)colorType].Blocks[(int)blockType], _scrollView.content);
+        //Instantiate(blcokDatabaseLoader.Blocks[(int)colorType].Blocks[(int)blockType], _scrollView.content);
     }
 }

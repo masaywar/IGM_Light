@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: 3406a1ceb491aeb458a9b8f7d3fc8924
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1164846323200807754
+    second: down2_Yellow_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,7 +112,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: down2_Yellow_0
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 99
+        width: 680
+        height: 814
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc22bfc072a5dfe0800000000000000
+      internalID: -1164846323200807754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
