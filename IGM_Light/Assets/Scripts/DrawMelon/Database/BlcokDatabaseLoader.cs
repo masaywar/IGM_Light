@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System.Linq;
 using System.IO;
 
@@ -23,6 +25,7 @@ public class BlcokDatabaseLoader : ScriptableObject
     public string path;
     public List<BlockList> Blocks = new List<BlockList>();
 
+    #if UNITY_EDITOR
     public void Load()
     {
         if (Blocks.Count>0)
@@ -39,4 +42,5 @@ public class BlcokDatabaseLoader : ScriptableObject
             });
         });
     }
+    #endif
 }
