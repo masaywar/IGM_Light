@@ -7,18 +7,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private Image _fadeOutPanel;
-    [SerializeField] private Image _fadeInPanel;
+    [SerializeField] private Image _fadePanel;
+    [SerializeField, Range(0.0f, 1.0f)] private float _fadeSpeed;
 
+    private Coroutine _fadeCoroutine = null;
+    
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        DontDestroyOnLoad(_fadeInPanel.transform.parent.gameObject);
+        DontDestroyOnLoad(_fadePanel.transform.parent.gameObject);
         
-        StartCoroutine(fadeIn());
+        SceneManager.activeSceneChanged += FadeIn;
+        //StartCoroutine(fadeIn());
     }
-
-    private Coroutine _fadeOutCoroutine = null;
 
     private void Update()
     {
@@ -47,74 +48,91 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    private void OnSceneChange()
+    private void FadeIn(Scene scene1, Scene scene2)
     {
-        _fadeInPanel.color = new Color(0, 0, 0, 0);
-        _fadeOutPanel.color = new Color(0, 0, 0, 1);
-
-        _fadeOutCoroutine = null;
+        FadeIn();
     }
 
     public void FadeIn()
     {
+        if(_fadePanel == null)
+            return;
 
+        _fadeCoroutine = StartCoroutine(fadeIn());
     }
 
     public void FadeOut()
     {
-        if(_fadeOutCoroutine == null)
-            _fadeOutCoroutine = StartCoroutine(fadeOut());
+        if(_fadePanel == null)
+            return;
+
+        if(_fadeCoroutine == null)
+        {
+            _fadeCoroutine = StartCoroutine(fadeOut());
+        }
     }
 
     public void FadeOut(int buildIndex)
     {
-        if(_fadeOutCoroutine == null)
-            _fadeOutCoroutine= StartCoroutine(fadeOut(buildIndex));
+        if(_fadePanel == null)
+            return;
+
+        if(_fadeCoroutine == null)
+        {
+            _fadeCoroutine = StartCoroutine(fadeOut(buildIndex));
+        }
     }
 
     public void FadeOut(string sceneName)
     {
-        if(_fadeOutCoroutine == null)
-            _fadeOutCoroutine = StartCoroutine(fadeOut(sceneName));
+        if(_fadePanel == null)
+            return;
+
+        if(_fadeCoroutine == null)
+        {
+            _fadeCoroutine = StartCoroutine(fadeOut(sceneName));
+        }
     }
 
     private IEnumerator fadeIn()
     {
-        while(_fadeInPanel.color.a >= 0)
+        while(_fadePanel.color.a >= 0)
         {
-            _fadeInPanel.color -= new Color(0, 0, 0, 0.05f);
+            _fadePanel.color -= new Color(0, 0, 0, _fadeSpeed);
             yield return new WaitForSeconds(0.02f);
         }
+
+        _fadeCoroutine = null;
     }
 
     private IEnumerator fadeOut()
     {
-        while(_fadeOutPanel.color.a < 1)
+        while(_fadePanel.color.a < 1)
         {
-            _fadeOutPanel.color += new Color(0, 0, 0, 0.05f);
+            _fadePanel.color += new Color(0, 0, 0, _fadeSpeed);
             yield return new WaitForSeconds(0.02f);
         }
-        
-        print("asdf");
+
+        _fadeCoroutine = null;
         SceneController.LoadNextScene();
     }
 
     private IEnumerator fadeOut(int index)
     {
-        while(_fadeOutPanel.color.a < 1)
+        while(_fadePanel.color.a < 1)
         {
-            _fadeOutPanel.color += new Color(0, 0, 0, 0.05f);
+            _fadePanel.color += new Color(0, 0, 0, _fadeSpeed);
             yield return new WaitForSeconds(0.02f);
         }
-
+        _fadeCoroutine = null;
         SceneController.LoadSceneByIndex(index);
     }
 
     private IEnumerator fadeOut(string sceneName)
     {
-        while(_fadeOutPanel.color.a < 1)
+        while(_fadePanel.color.a < 1)
         {
-            _fadeOutPanel.color += new Color(0, 0, 0, 0.05f);
+            _fadePanel.color += new Color(0, 0, 0, _fadeSpeed);
             yield return new WaitForSeconds(0.02f);
         }
 

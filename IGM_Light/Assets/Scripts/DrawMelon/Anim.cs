@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Anim : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
 
     enum States
     {
