@@ -96,19 +96,19 @@ AnimatorStateMachine:
     m_Position: {x: 450, y: -110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7299641852644306538}
-    m_Position: {x: 930, y: 10, z: 0}
+    m_Position: {x: 1430, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7242224865328207838}
-    m_Position: {x: 810, y: -20, z: 0}
+    m_Position: {x: 1200, y: -20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6951857829028313493}
-    m_Position: {x: 730, y: -40, z: 0}
+    m_Position: {x: 980, y: -50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5491806463813813214}
     m_Position: {x: 40, y: -30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1495145222829327833}
-    m_Position: {x: 680, y: -50, z: 0}
+    m_Position: {x: 750, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7689453005532272048}
     m_Position: {x: 70, y: 40, z: 0}
@@ -460,10 +460,10 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: color
-    m_EventTreshold: 1
+    m_EventTreshold: 6
   - m_ConditionMode: 6
     m_ConditionEvent: direction
-    m_EventTreshold: 6
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1495145222829327833}
   m_Solo: 0

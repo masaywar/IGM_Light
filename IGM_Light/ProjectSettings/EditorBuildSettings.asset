@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/stage1_1_woohyun.unity
     guid: be9bfcc6f919e2a49a343c689f1ef02a
+  - enabled: 1
+    path: Assets/Scenes/stage_select.unity
+    guid: f5e67394646d4664ca4e8d096849a7f6
   m_configObjects: {}

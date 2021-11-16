@@ -9,14 +9,14 @@ public class UIBackground : UIWindow
 
     private void Update()
     {
-        // if (!UIManager.Instance.Controller.IsSolved)
-        // {
-        //     int step =  GameUIManager.instance.Controller.Player.mov;
+       /* if (!UIManager.Instance.Controller.IsSolved)
+        {
+            //int step =  UIManager.instance.Controller.Player.Step;
 
-        //     int[] standards = GameUIManager.instance.Controller.Standard;
-        //     string standard = step <= standards[0] ? standards[0].ToString() : standards[1].ToString();
+           // int[] standards = GameUIManager.instance.Controller.Standard;
+            //string standard = step <= standards[0] ? standards[0].ToString() : standards[1].ToString();
 
-        //     _text.text = step.ToString() + "/" + standard.ToString();
-        // }
+           // _text.text = step.ToString();
+        }*/
     } 
 }
