@@ -102,21 +102,21 @@ public partial class GameController : MonoBehaviour
 
     public void OnSolved()
     {
-        // int step = Player.mov;
+        int step = Player.mov;
         
-        // int score = 0;
+        int score = 0;
 
-        // if (step <= Standard[0])
-        //     score = 3;
-        // else if(step <= Standard[1])
-        //     score = 2;
-        // else
-        //     score = 1;
+         if (step <= Standard[0])
+             score = 3;
+         else if(step <= Standard[1])
+            score = 2;
+         else
+             score = 1;
 
-        // var uiScore = GameUIManager.Instance.GetWindow<UIScore>("UIScore");
+        var uiScore = UIManager.Instance.GetWindow<UIScore>("UIScore");
 
-        // uiScore.Open(true);
-        // uiScore.ShowScore(score);
+        uiScore.Open(true);
+        uiScore.ShowScore(score);
     }
 
     public void ResetGame()

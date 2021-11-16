@@ -8,6 +8,7 @@ using DG.Tweening;
 public class UIScore : UIWindow
 {
     public Image[] Scores;
+    [SerializeField] private GameController _gameController;
 
     private void Start() 
     {

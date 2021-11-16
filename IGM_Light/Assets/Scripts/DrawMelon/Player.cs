@@ -9,17 +9,21 @@ public class Player : MonoBehaviour
     //[SerializeField]
     [SerializeField] private BoardManager _boardManager;
     [SerializeField] private GameController _gameController;
-    
+    [SerializeField] private Anim anim;
+
     private WaitForSeconds[] _waits;
 
     public int Row = 0;
     public int Column = 0;
     public int Step = 0;
+    public int mov = 0;
+    //private Text moving;
 
     public ColorType PlayerColorType;
 
     private int _originRow;
     private int _originCol;
+    public Vector2Int direc;
 
     // public ColorType standard;
 
@@ -49,6 +53,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //moving = GameObject.Find("Steps").GetComponent<Text>();
         _animator = GetComponent<Animator>();
 
         _boardManager   = transform.parent.GetComponent<BoardManager>();
@@ -79,18 +84,22 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
+            //anim.Directioning((int)States.up);
             Row = TryMove(Row-1, Column) ? Row-1 : Row;
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
+            //anim.Directioning((int)States.down);
             Row = TryMove(Row+1, Column) ? Row+1 : Row;
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            //anim.Directioning((int)States.left);
             Column = TryMove(Row, Column-1) ? Column-1 : Column;
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
+            //anim.Directioning((int)States.right);
             Column = TryMove(Row, Column+1) ? Column+1 : Column;
         }
 #else
@@ -167,7 +176,7 @@ public class Player : MonoBehaviour
     }
 
     private IEnumerator AnimMove()
-    {
+    { 
         while(true)
         {
             if (AnimationQueue.Count <= 0)
@@ -177,9 +186,14 @@ public class Player : MonoBehaviour
             }
 
             CustomTile tile = AnimationQueue.Dequeue();
-
+            mov++;
             Row = tile.Row;
             Column = tile.Column;
+
+            direc.x = (int)(this.transform.position - tile.transform.position).x;
+            direc.y = (int)(this.transform.position - tile.transform.position).y;
+            //Debug.Log((this.transform.position - tile.transform.position).x);
+            anim.Direction(direc);
 
             transform
             .DOMove(tile.transform.position, 0.5f)
