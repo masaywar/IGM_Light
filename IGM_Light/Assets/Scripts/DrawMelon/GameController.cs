@@ -1,5 +1,3 @@
-using System.Data;
-using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,7 +48,6 @@ public partial class GameController : MonoBehaviour
         {
             _numOfBlocks += row.Blocks.Count;
         }
-
     }   
 
     public void Match(ColorType colorType)
@@ -102,16 +99,16 @@ public partial class GameController : MonoBehaviour
 
     public void OnSolved()
     {
-        int step = Player.mov;
+        int step = Player.Step;
         
         int score = 0;
 
-         if (step <= Standard[0])
-             score = 3;
-         else if(step <= Standard[1])
+        if (step <= Standard[0])
+            score = 3;
+        else if(step <= Standard[1])
             score = 2;
-         else
-             score = 1;
+        else
+            score = 1;
 
         var uiScore = UIManager.Instance.GetWindow<UIScore>("UIScore");
 
