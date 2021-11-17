@@ -58,7 +58,7 @@ public class UIStageSelect : UIWindow
         if(UserDataInstance.Instance.CurrentWorld == 0)
             return;
 
-        for(int k=0; k<9; k++)
+        for(int k=0; k<FixedValues.STAGES; k++)
         {
             if( UserDataInstance.Instance.UserData.Worlds == UserDataInstance.Instance.CurrentWorld &&
                 UserDataInstance.Instance.UserData.Stages == k)
@@ -70,7 +70,7 @@ public class UIStageSelect : UIWindow
             }
 
             if(!UserDataInstance.Instance.UserData.UserClearData[
-                (UserDataInstance.Instance.CurrentWorld-1)*9 + k])
+                (UserDataInstance.Instance.CurrentWorld-1)*FixedValues.STAGES + k])
             {
                 _buttons[k].GetChild(0).gameObject.SetActive(true);
                 continue;
@@ -79,11 +79,11 @@ public class UIStageSelect : UIWindow
             int tmp = k;
 
             _buttons[k].GetChild(
-                UserDataInstance.Instance.UserData.UserScoreData[(UserDataInstance.Instance.CurrentWorld-1)*9 + k]+1)
+                UserDataInstance.Instance.UserData.UserScoreData[(UserDataInstance.Instance.CurrentWorld-1)*FixedValues.STAGES + k]+1)
                 .gameObject.SetActive(true);
 
             _buttons[k].GetChild(
-                UserDataInstance.Instance.UserData.UserScoreData[(UserDataInstance.Instance.CurrentWorld-1)*9 + k]+1)
+                UserDataInstance.Instance.UserData.UserScoreData[(UserDataInstance.Instance.CurrentWorld-1)*FixedValues.STAGES + k]+1)
                 .GetComponent<Button>().onClick.AddListener(()=>OnClickStageButton(tmp));
         }
     }

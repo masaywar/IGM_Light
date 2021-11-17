@@ -23,4 +23,17 @@ public class UIBackground : UIWindow
             _text.text = step.ToString();
         }
     }
+
+    public void OnClickReset()
+    {
+        _gameController.ResetGame();
+    }
+
+    public void OnClickPause()
+    {
+        //TODO pause 구현
+        GameManager.Instance.FadeOut(
+            SceneController.activeSceneIndex-1
+        );
+    }
 }

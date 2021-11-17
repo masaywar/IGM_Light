@@ -103,6 +103,9 @@ public class Player : MonoBehaviour
             if (onTile.HasObstacle)
                 return false;
 
+            if (onTile.HasFilter)
+                PlayerColorType = onTile.Filter.color;
+
             direc.y = row - Row;
             direc.x = Column - col;
             anim.Direction(direc);
@@ -111,7 +114,11 @@ public class Player : MonoBehaviour
             .DOMove(onTile.transform.position, 0.5f)
             .OnComplete(()=>{
                 Step++;
-                CheckTile(onTile);
+                if (onTile.HasFilter)
+                {
+                    onTile.Filter.gameObject.SetActive(false);
+                    ChangeColor(PlayerColorType);
+                }
             });
 
 
@@ -128,8 +135,7 @@ public class Player : MonoBehaviour
         if (tile.HasFilter)
         {
             PlayerColorType = tile.Filter.color;
-            tile.Filter.gameObject.SetActive(false);
-            ChangeColor(PlayerColorType);
+            
         }
     }
 
@@ -147,6 +153,10 @@ public class Player : MonoBehaviour
     {
         if (PlayerColorType == ColorType.Basic)
             return;
+
+        if(_boardManager.TryGetTile(Row, Column, out var tile))
+            if(!tile.IsInteractable)
+                return;
 
         if (_boardManager.TryGetTileSprite(PlayerColorType, out var sprite))
         {

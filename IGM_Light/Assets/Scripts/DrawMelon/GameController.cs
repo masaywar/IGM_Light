@@ -24,7 +24,6 @@ public partial class GameController : MonoBehaviour
         {
             if(SolvedList.Count == _numOfBlocks)
             {
-                OnSolved();
                 return true;
             }
 
@@ -111,6 +110,9 @@ public partial class GameController : MonoBehaviour
                     break;
             }
         }
+
+        if (IsSolved)
+            OnSolved();
     }
 
     public void OnSolved()
@@ -133,23 +135,30 @@ public partial class GameController : MonoBehaviour
             uiScore.Open(true);
             uiScore.ShowScore(score);
 
-            if (UserDataInstance.Instance.UserData.Stages != 9)
+            if (UserDataInstance.Instance.UserData.Stages != FixedValues.STAGES 
+                && UserDataInstance.Instance.CurrentStage > UserDataInstance.Instance.UserData.Stages)
                 UserDataInstance.Instance.UserData.Stages++;
-            else
+            
+            else if(UserDataInstance.Instance.UserData.Stages == FixedValues.STAGES)
             {
                 UserDataInstance.Instance.UserData.Worlds++;
                 UserDataInstance.Instance.UserData.Stages = 0;
             }
 
             UserDataInstance.Instance.UserData.UserClearData[
-                (UserDataInstance.Instance.CurrentWorld-1)*9+
+                (UserDataInstance.Instance.CurrentWorld-1)*FixedValues.STAGES+
                 UserDataInstance.Instance.CurrentStage-1
             ] = true;
             UserDataInstance.Instance.UserData.UserScoreData[
-                (UserDataInstance.Instance.CurrentWorld-1)*9+
+                (UserDataInstance.Instance.CurrentWorld-1)*FixedValues.STAGES+
                 UserDataInstance.Instance.CurrentStage-1
-            ] = score;
+            ] = Mathf.Max(score, UserDataInstance.Instance.UserData.UserScoreData[
+                (UserDataInstance.Instance.CurrentWorld-1)*FixedValues.STAGES+
+                UserDataInstance.Instance.CurrentStage-1
+            ]);
+
             UserDataInstance.Instance.SaveData();
+            UserDataInstance.Instance.LoadData();
         }
     }
 
