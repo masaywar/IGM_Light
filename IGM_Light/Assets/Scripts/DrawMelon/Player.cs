@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     public int Row = 0;
     public int Column = 0;
     public int Step = 0;
-    public int mov = 0;
     //private Text moving;
 
     public ColorType PlayerColorType;
@@ -32,25 +31,6 @@ public class Player : MonoBehaviour
 
     private Queue<CustomTile> AnimationQueue = new Queue<CustomTile>();
 
-    enum States{
-        up = 1,
-        down = 2,
-        left = 3,
-        right = 4,
-        idle = 0
-    }
-
-    enum Colors
-    {
-        Basic = 0,
-        Red = 1,
-        Blue = 2,
-        Cyan = 3,
-        Yellow = 6,
-        Pink = 7,
-        Purple = 8,
-        Green = 9
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -70,9 +50,9 @@ public class Player : MonoBehaviour
         _originCol = Column;
         _originRow = Row;
 
-        _animator.SetInteger("color", (int)Colors.Basic);
+        _animator.SetInteger("color", (int)PlayerColorType);
 
-        StartCoroutine(AnimMove());
+        anim = FindObjectOfType<Anim>();
     }
 
     // Update is called once per frame
@@ -117,9 +97,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public bool TryMove(int p_row, int p_col)
+    public bool TryMove(int row, int col)
     {
-        if (_boardManager.TryGetTile(p_row, p_col, out var onTile))  //onTile에는 갈 위치
+        if (_boardManager.TryGetTile(row, col, out var onTile))  //onTile에는 갈 위치
         {
             if (onTile.HasObstacle)
                 return false;
@@ -134,9 +114,23 @@ public class Player : MonoBehaviour
             }
 
             AnimationQueue.Enqueue(onTile);
+            direc.y = row - Row;
+            direc.x = Column - col;
+            anim.Direction(direc);
+
+             transform
+            .DOMove(onTile.transform.position, 0.5f)
+            .OnComplete(()=>{
+                Step++;
+                CheckTile(onTile);
+            });
+
+
+
             return true;
         }
 
+        var animState = anim.animator.GetCurrentAnimatorStateInfo(0);
         return false;
     }
 
@@ -152,13 +146,14 @@ public class Player : MonoBehaviour
 
     void Stand()
     {
-        _animator.SetInteger("direction", (int)States.idle);
+        _animator.SetInteger("direction", 0);
     }
 
     void ChangeColor(ColorType color)
     {
         _animator.SetInteger("color", (int)color);
     }
+    
     public void Draw() 
     {
         if (PlayerColorType == ColorType.Basic)
@@ -181,38 +176,7 @@ public class Player : MonoBehaviour
         if(_boardManager.TryGetTile(Row, Column, out var tile))
         {
             transform.position = tile.transform.position;
-            _animator.SetInteger("color", (int)Colors.Basic);
-        }
-    }
-
-    private IEnumerator AnimMove()
-    { 
-        while(true)
-        {
-            if (AnimationQueue.Count <= 0)
-            {
-                yield return _waits[0];
-                continue;
-            }
-
-            CustomTile tile = AnimationQueue.Dequeue();
-            Row = tile.Row;
-            Column = tile.Column;
-
-            direc.x = (int)(this.transform.position - tile.transform.position).x;
-            direc.y = (int)(this.transform.position - tile.transform.position).y;
-            //Debug.Log((this.transform.position - tile.transform.position).x);
-            anim.Direction(direc);
-
-            transform
-            .DOMove(tile.transform.position, 0.5f)
-            .OnStepComplete(()=>{
-                Step++;
-                CheckTile(tile);
-                Stand();    
-            });
-
-            yield return _waits[0];
+            _animator.SetInteger("color", (int)PlayerColorType);
         }
     }
 }

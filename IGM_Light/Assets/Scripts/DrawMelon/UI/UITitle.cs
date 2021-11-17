@@ -12,6 +12,9 @@ public class UITitle : UIWindow
 
     private void Start()
     {
+        _startIndicator.transform.DOPunchScale(
+            new Vector3(.3f, .3f, .3f),
+            1, 1, 0.5f
+        ).SetLoops(-1);
     }
-
 }

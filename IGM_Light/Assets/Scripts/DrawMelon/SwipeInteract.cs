@@ -10,13 +10,12 @@ public class SwipeInteract : LeanFingerSwipe
     public int Threshold;
     private float _distance;
     private Coroutine _coroutine = null;
-    private Player _player;
+    [HideInInspector]public Player _player;
 
     int count = 0;
     protected override void Start()
     {
         base.Start();
-        _player = FindObjectOfType<Player>();
     }
 
     public void OnSwipe(Vector3 swipe)
