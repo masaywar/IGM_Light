@@ -33,6 +33,7 @@ public class TileGUIInspector : Editor {
         {
             DestroyImmediate(_tile.Filter?.gameObject);
             DestroyImmediate(_tile.Obstacle?.gameObject);
+            DestroyImmediate(_tile.wt?.gameObject);
 
             var filter = AssetDatabase.LoadAssetAtPath<Filter>("Assets/Resources/Prefabs/Filters/TestFilter.prefab");
             var filterObject = Instantiate(filter, _tile.transform.position, Quaternion.identity, _tile.transform);
@@ -44,6 +45,7 @@ public class TileGUIInspector : Editor {
         {
             DestroyImmediate(_tile.Filter?.gameObject);
             DestroyImmediate(_tile.Obstacle?.gameObject);
+            DestroyImmediate(_tile.wt?.gameObject);
 
             //Instantiate obstacles;
             var obstacle = AssetDatabase.LoadAssetAtPath<Obstacle>("Assets/Resources/Prefabs/Obstacles/Basic.prefab");
@@ -52,9 +54,24 @@ public class TileGUIInspector : Editor {
             _tile.Obstacle = obstacleObject.GetComponent<Obstacle>();
         }
 
+        if (GUILayout.Button("Set WeakTile"))
+        {
+            DestroyImmediate(_tile.Filter?.gameObject);
+            DestroyImmediate(_tile.Obstacle?.gameObject);
+            DestroyImmediate(_tile.wt?.gameObject);
+
+            //Instantiate obstacles;
+            var obstacle = AssetDatabase.LoadAssetAtPath<WeakTile>("Assets/Resources/Prefabs/Obstacles/WeakTile.prefab");
+            var obstacleObject = Instantiate(obstacle, _tile.transform.position, Quaternion.identity, _tile.transform);
+
+            _tile.wt = obstacleObject.GetComponent<WeakTile>();
+        }
+
         if (GUILayout.Button("Clear"))
         {
             DestroyImmediate(_tile.Filter?.gameObject);
+            DestroyImmediate(_tile.Obstacle?.gameObject);
+            DestroyImmediate(_tile.wt?.gameObject);
             _tile.Filter = null;
         }
 
