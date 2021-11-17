@@ -104,6 +104,16 @@ public class UserDataInstance : MonoBehaviour
         return default;
     }
 
+    public void LoadData()
+    {
+        UserData = LoadData<UserData>("userdata.json");
+    }
+
+    public void SaveData()
+    {
+        SaveData<UserData>(UserData, "userdata.json");
+    }
+
     public void SaveData<T>(T data, string fileName)
     {
         try

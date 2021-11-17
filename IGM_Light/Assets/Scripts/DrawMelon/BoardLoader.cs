@@ -10,8 +10,6 @@ public class BoardLoader : MonoBehaviour
     {
         _worldsLoader = GameManager.Instance.WorldsLoader;
 
-        print(_worldsLoader.WorldsTable.Count);
-
         var board = _worldsLoader.WorldsTable[UserDataInstance.Instance.CurrentWorld-1].Stages[UserDataInstance.Instance.CurrentStage-1];
         var spawnedBoard = Instantiate(board);
 
@@ -27,10 +25,11 @@ public class BoardLoader : MonoBehaviour
              yield return new WaitForSeconds(0.05f);
 
 
-        print(controller == null);
-        print(UIManager.Instance.GetWindow<UIBackground>("UIBackground")== null);
         UIManager.Instance.GetWindow<UIBackground>("UIBackground")._gameController = controller;
         FindObjectOfType<Anim>().animator = controller.Player.GetComponent<Animator>();
         FindObjectOfType<SwipeInteract>()._player = controller.Player;
+        Camera.main.GetComponent<CameraModify>().SetCameraPositionAndSize(
+            controller.GetComponent<BoardManager>().Length
+        );
     }
 }

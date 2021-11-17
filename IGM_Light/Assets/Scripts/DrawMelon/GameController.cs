@@ -126,14 +126,30 @@ public partial class GameController : MonoBehaviour
         else
             score = 1;
 
-        print(score);
-
         var uiScore = UIManager.Instance.GetWindow<UIScore>("UIScore");
 
         if(!uiScore.IsOpen())
         {
             uiScore.Open(true);
             uiScore.ShowScore(score);
+
+            if (UserDataInstance.Instance.UserData.Stages != 9)
+                UserDataInstance.Instance.UserData.Stages++;
+            else
+            {
+                UserDataInstance.Instance.UserData.Worlds++;
+                UserDataInstance.Instance.UserData.Stages = 0;
+            }
+
+            UserDataInstance.Instance.UserData.UserClearData[
+                (UserDataInstance.Instance.CurrentWorld-1)*9+
+                UserDataInstance.Instance.CurrentStage-1
+            ] = true;
+            UserDataInstance.Instance.UserData.UserScoreData[
+                (UserDataInstance.Instance.CurrentWorld-1)*9+
+                UserDataInstance.Instance.CurrentStage-1
+            ] = score;
+            UserDataInstance.Instance.SaveData();
         }
     }
 

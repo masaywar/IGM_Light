@@ -77,12 +77,14 @@ public class UIStageSelect : UIWindow
             }
 
             int tmp = k;
-            _buttons[k].GetChild(UserDataInstance.Instance.UserData.UserScoreData[
-                (UserDataInstance.Instance.CurrentWorld-1)*9 + k
-            ]+1).gameObject.SetActive(true);
-            _buttons[k].GetChild(UserDataInstance.Instance.UserData.UserScoreData[
-                (UserDataInstance.Instance.CurrentWorld-1)*9 + k
-            ]+1).GetComponent<Button>().onClick.AddListener(()=>OnClickStageButton(tmp));
+
+            _buttons[k].GetChild(
+                UserDataInstance.Instance.UserData.UserScoreData[(UserDataInstance.Instance.CurrentWorld-1)*9 + k]+1)
+                .gameObject.SetActive(true);
+
+            _buttons[k].GetChild(
+                UserDataInstance.Instance.UserData.UserScoreData[(UserDataInstance.Instance.CurrentWorld-1)*9 + k]+1)
+                .GetComponent<Button>().onClick.AddListener(()=>OnClickStageButton(tmp));
         }
     }
 

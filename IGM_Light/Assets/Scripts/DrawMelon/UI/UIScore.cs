@@ -65,6 +65,7 @@ public class UIScore : UIWindow
 
     public void OnClickNext()
     {
+        UserDataInstance.Instance.CurrentStage++;
         GameManager.Instance.FadeOut(SceneController.activeSceneIndex);
     }
 
