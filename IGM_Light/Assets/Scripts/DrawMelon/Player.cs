@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     private int _originRow;
     private int _originCol;
     public Vector2Int direc;
+    public bool broke = false;
 
     // public ColorType standard;
 
@@ -123,6 +124,15 @@ public class Player : MonoBehaviour
             if (onTile.HasObstacle)
                 return false;
 
+            if (onTile.HasWeakTile)
+            {
+                if (broke)
+                {
+                    return false;
+                }
+                broke = true;
+            }
+
             AnimationQueue.Enqueue(onTile);
             return true;
         }
@@ -186,7 +196,6 @@ public class Player : MonoBehaviour
             }
 
             CustomTile tile = AnimationQueue.Dequeue();
-            mov++;
             Row = tile.Row;
             Column = tile.Column;
 

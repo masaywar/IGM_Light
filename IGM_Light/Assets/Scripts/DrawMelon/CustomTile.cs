@@ -31,6 +31,17 @@ public class CustomTile : MonoBehaviour
         }
     }
 
+    public bool HasWeakTile
+    {
+        get
+        {
+            if (wt == null)
+                return false;
+
+            return wt.gameObject.activeSelf;
+        }
+    }
+
     public bool HasFilter
     {
         get
@@ -46,6 +57,7 @@ public class CustomTile : MonoBehaviour
 
     public Filter Filter;
     public Obstacle Obstacle;
+    public WeakTile wt;
 
     private void Awake()
     {

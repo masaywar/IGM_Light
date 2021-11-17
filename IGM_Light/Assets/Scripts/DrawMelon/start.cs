@@ -16,7 +16,7 @@ public class start : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            SceneManager.LoadScene("stage1_1_woohyun");
+            SceneManager.LoadScene("WorldSelect");
         }
     }
 }

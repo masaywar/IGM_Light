@@ -18,9 +18,7 @@ public class stage_select : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        //ShowProgress(0);
-
+    { 
         for (int i = 0; i < data.UserData.UserClearData.Length; i++)
         {
             if (i < 9)
