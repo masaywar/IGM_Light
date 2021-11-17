@@ -12,6 +12,7 @@ public class UIScore : UIWindow
 
     private void Start() 
     {
+        _gameController = FindObjectOfType<GameController>();
         Close();
     }
 
@@ -60,6 +61,17 @@ public class UIScore : UIWindow
             Scores[0].gameObject.SetActive(true);
             Scores[2].gameObject.SetActive(true);
         }
-            
+    }
+
+    public void OnClickNext()
+    {
+        GameManager.Instance.FadeOut(SceneController.activeSceneIndex);
+    }
+
+    public void OnClickHome()
+    {
+        GameManager.Instance.FadeOut(
+            SceneController.activeSceneIndex - _gameController.Worlds
+        );
     }
 }

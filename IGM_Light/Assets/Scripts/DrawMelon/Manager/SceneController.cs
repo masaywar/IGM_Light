@@ -57,8 +57,10 @@ public static class SceneController
         if (index < 0)
             return;
 
-        if (index >= SceneManager.sceneCount)
+        if (index >= SceneManager.sceneCountInBuildSettings)
             return;
+
+        SceneManager.LoadScene(index);
     }
 
 }

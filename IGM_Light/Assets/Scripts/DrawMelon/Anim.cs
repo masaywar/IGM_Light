@@ -15,19 +15,6 @@ public class Anim : MonoBehaviour
         idle = 0
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        animator = GameObject.Find("TestPlayer(Clone)").GetComponent<Animator>();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Directioning(int direction)
     {
         animator.SetInteger("direction", direction);

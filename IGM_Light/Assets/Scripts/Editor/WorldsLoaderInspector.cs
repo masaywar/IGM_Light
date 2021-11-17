@@ -7,7 +7,7 @@ using System.IO;
 [CustomEditor(typeof(WorldsLoader))]
 public class WorldsLoaderInspector : Editor
 {
-    /*public WorldsLoader loader;
+    public WorldsLoader loader;
 
     public override void OnInspectorGUI()
     {
@@ -30,18 +30,18 @@ public class WorldsLoaderInspector : Editor
         Directory.GetDirectories(loader.path).ForEach(
             dir => {
                 dir = dir.Replace('\\', '/');
-                List<GameObject> tempList = new List<GameObject>();
+                List<GameController> tempList = new List<GameController>();
                 
                 Directory.GetFiles(dir).ForEach(p => {
-                    GameObject loaded = (GameObject)AssetDatabase.LoadAssetAtPath(p, typeof(GameObject));
+                    GameController loaded = AssetDatabase.LoadAssetAtPath<GameController>(p);
                     if(loaded!=null)
                         tempList.Add(loaded);
                 });
 
                 WorldsLoader.Table table = new WorldsLoader.Table();
-                table.Stages = tempList.ToArray();
+                table.Stages = tempList;
                 loader.WorldsTable.Add(table);
             }
         );
-    }*/
+    }
 }

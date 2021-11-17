@@ -24,6 +24,9 @@ public class UserDataInstance : MonoBehaviour
 
     public UserData UserData;
 
+    public int CurrentWorld;
+    public int CurrentStage;
+
     public Dictionary<int, Dictionary<int, Tuple<int, bool>>> UserSavedData;
 
     private void Awake()
@@ -58,7 +61,7 @@ public class UserDataInstance : MonoBehaviour
         try
         {
             #if UNITY_EDITOR
-            string path = "D:/UnityProject/IGM_Ligjt/IGM_Light/Assets/Resources/Saved" + "/" + fileName;
+            string path = Application.dataPath + "/Data/" + fileName;
             #else
             string path = Application.persistentDataPath + "/" + fileName;
             #endif
@@ -114,7 +117,7 @@ public class UserDataInstance : MonoBehaviour
             }
 
             #if UNITY_EDITOR
-            string path = "D:/UnityProject/IGM_Ligjt/IGM_Light/Assets/Resources/Saved"+ "/" + fileName;
+            string path = Application.dataPath+ "/Data/" + fileName;
             #else
             string path = Application.persistentDataPath + "/" + fileName;
             #endif

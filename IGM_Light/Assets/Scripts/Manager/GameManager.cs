@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    public WorldsLoader WorldsLoader;
     [SerializeField] private Image _fadePanel;
     [SerializeField, Range(0.0f, 1.0f)] private float _fadeSpeed;
 
@@ -38,7 +39,7 @@ public class GameManager : Singleton<GameManager>
                 }
                 #endif
                 break;
-            case 1:
+            case 1: //World, Stage Select.
             case 2:
             case 3:
             case 4:
@@ -46,6 +47,11 @@ public class GameManager : Singleton<GameManager>
             default:
                 break;
         }
+    }
+
+    public void SetGame()
+    {
+
     }
 
     private void FadeIn(Scene scene1, Scene scene2)

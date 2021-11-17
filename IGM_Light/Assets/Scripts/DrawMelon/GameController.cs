@@ -20,8 +20,20 @@ public partial class GameController : MonoBehaviour
     
     public bool IsSolved
     {
-        get => SolvedList.Count == _numOfBlocks;
+        get  
+        {
+            if(SolvedList.Count == _numOfBlocks)
+            {
+                OnSolved();
+                return true;
+            }
+
+            return false;
+        }
     }
+
+    public int Worlds;
+    public int Stages;
 
     public Player Player;
     public int[] Standard;
@@ -39,10 +51,14 @@ public partial class GameController : MonoBehaviour
 
     private void Awake()
     {
-         _boardManager = GetComponent<BoardManager>();
+        _boardManager = GetComponent<BoardManager>();
+        _length = _boardManager.Length;
+
+        Worlds = _boardManager.World;
+        Stages = _boardManager.Stage; 
+         
         Player = _boardManager.GetComponentInChildren<Player>();
 
-        _length = _boardManager.Length;
 
         foreach(var row in TargetTable)
         {
@@ -110,10 +126,15 @@ public partial class GameController : MonoBehaviour
         else
             score = 1;
 
+        print(score);
+
         var uiScore = UIManager.Instance.GetWindow<UIScore>("UIScore");
 
-        uiScore.Open(true);
-        uiScore.ShowScore(score);
+        if(!uiScore.IsOpen())
+        {
+            uiScore.Open(true);
+            uiScore.ShowScore(score);
+        }
     }
 
     public void ResetGame()

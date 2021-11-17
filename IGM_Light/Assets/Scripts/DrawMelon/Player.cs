@@ -30,25 +30,6 @@ public class Player : MonoBehaviour
 
     private Queue<CustomTile> AnimationQueue = new Queue<CustomTile>();
 
-    enum States{
-        up = 1,
-        down = 2,
-        left = 3,
-        right = 4,
-        idle = 0
-    }
-
-    enum Colors
-    {
-        Basic = 0,
-        Red = 1,
-        Blue = 2,
-        Cyan = 3,
-        Yellow = 6,
-        Pink = 7,
-        Purple = 8,
-        Green = 9
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -68,7 +49,9 @@ public class Player : MonoBehaviour
         _originCol = Column;
         _originRow = Row;
 
-        _animator.SetInteger("color", (int)Colors.Basic);
+        _animator.SetInteger("color", (int)PlayerColorType);
+
+        anim = FindObjectOfType<Anim>();
     }
 
     // Update is called once per frame
@@ -182,7 +165,7 @@ public class Player : MonoBehaviour
         if(_boardManager.TryGetTile(Row, Column, out var tile))
         {
             transform.position = tile.transform.position;
-            _animator.SetInteger("color", (int)Colors.Basic);
+            _animator.SetInteger("color", (int)PlayerColorType);
         }
     }
 }

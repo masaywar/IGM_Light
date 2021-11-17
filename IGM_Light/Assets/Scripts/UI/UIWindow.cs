@@ -12,7 +12,7 @@ public class UIWindow : MonoBehaviour
     private float width;
     private float height;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         cachedUIManager = UIManager.Instance;
         canvasGroup = gameObject.GetComponent<CanvasGroup>();
