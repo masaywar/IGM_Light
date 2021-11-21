@@ -12,7 +12,7 @@ public enum BlockType
     FOUR_Z_1, FOUR_Z_2,
     FOUR_L_1, FOUR_L_2, FOUR_L_3, FOUR_L_4,
     FOUR_J_1, FOUR_J_2, FOUR_J_3, FOUR_J_4,
-    FOUR_O,
+    FOUR_O_1,
     FOUR_T_1, FOUR_T_2, FOUR_T_3, FOUR_T_4,
     FOUR_I_1,FOUR_I_2
 }

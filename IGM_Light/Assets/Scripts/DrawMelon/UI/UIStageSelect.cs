@@ -60,12 +60,13 @@ public class UIStageSelect : UIWindow
 
         for(int k=0; k<FixedValues.STAGES; k++)
         {
+            int stage = k;
+
             if( UserDataInstance.Instance.UserData.Worlds == UserDataInstance.Instance.CurrentWorld &&
                 UserDataInstance.Instance.UserData.Stages == k)
             {
-                int temp = k;
                 _buttons[k].GetChild(1).gameObject.SetActive(true);
-                _buttons[k].GetChild(1).GetComponent<Button>().onClick.AddListener(()=>OnClickStageButton(temp));
+                _buttons[k].GetChild(1).GetComponent<Button>().onClick.AddListener(()=>OnClickStageButton(stage));
                 continue;
             }
 
@@ -76,15 +77,13 @@ public class UIStageSelect : UIWindow
                 continue;
             }
 
-            int tmp = k;
-
             _buttons[k].GetChild(
                 UserDataInstance.Instance.UserData.UserScoreData[(UserDataInstance.Instance.CurrentWorld-1)*FixedValues.STAGES + k]+1)
                 .gameObject.SetActive(true);
 
             _buttons[k].GetChild(
                 UserDataInstance.Instance.UserData.UserScoreData[(UserDataInstance.Instance.CurrentWorld-1)*FixedValues.STAGES + k]+1)
-                .GetComponent<Button>().onClick.AddListener(()=>OnClickStageButton(tmp));
+                .GetComponent<Button>().onClick.AddListener(()=>OnClickStageButton(stage));
         }
     }
 

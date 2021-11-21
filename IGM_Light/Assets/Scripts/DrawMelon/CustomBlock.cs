@@ -10,13 +10,13 @@ public class CustomBlock
 
     public ColorType ColorType;
 
-    public GameObject ShowingBlock = null;
+    public Sprite ShowingBlock = null;
 
-    public CustomBlock(BlockType blockType, ColorType colorType, GameObject obj)
+    public CustomBlock(BlockType blockType, ColorType colorType, Sprite sprite)
     {
         BlockType = blockType;
         ColorType = colorType;
-        ShowingBlock = obj;
+        ShowingBlock = sprite;
     }
 
     public int Size
@@ -45,7 +45,5 @@ public class CustomBlock
 
     public void OnSolved()
     {
-        if(ShowingBlock)
-            ShowingBlock.SetActive(false);
     }
 }

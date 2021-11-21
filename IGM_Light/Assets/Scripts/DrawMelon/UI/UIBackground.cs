@@ -10,6 +10,28 @@ public class UIBackground : UIWindow
     public GameController _gameController;
     public GameObject[] stars;
 
+    public List<Image> _images;
+
+    private void Start()
+    {
+        int index =0;
+        while(index < _images.Count)
+        {
+            foreach(var row in _gameController.TargetTable)
+            {
+                foreach(var block in row.Blocks)
+                {
+                    _images[index].gameObject.SetActive(true);
+                    _images[index].sprite = block.ShowingBlock;
+                    index++;
+                }
+            }
+
+            break;
+        }
+        
+    }
+    
     private void Update()
     {
         if(_gameController == null) return;
