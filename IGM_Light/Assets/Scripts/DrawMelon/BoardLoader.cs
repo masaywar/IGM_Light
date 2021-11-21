@@ -4,10 +4,25 @@ using UnityEngine;
 
 public class BoardLoader : MonoBehaviour
 {
+    [SerializeField] private bool isHack;
+
     private WorldsLoader _worldsLoader;
 
-    private void Awake()
+    private void Start()
     {
+        if(isHack)
+        {
+            GameController controller = FindObjectOfType<GameController>(); 
+            UIManager.Instance.GetWindow<UIBackground>("UIBackground")._gameController = controller;
+            FindObjectOfType<Anim>().animator = controller.Player.GetComponent<Animator>();
+            FindObjectOfType<SwipeInteract>()._player = controller.Player;
+            Camera.main.GetComponent<CameraModify>().SetCameraPositionAndSize(
+            controller.GetComponent<BoardManager>().Length
+        );
+
+        return;
+        }
+
         _worldsLoader = GameManager.Instance.WorldsLoader;
 
         var board = _worldsLoader.WorldsTable[UserDataInstance.Instance.CurrentWorld-1].Stages[UserDataInstance.Instance.CurrentStage-1];

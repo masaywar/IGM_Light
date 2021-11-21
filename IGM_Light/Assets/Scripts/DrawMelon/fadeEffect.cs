@@ -9,12 +9,6 @@ public class fadeEffect : MonoBehaviour
     public bool fade_in;
     public bool fade_out;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {

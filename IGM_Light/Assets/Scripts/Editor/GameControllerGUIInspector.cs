@@ -8,8 +8,8 @@ using UnityEditor;
 public class GameControllerGUIInspector : Editor
 {
     GameController controller;
-    BlcokDatabaseLoader blcokDatabaseLoader;
     ScrollRect _scrollView;
+    SpriteDatabaseLoader spriteDatabaseLoader;
 
     int size = 3;
     ColorType colorType = ColorType.Basic;
@@ -19,7 +19,7 @@ public class GameControllerGUIInspector : Editor
         base.OnInspectorGUI();
         
         controller = target as GameController;
-        _scrollView = FindObjectOfType<ScrollRect>();
+        spriteDatabaseLoader = controller.GetComponent<BoardManager>()._spriteDatabase;
 
         var skin = GUI.skin;
         
@@ -166,15 +166,15 @@ public class GameControllerGUIInspector : Editor
             }
             if(GUILayout.Button("O", GUILayout.ExpandWidth(false),GUILayout.MaxHeight(50f), GUILayout.MaxWidth(50f)))
             {
-                CreateBlock(BlockType.FOUR_O);
+                CreateBlock(BlockType.FOUR_O_1);
             }
             GUILayout.EndHorizontal();
-
-            if (GUILayout.Button("Clear"))
-            {
-                
-            }
+            
         }
+        if (GUILayout.Button("Clear"))
+            {
+                controller.TargetTable.ForEach(row=>row.Blocks.Clear());
+            }
     }
 
     private void CreateBlock(BlockType blockType)
@@ -187,10 +187,14 @@ public class GameControllerGUIInspector : Editor
             controller.TargetTable[(int)colorType] = new GameController.CustomBlocks(new List<CustomBlock>());
         }
 
-        CustomBlock customBlock = new CustomBlock(blockType, colorType, null);
+        string blockColor = colorType.ToString();
+        string blockAttr = blockType.ToString().ToLower();
+        string find = (blockColor + '_' + blockAttr);
+        Debug.Log(find);
 
+        var obj = spriteDatabaseLoader.BlockSprites[(int)colorType].sprites.Find(sprite=>sprite.name==find);
+
+        CustomBlock customBlock = new CustomBlock(blockType, colorType, obj);
         controller.TargetTable[(int)colorType].Blocks.Add(customBlock);
-        
-        //Instantiate(blcokDatabaseLoader.Blocks[(int)colorType].Blocks[(int)blockType], _scrollView.content);
     }
 }

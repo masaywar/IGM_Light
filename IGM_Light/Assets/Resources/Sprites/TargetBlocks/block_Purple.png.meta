@@ -1,0 +1,752 @@
+fileFormatVersion: 2
+guid: 67cd3711d8436b644aba311110d4fd20
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2412826575798259611
+    second: Purple_four_j_3
+  - first:
+      213: 6284884413458421866
+    second: Purple_four_l_3
+  - first:
+      213: -6562748362019103793
+    second: Purple_four_j_1
+  - first:
+      213: -5683297569763930567
+    second: Purple_four_l_1
+  - first:
+      213: -8184444525372734405
+    second: Purple_four_s_2
+  - first:
+      213: -6035444568778515273
+    second: Purple_four_s_1
+  - first:
+      213: -6355630304977269701
+    second: Purple_four_i_2
+  - first:
+      213: -4352039890909048784
+    second: Purple_four_t_3
+  - first:
+      213: 2483527829515323797
+    second: Purple_four_t_1
+  - first:
+      213: 1921993150311273055
+    second: Purple_four_t_2
+  - first:
+      213: 6398697695166199249
+    second: Purple_four_t_4
+  - first:
+      213: -7997187917075641702
+    second: Purple_four_l_2
+  - first:
+      213: -3265887632626427913
+    second: Purple_four_j_4
+  - first:
+      213: -2541359944301879672
+    second: Purple_four_j_2
+  - first:
+      213: -8945282757051815707
+    second: Purple_four_l_4
+  - first:
+      213: -2678517922186625331
+    second: Purple_four_s_1
+  - first:
+      213: -7117321422165491306
+    second: Purple_four_z_1
+  - first:
+      213: -1523061805008197734
+    second: Purple_three_s_4
+  - first:
+      213: -9002239464916185677
+    second: Purple_three_s_2
+  - first:
+      213: 5983091042711321314
+    second: Purple_four_o_1
+  - first:
+      213: -7883777004870130101
+    second: Purple_three_i_1
+  - first:
+      213: 3757949671492648387
+    second: Purple_four_i_1
+  - first:
+      213: -3484104348489579126
+    second: Purple_three_s_1
+  - first:
+      213: -2962856547300418827
+    second: Purple_three_s_3
+  - first:
+      213: -1152783096687657167
+    second: Purple_three_i_2
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1000
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Purple_four_j_3
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 1636
+        width: 240
+        height: 361
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9fc31bacf41c7120800000000000000
+      internalID: 2412826575798259611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_l_3
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 1634
+        width: 243
+        height: 358
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6814964315683750800000000000000
+      internalID: 6284884413458421866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_j_1
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 1636
+        width: 241
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcb139bb22f6ce4a0800000000000000
+      internalID: -6562748362019103793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_l_1
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 1634
+        width: 234
+        height: 359
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93e4161c8fed021b0800000000000000
+      internalID: -5683297569763930567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_s_2
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 1632
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b34844531130b6e80800000000000000
+      internalID: -8184444525372734405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_z_2
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1632
+        width: 239
+        height: 358
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bc5560542bcd3ca0800000000000000
+      internalID: -6035444568778515273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_i_2
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 1565
+        width: 126
+        height: 468
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3c4f1449e34cc7a0800000000000000
+      internalID: -6355630304977269701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_t_3
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 1260
+        width: 362
+        height: 242
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 030590ef6c27a93c0800000000000000
+      internalID: -4352039890909048784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_t_1
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 1268
+        width: 360
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 599ce041763477220800000000000000
+      internalID: 2483527829515323797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_t_2
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 1145
+        width: 240
+        height: 366
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f529909469a4caa10800000000000000
+      internalID: 1921993150311273055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_t_4
+      rect:
+        serializedVersion: 2
+        x: 1599
+        y: 1149
+        width: 245
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d5fd79e6adbcc850800000000000000
+      internalID: 6398697695166199249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_l_2
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 819
+        width: 355
+        height: 245
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a09a8d5f7440190800000000000000
+      internalID: -7997187917075641702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_j_4
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 819
+        width: 355
+        height: 241
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f7d5f4608c3da2d0800000000000000
+      internalID: -3265887632626427913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_j_2
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 815
+        width: 357
+        height: 241
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88eda7968964bbcd0800000000000000
+      internalID: -2541359944301879672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_l_4
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 815
+        width: 353
+        height: 241
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8ef720ab8fbd380800000000000000
+      internalID: -8945282757051815707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_s_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 418
+        width: 360
+        height: 241
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce7c83242ef3dad0800000000000000
+      internalID: -2678517922186625331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_z_1
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 421
+        width: 356
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6914c8f20e13a3d90800000000000000
+      internalID: -7117321422165491306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_three_s_4
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 425
+        width: 236
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a97658d9b5ffcdae0800000000000000
+      internalID: -1523061805008197734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_three_s_2
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 425
+        width: 236
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bd0bae07ee911380800000000000000
+      internalID: -9002239464916185677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_o_1
+      rect:
+        serializedVersion: 2
+        x: 1517
+        y: 423
+        width: 245
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea31a38a95380350800000000000000
+      internalID: 5983091042711321314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_three_i_1
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 130
+        width: 357
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b46a2588592379290800000000000000
+      internalID: -7883777004870130101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_four_i_1
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 119
+        width: 475
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cd7d15d05be62430800000000000000
+      internalID: 3757949671492648387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_three_s_1
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 87
+        width: 240
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8582ebfd89f5afc0800000000000000
+      internalID: -3484104348489579126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_three_s_3
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 87
+        width: 240
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fad7b90ba1d1e6d0800000000000000
+      internalID: -2962856547300418827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_three_i_2
+      rect:
+        serializedVersion: 2
+        x: 1838
+        y: 232
+        width: 123
+        height: 358
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13f7bda91ed7000f0800000000000000
+      internalID: -1152783096687657167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

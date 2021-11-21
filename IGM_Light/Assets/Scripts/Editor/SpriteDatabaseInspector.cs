@@ -1,3 +1,4 @@
+using System.Net.Http;
 using System.Linq;
 using System;
 using System.Collections;
@@ -28,6 +29,15 @@ public class SpriteDatabaseInspector : Editor
         if (GUILayout.Button("Load Filters"))
         {
             LoadFilters();
+        }
+
+        if (GUILayout.Button("Load Backgrounds"))
+        {
+        }
+
+        if (GUILayout.Button("Load Blocks"))
+        {
+            LoadBlocks();
         }
     }
 
@@ -86,5 +96,31 @@ public class SpriteDatabaseInspector : Editor
         Directory.GetFiles(path)
         .Where(file => !file.Contains(".meta")&&!file.Contains(".spriteatlas"))
         .ForEach(file=>filters.Add(AssetDatabase.LoadAssetAtPath<Sprite>(file)));
+    }
+
+    public void LoadBlocks()
+    {
+        var path = _spriteDatabase.path[4];
+        var blocksSprites = _spriteDatabase.BlockSprites;
+
+        blocksSprites.Clear();
+        ColorType colorType = ColorType.Blue;
+        blocksSprites.Add(new SpriteDatabaseLoader.Sprites(new List<Sprite>()));
+
+        Debug.Log(colorType.ToString());
+
+        Directory
+        .GetFiles(path)
+        .Where(sheet=>!sheet.Contains(".meta"))
+        .ForEach(sheet=>{
+            
+            sheet = sheet.Split(new string[]{"Resources/"}, StringSplitOptions.None)[1];
+            sheet = sheet.Replace('\\', '/');
+            sheet = sheet.Replace(".png", "");
+            Debug.Log(sheet);
+            var spriteSheet = Resources.LoadAll<Sprite>(sheet).ToList();
+
+            blocksSprites.Add(new SpriteDatabaseLoader.Sprites(spriteSheet));
+        });
     }
 }

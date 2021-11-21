@@ -65,11 +65,11 @@ public static class BlockFormation
 
     public static Vector2Int[] FOUR_J_3 =
     {
-        new Vector2Int(0,1), new Vector2Int(1,1), new Vector2Int(2,0), new Vector2Int(2,1)
+        new Vector2Int(0,0), new Vector2Int(0,1), new Vector2Int(1,0), new Vector2Int(2,0)
     };
     public static Vector2Int[] FOUR_J_4 =
     {
-        new Vector2Int(0,1), new Vector2Int(1,1), new Vector2Int(2,0), new Vector2Int(2,1)
+        new Vector2Int(0,0), new Vector2Int(0,1), new Vector2Int(0,2), new Vector2Int(1,2)
     };
 
     public static Vector2Int[] FOUR_L_1 =
@@ -79,7 +79,7 @@ public static class BlockFormation
 
     public static Vector2Int[] FOUR_L_2 =
     {
-        new Vector2Int(1,0), new Vector2Int(1,1), new Vector2Int(1,2), new Vector2Int(0,2)
+        new Vector2Int(0,0), new Vector2Int(1,0), new Vector2Int(0,1), new Vector2Int(0,2)
     };
 
     public static Vector2Int[] FOUR_L_3 =
@@ -88,11 +88,11 @@ public static class BlockFormation
     };
     public static Vector2Int[] FOUR_L_4 =
     {
-        new Vector2Int(0,0), new Vector2Int(1,0), new Vector2Int(0,1), new Vector2Int(0,2)
+        new Vector2Int(1,0), new Vector2Int(1,1), new Vector2Int(1,2), new Vector2Int(0,2)
     };
 
 
-    public static Vector2Int[] FOUR_O =
+    public static Vector2Int[] FOUR_O_1 =
     {
         new Vector2Int(0,0), new Vector2Int(0,1), new Vector2Int(1,0), new Vector2Int(1,1)
     };
@@ -103,7 +103,7 @@ public static class BlockFormation
     };
     public static Vector2Int[] FOUR_T_2 =
     {
-        new Vector2Int(0,0), new Vector2Int(1,0), new Vector2Int(2,0), new Vector2Int(1,1)
+        new Vector2Int(1,0), new Vector2Int(0,1), new Vector2Int(1,1), new Vector2Int(2,1)
     };
     public static Vector2Int[] FOUR_T_3 =
     {
@@ -111,7 +111,7 @@ public static class BlockFormation
     };
     public static Vector2Int[] FOUR_T_4 =
     {
-        new Vector2Int(1,0), new Vector2Int(0,1), new Vector2Int(1,1), new Vector2Int(2,1)
+        new Vector2Int(0,0), new Vector2Int(1,0), new Vector2Int(1,1), new Vector2Int(2,0)
     };
 
     public static Vector2Int[] FOUR_I_1 =
@@ -133,7 +133,7 @@ public static class BlockFormation
         FOUR_Z_1, FOUR_Z_2,
         FOUR_J_1, FOUR_J_2, FOUR_J_3, FOUR_J_4,
         FOUR_L_1, FOUR_L_2, FOUR_L_3, FOUR_L_4,
-        FOUR_O,
+        FOUR_O_1,
         FOUR_T_1, FOUR_T_2, FOUR_T_3, FOUR_T_4,
         FOUR_I_1, FOUR_I_2
     };
