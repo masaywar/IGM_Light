@@ -1,0 +1,72 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Unity Editor",
+      "type": "unity",
+      "path": "/D:/Workspaces/Unity/ICM_Light/IGM_Light/Library/EditorInstance.json",
+      "request": "launch"
+    },
+    {
+      "name": "Windows Player",
+      "type": "unity",
+      "request": "launch"
+    },
+    {
+      "name": "OSX Player",
+      "type": "unity",
+      "request": "launch"
+    },
+    {
+      "name": "Linux Player",
+      "type": "unity",
+      "request": "launch"
+    },
+    {
+      "name": "iOS Player",
+      "type": "unity",
+      "request": "launch"
+    },
+    {
+      "name": "Android Player",
+      "type": "unity",
+      "request": "launch"
+    },
+    {
+      "name": "Xbox One Player",
+      "type": "unity",
+      "request": "launch"
+    },
+    {
+      "name": "PS4 Player",
+      "type": "unity",
+      "request": "launch"
+    },
+    {
+      "name": "SwitchPlayer",
+      "type": "unity",
+      "request": "launch"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "d:\\UnityProject\\IGM_Ligjt\\IGM_Light\\Assets\\Scripts",
+      "environment": [],
+      "program": "d:\\UnityProject\\IGM_Ligjt\\IGM_Light\\Assets\\Scripts\\build\\Debug\\outDebug",
+      "internalConsoleOptions": "openOnSessionStart",
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\gdb.exe",
+      "externalConsole": false,
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

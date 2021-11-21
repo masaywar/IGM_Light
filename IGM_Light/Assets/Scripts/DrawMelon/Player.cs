@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     public int Row = 0;
     public int Column = 0;
     public int Step = 0;
+    public Sprite brokeTile;
+    public bool broke = false;
     //private Text moving;
 
     public ColorType PlayerColorType;
@@ -102,6 +104,16 @@ public class Player : MonoBehaviour
         {
             if (onTile.HasObstacle)
                 return false;
+
+            if (onTile.HasWeakTile)
+            {
+                if (broke)
+                {
+                    return false;
+                }
+                onTile.wt.gameObject.GetComponent<SpriteRenderer>().sprite = brokeTile;
+                broke = true;
+            }
 
             if (onTile.HasFilter)
                 PlayerColorType = onTile.Filter.color;

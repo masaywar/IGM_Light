@@ -8,6 +8,7 @@ public class UIBackground : UIWindow
     [SerializeField] Text _text;
 
     public GameController _gameController;
+    public GameObject[] stars;
 
     private void Update()
     {
@@ -21,6 +22,25 @@ public class UIBackground : UIWindow
             string standard = step <= standards[0] ? standards[0].ToString() : standards[1].ToString();
 
             _text.text = step.ToString();
+
+            if(step <= _gameController.Standard[0]) //star=3
+            {
+                stars[1].SetActive(false);
+                stars[2].SetActive(false);
+                stars[0].SetActive(true);
+            }
+            else if(step <= _gameController.Standard[1])
+            {
+                stars[0].SetActive(false);
+                stars[2].SetActive(false);
+                stars[1].SetActive(true);
+            }
+            else
+            {
+                stars[0].SetActive(false);
+                stars[1].SetActive(false);
+                stars[2].SetActive(true);
+            }
         }
     }
 
