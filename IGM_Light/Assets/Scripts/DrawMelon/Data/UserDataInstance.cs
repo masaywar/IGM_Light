@@ -1,10 +1,5 @@
-using System.Threading;
-using System.Runtime.Serialization;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using System;
 
 public class UserDataInstance : MonoBehaviour 
 {
@@ -26,8 +21,8 @@ public class UserDataInstance : MonoBehaviour
 
     public int CurrentWorld;
     public int CurrentStage;
+    public int[] WorldsLastClearData = new int[FixedValues.WORLDS];
 
-    public Dictionary<int, Dictionary<int, Tuple<int, bool>>> UserSavedData;
 
     private void Awake()
     {
@@ -42,17 +37,17 @@ public class UserDataInstance : MonoBehaviour
             Destroy(this.gameObject);
         }
         
-        UserData =
-        LoadData<UserData>("userdata.json");
-        SaveData<UserData>(UserData, "userdata.json");
+        LoadData();
+        SaveData();
 
-        UserSavedData = new Dictionary<int, Dictionary<int, Tuple<int, bool>>>();
-
-        for (int k=0; k<=FixedValues.WORLDS; k++)
+        for (int k=0; k<FixedValues.WORLDS; k++)
         {
-            UserSavedData.Add(k, new Dictionary<int, Tuple<int, bool>>());
-            for(int j=0; j<=FixedValues.STAGES; j++)
-                UserSavedData[k].Add(j, new Tuple<int, bool>( UserData.UserScoreData[j], UserData.UserClearData[k]));
+            WorldsLastClearData[k] = 0;
+            for(int j=0; j<FixedValues.STAGES; j++)
+            {
+                if(UserData.UserClearData[k].userClearData[j])
+                    WorldsLastClearData[k] = WorldsLastClearData[k] < FixedValues.STAGES-1 ? WorldsLastClearData[k]+1 : WorldsLastClearData[k];
+            }
         }
     }
 
@@ -66,27 +61,12 @@ public class UserDataInstance : MonoBehaviour
             string path = Application.persistentDataPath + "/" + fileName;
             #endif
 
-            print(path);
         
             if (File.Exists(path))
             {
-                print("a");
                 string json = File.ReadAllText(path);
                 T t = JsonUtility.FromJson<T>(json);      
-                return t;
-            }
-
-            else
-            {
-                bool[] temp =  new bool[FixedValues.WORLDS * FixedValues.STAGES];
-                int [] tempi = new int[FixedValues.WORLDS * FixedValues.STAGES];
-
-                UserData = new UserData(
-                    1, 
-                    0, 
-                    temp,
-                    tempi
-                );
+                return json != "" ? t : default;
             }
         }
         catch (FileNotFoundException e)
@@ -107,6 +87,25 @@ public class UserDataInstance : MonoBehaviour
     public void LoadData()
     {
         UserData = LoadData<UserData>("userdata.json");
+
+        if(UserData == default)
+        {
+            ClearData[] temp =  new ClearData[FixedValues.WORLDS];
+                ScoreData[] tempi = new ScoreData[FixedValues.WORLDS];
+
+                for(int k=0; k<temp.Length; k++)
+                {
+                    temp[k] = new ClearData();
+                    tempi[k] = new ScoreData();
+                }
+
+                UserData = new UserData(
+                    1, 
+                    0, 
+                    temp,
+                    tempi
+                );
+        }
     }
 
     public void SaveData()
@@ -122,7 +121,6 @@ public class UserDataInstance : MonoBehaviour
 
             if (json.Equals("{}"))
             {
-                Debug.Log("json null");
                 return;
             }
 
@@ -133,8 +131,6 @@ public class UserDataInstance : MonoBehaviour
             #endif
             
             File.WriteAllText(path, json);
-
-            Debug.Log(json);
         }
         catch (FileNotFoundException e)
         {

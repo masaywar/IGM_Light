@@ -1,31 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
 using Lean.Touch;
-using Lean.Common;
 
 public class UIWorldSelect : UIWindow
 {
     private Image _backGroundImage;
     private UIManager _uiManager;
+    public SpriteDatabaseLoader SpriteDatabase;
     [SerializeField]private int _showingIndex = 0;
 
     public float Threshold;
-
+    
     private LeanFingerSwipe _fingerSwipe;
     private LeanTouch _leanTouch;
 
-    [SerializeField] private Image[] _worldImages;
     private float _distance;
     protected override void Awake()
     {
         _uiManager = UIManager.Instance;
 
         _backGroundImage = GetComponent<Image>();
-        _backGroundImage.sprite = _worldImages[0].sprite;
-
+        _backGroundImage.sprite = SpriteDatabase.BackgroundSprites[_showingIndex].sprites[UserDataInstance.Instance.WorldsLastClearData[_showingIndex]];
+    
         _fingerSwipe = FindObjectOfType<LeanFingerSwipe>();
         _leanTouch = FindObjectOfType<LeanTouch>();
 
@@ -34,21 +31,21 @@ public class UIWorldSelect : UIWindow
 
     public void SetNextWorld()
     {
-        if (_showingIndex < _worldImages.Length-1)
-            _backGroundImage.sprite = _worldImages[++_showingIndex].sprite;
+        if (_showingIndex < SpriteDatabase.BackgroundSprites.Count-1)
+            _backGroundImage.sprite = SpriteDatabase.BackgroundSprites[++_showingIndex].sprites[UserDataInstance.Instance.WorldsLastClearData[_showingIndex]];
     } 
 
     public void SetPrevWorld()
     {
         if (_showingIndex != 0)
-            _backGroundImage.sprite = _worldImages[--_showingIndex].sprite;
+            _backGroundImage.sprite = SpriteDatabase.BackgroundSprites[--_showingIndex].sprites[UserDataInstance.Instance.WorldsLastClearData[_showingIndex]];
     }
     public void OnSelectWorld()
     {
         UserDataInstance.Instance.CurrentWorld = _showingIndex + 1;
 
         var uiStage = _uiManager.GetWindow<UIStageSelect>("UIStageSelect");
-        uiStage.World = _showingIndex + 1;
+        uiStage.World = UserDataInstance.Instance.CurrentWorld;
         uiStage.Open(true);
     }
 
@@ -67,7 +64,7 @@ public class UIWorldSelect : UIWindow
             return;
         }
 
-        if (swipe.y > 0)
+        if (swipe.x < 0)
         {
             SetNextWorld();
         }

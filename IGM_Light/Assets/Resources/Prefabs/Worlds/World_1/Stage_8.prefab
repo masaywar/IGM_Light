@@ -619,7 +619,7 @@ GameObject:
   - component: {fileID: 4828733795136919139}
   - component: {fileID: 4828733795136919140}
   m_Layer: 0
-  m_Name: Board
+  m_Name: Stage_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -719,11 +719,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1e2b90ae9c1de4ea2b40eb8dfba8b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Size: 3
+  isHack: 0
+  Size: 4
   Worlds: 0
   Stages: 0
   Player: {fileID: 0}
-  Standard: 
+  Standard: 000000000000000000000000
   TargetTable:
   - Blocks: []
   - Blocks: []

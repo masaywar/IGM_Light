@@ -1,16 +1,13 @@
-﻿using System.Xml.Serialization;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
-using System.Linq;
+
 
 [CreateAssetMenu(menuName = "IGM_Light/SpriteDatabaseLoader")]
 public class SpriteDatabaseLoader : ScriptableObject
 {
     [Serializable]
-    public struct Sprites
+    public class Sprites
     {
         public List<Sprite> sprites;
         
@@ -27,7 +24,7 @@ public class SpriteDatabaseLoader : ScriptableObject
 
     public List<Sprite> TileSprites;
     public List<Sprite> FilterSprites;
-    public List<Sprite> BackgroundSprites;
+    public List<Sprites> BackgroundSprites;
 
     public List<Sprites> CharacterSprites = new List<Sprites>(); 
     public List<Sprites> BlockSprites = new List<Sprites>();
@@ -40,6 +37,5 @@ public class SpriteDatabaseLoader : ScriptableObject
     ///  3 : Background Sprite
     ///  4 : Blocks Sprite
     /// </summary>
-    
     public string[] path;
 }

@@ -33,6 +33,7 @@ public class SpriteDatabaseInspector : Editor
 
         if (GUILayout.Button("Load Backgrounds"))
         {
+            LoadBackgrounds();
         }
 
         if (GUILayout.Button("Load Blocks"))
@@ -104,16 +105,12 @@ public class SpriteDatabaseInspector : Editor
         var blocksSprites = _spriteDatabase.BlockSprites;
 
         blocksSprites.Clear();
-        ColorType colorType = ColorType.Blue;
         blocksSprites.Add(new SpriteDatabaseLoader.Sprites(new List<Sprite>()));
-
-        Debug.Log(colorType.ToString());
 
         Directory
         .GetFiles(path)
         .Where(sheet=>!sheet.Contains(".meta"))
         .ForEach(sheet=>{
-            
             sheet = sheet.Split(new string[]{"Resources/"}, StringSplitOptions.None)[1];
             sheet = sheet.Replace('\\', '/');
             sheet = sheet.Replace(".png", "");
@@ -122,5 +119,24 @@ public class SpriteDatabaseInspector : Editor
 
             blocksSprites.Add(new SpriteDatabaseLoader.Sprites(spriteSheet));
         });
+    }
+
+    public void LoadBackgrounds()
+    {
+        var path = _spriteDatabase.path[3];
+        var backgroundSprites = _spriteDatabase.BackgroundSprites;
+
+        backgroundSprites.Clear();
+
+        Directory
+        .GetDirectories(path)
+        .Where(directory=>!directory.Contains(".meta"))
+        .ForEach(directory=>{
+            directory = directory.Split(new string[]{"Resources/"}, StringSplitOptions.None)[1];
+            directory = directory.Replace('\\', '/');
+            var spriteSheet = Resources.LoadAll<Sprite>(directory).ToList();
+
+            backgroundSprites.Add(new SpriteDatabaseLoader.Sprites(spriteSheet));
+        });      
     }
 }

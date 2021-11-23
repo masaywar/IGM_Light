@@ -71,18 +71,20 @@ public class UIStageSelect : UIWindow
             }
 
             if(!UserDataInstance.Instance.UserData.UserClearData[
-                (UserDataInstance.Instance.CurrentWorld-1)*FixedValues.STAGES + k])
+                UserDataInstance.Instance.CurrentWorld-1].userClearData[k])
             {
                 _buttons[k].GetChild(0).gameObject.SetActive(true);
                 continue;
             }
 
             _buttons[k].GetChild(
-                UserDataInstance.Instance.UserData.UserScoreData[(UserDataInstance.Instance.CurrentWorld-1)*FixedValues.STAGES + k]+1)
+                UserDataInstance.Instance.UserData.UserScoreData[
+                    UserDataInstance.Instance.CurrentWorld-1].userScoreData[k]+1)
                 .gameObject.SetActive(true);
 
             _buttons[k].GetChild(
-                UserDataInstance.Instance.UserData.UserScoreData[(UserDataInstance.Instance.CurrentWorld-1)*FixedValues.STAGES + k]+1)
+                UserDataInstance.Instance.UserData.UserScoreData[
+                    UserDataInstance.Instance.CurrentWorld-1].userScoreData[k]+1)
                 .GetComponent<Button>().onClick.AddListener(()=>OnClickStageButton(stage));
         }
     }
