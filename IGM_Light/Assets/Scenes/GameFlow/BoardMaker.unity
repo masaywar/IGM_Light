@@ -267,6 +267,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
+  wt: {fileID: 0}
 --- !u!212 &93610075
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -535,6 +536,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
+  wt: {fileID: 0}
 --- !u!212 &202394781
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -767,6 +769,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
+  wt: {fileID: 0}
 --- !u!212 &241668445
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1267,6 +1270,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
+  wt: {fileID: 0}
 --- !u!212 &670556859
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1368,6 +1372,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
+  wt: {fileID: 0}
 --- !u!212 &715024398
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1469,6 +1474,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 1633861519}
+  wt: {fileID: 0}
 --- !u!212 &723667939
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1862,6 +1868,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
+  wt: {fileID: 0}
 --- !u!212 &976783398
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1963,6 +1970,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
+  wt: {fileID: 0}
 --- !u!212 &1015200617
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2208,6 +2216,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
+  wt: {fileID: 0}
 --- !u!212 &1081775757
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2528,6 +2537,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
+  wt: {fileID: 0}
 --- !u!212 &1284376213
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3115,6 +3125,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
+  wt: {fileID: 0}
 --- !u!212 &1726006013
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3387,6 +3398,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
+  wt: {fileID: 0}
 --- !u!212 &1773022241
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4071,6 +4083,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
+  wt: {fileID: 0}
 --- !u!212 &1956396503
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4230,6 +4243,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 0}
   _text: {fileID: 1024642804}
   _gameController: {fileID: 0}
+  stars: []
 --- !u!225 &1956424768
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4279,6 +4293,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 911665763}
   Obstacle: {fileID: 0}
+  wt: {fileID: 0}
 --- !u!212 &1971245825
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4524,6 +4539,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
+  wt: {fileID: 0}
 --- !u!212 &2039076978
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4625,6 +4641,7 @@ MonoBehaviour:
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
+  wt: {fileID: 0}
 --- !u!212 &2117921285
 SpriteRenderer:
   m_ObjectHideFlags: 0

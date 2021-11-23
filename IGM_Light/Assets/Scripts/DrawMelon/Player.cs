@@ -23,7 +23,9 @@ public class Player : MonoBehaviour
     private int _originRow;
     private int _originCol;
     public Vector2Int direc;
-
+    public int enterNum = 1;
+    private int r;
+    private int c;
     // public ColorType standard;
 
     private Animator _animator;
@@ -101,14 +103,56 @@ public class Player : MonoBehaviour
         if (_boardManager.TryGetTile(row, col, out var onTile))  //onTile에는 갈 위치
         {
             if (onTile.HasObstacle)
+            {
                 return false;
+            }
+
+            if (onTile.HasWeakTile)
+            {
+                if (!onTile.wt.Weakproperty(onTile,enterNum))
+                    return false;
+                enterNum++;
+            }
+
+            if (onTile.HasIceTile)
+            {
+                direc.y = row - Row;
+                direc.x = Column - col;
+                int dir = anim.Direction(direc);
+
+                //onTile.it.Slide(onTile, anim);  //animation
+                r = Row;
+                c = Column;
+                switch (dir)
+                {
+                    case 1:  //up
+                        Row--;
+                        r = Row - 1;
+                        break;
+                    case 2:   //down
+                        Row++;
+                        r = Row + 1;
+                        break;
+                    case 3:   //left
+                        Column--;
+                        c = Column - 1;
+                        break;
+                    case 4:   //right
+                        Column++;
+                        c = Column + 1;
+                        break;
+                }
+                return TryMove(r, c);
+            }
 
             if (onTile.HasFilter)
-                PlayerColorType = onTile.Filter.color;
+              PlayerColorType = onTile.Filter.color;
 
             direc.y = row - Row;
             direc.x = Column - col;
             anim.Direction(direc);
+
+            //Debug.Log(onTile.transform.position);
 
              transform
             .DOMove(onTile.transform.position, 0.5f)
@@ -120,9 +164,6 @@ public class Player : MonoBehaviour
                     ChangeColor(PlayerColorType);
                 }
             });
-
-
-
             return true;
         }
 

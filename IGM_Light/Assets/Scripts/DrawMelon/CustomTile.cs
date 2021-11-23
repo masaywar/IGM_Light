@@ -42,10 +42,34 @@ public class CustomTile : MonoBehaviour
         }
     }
 
+    public bool HasWeakTile
+    {
+        get
+        {
+            if (wt == null)
+                return false;
+
+            return wt.gameObject.activeSelf;
+        }
+    }
+
+    public bool HasIceTile
+    {
+        get
+        {
+            if (it == null)
+                return false;
+
+            return it.gameObject.activeSelf;
+        }
+    }
+
     public bool IsInteractable = true;
 
     public Filter Filter;
     public Obstacle Obstacle;
+    public WeakTile wt;
+    public IceTile it;
 
     private void Awake()
     {

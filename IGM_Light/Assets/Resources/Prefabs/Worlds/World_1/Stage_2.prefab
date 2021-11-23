@@ -661,7 +661,7 @@ MonoBehaviour:
   Step: 0
   PlayerColorType: 0
   direc: {x: 0, y: 0}
-  broke: 0
+  enterNum: 1
 --- !u!212 &1100847685
 SpriteRenderer:
   m_ObjectHideFlags: 0

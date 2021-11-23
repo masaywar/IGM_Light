@@ -33,6 +33,8 @@ public class TileGUIInspector : Editor {
         {
             DestroyImmediate(_tile.Filter?.gameObject);
             DestroyImmediate(_tile.Obstacle?.gameObject);
+            DestroyImmediate(_tile.wt?.gameObject);
+            DestroyImmediate(_tile.it?.gameObject);
 
             var filter = AssetDatabase.LoadAssetAtPath<Filter>("Assets/Resources/Prefabs/Filters/TestFilter.prefab");
             var filterObject = Instantiate(filter, _tile.transform.position, Quaternion.identity, _tile.transform);
@@ -44,6 +46,8 @@ public class TileGUIInspector : Editor {
         {
             DestroyImmediate(_tile.Filter?.gameObject);
             DestroyImmediate(_tile.Obstacle?.gameObject);
+            DestroyImmediate(_tile.wt?.gameObject);
+            DestroyImmediate(_tile.it?.gameObject);
 
             //Instantiate obstacles;
             var obstacle = AssetDatabase.LoadAssetAtPath<Obstacle>("Assets/Resources/Prefabs/Obstacles/Basic.prefab");
@@ -52,9 +56,40 @@ public class TileGUIInspector : Editor {
             _tile.Obstacle = obstacleObject.GetComponent<Obstacle>();
         }
 
+        if (GUILayout.Button("Set WeakTile"))
+        {
+            DestroyImmediate(_tile.Filter?.gameObject);
+            DestroyImmediate(_tile.Obstacle?.gameObject);
+            DestroyImmediate(_tile.wt?.gameObject);
+            DestroyImmediate(_tile.it?.gameObject);
+
+            //Instantiate obstacles;
+            var WeakTile = AssetDatabase.LoadAssetAtPath<WeakTile>("Assets/Resources/Prefabs/Gimmick/WeakTile.prefab");
+            var WeakTileObject = Instantiate(WeakTile, _tile.transform.position, Quaternion.identity, _tile.transform);
+
+            _tile.wt = WeakTileObject.GetComponent<WeakTile>();
+        }
+
+        if (GUILayout.Button("Set IceTile"))
+        {
+            DestroyImmediate(_tile.Filter?.gameObject);
+            DestroyImmediate(_tile.Obstacle?.gameObject);
+            DestroyImmediate(_tile.wt?.gameObject);
+            DestroyImmediate(_tile.it?.gameObject);
+
+            //Instantiate obstacles;
+            var IceTile = AssetDatabase.LoadAssetAtPath<IceTile>("Assets/Resources/Prefabs/Gimmick/IceTile.prefab");
+            var IceTileObject = Instantiate(IceTile, _tile.transform.position, Quaternion.identity, _tile.transform);
+
+            _tile.it = IceTileObject.GetComponent<IceTile>();
+        }
+
         if (GUILayout.Button("Clear"))
         {
             DestroyImmediate(_tile.Filter?.gameObject);
+            DestroyImmediate(_tile.Obstacle?.gameObject);
+            DestroyImmediate(_tile.wt?.gameObject);
+            DestroyImmediate(_tile.it?.gameObject);
             _tile.Filter = null;
         }
 
