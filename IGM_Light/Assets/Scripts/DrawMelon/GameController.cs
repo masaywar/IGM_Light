@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -15,6 +14,8 @@ public partial class GameController : MonoBehaviour
             Blocks = blocks;
         }
     }
+
+    public bool isHack;
 
     public int Size;
     
@@ -36,6 +37,7 @@ public partial class GameController : MonoBehaviour
 
     public Player Player;
     public int[] Standard;
+
    
 
     [Tooltip("0 : Basic, 1 : Blue, 2 : Cyan, 3 : Green, 4 : Pink, 5 : Purple, 6 : Red, 7 : Yellow")]
@@ -47,7 +49,6 @@ public partial class GameController : MonoBehaviour
     private int _length; 
     private int _numOfBlocks;
 
-
     private void Awake()
     {
         _boardManager = GetComponent<BoardManager>();
@@ -58,12 +59,17 @@ public partial class GameController : MonoBehaviour
          
         Player = _boardManager.GetComponentInChildren<Player>();
 
-
         foreach(var row in TargetTable)
         {
             _numOfBlocks += row.Blocks.Count;
         }
     }   
+
+    private void Start()
+    {
+        if(!isHack)
+            UIManager.Instance.GetWindow<UIBackground>("UIBackground").ResetBackground();
+    }
 
     public void Match(ColorType colorType)
     {
@@ -129,6 +135,9 @@ public partial class GameController : MonoBehaviour
             score = 1;
 
         var uiScore = UIManager.Instance.GetWindow<UIScore>("UIScore");
+        UserDataInstance.Instance.WorldsLastClearData[Worlds-1] 
+                = UserDataInstance.Instance.WorldsLastClearData[Worlds-1] < FixedValues.STAGES-1 ? 
+                  UserDataInstance.Instance.WorldsLastClearData[Worlds-1]+1 : UserDataInstance.Instance.WorldsLastClearData[Worlds-1];
 
         if(!uiScore.IsOpen())
         {
@@ -152,7 +161,7 @@ public partial class GameController : MonoBehaviour
             UserDataInstance.Instance.UserData.UserScoreData[
                 UserDataInstance.Instance.CurrentWorld-1].userScoreData[
                 UserDataInstance.Instance.CurrentStage-1]
-                = Mathf.Max(score, UserDataInstance.Instance.UserData.UserScoreData[
+            = Mathf.Max(score, UserDataInstance.Instance.UserData.UserScoreData[
                 UserDataInstance.Instance.CurrentWorld-1].userScoreData[
                 UserDataInstance.Instance.CurrentStage-1]);
 
@@ -168,6 +177,9 @@ public partial class GameController : MonoBehaviour
 
         Player.ResetPlayer();
         _boardManager.ResetBoard();
+
+        if(!isHack)
+            UIManager.Instance.GetWindow<UIBackground>("UIBackground").ResetBackground();
     }
 }
 

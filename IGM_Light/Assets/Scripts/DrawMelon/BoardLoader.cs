@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BoardLoader : MonoBehaviour
@@ -39,8 +38,9 @@ public class BoardLoader : MonoBehaviour
         while(UIManager.Instance.GetWindow<UIBackground>("UIBackground")== null)
              yield return new WaitForSeconds(0.05f);
 
-
+        
         UIManager.Instance.GetWindow<UIBackground>("UIBackground")._gameController = controller;
+        UIManager.Instance.GetWindow<UIScore>("UIScore")._gameController = controller;
         FindObjectOfType<Anim>().animator = controller.Player.GetComponent<Animator>();
         FindObjectOfType<SwipeInteract>()._player = controller.Player;
         Camera.main.GetComponent<CameraModify>().SetCameraPositionAndSize(

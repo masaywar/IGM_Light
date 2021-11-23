@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
 public class UIScore : UIWindow
 {
     public Image[] Scores;
-    [SerializeField] private GameController _gameController;
+    public GameController _gameController;
 
     private void Start() 
     {
-        _gameController = FindObjectOfType<GameController>();
         Close();
     }
 
@@ -44,19 +40,22 @@ public class UIScore : UIWindow
 
     public void ShowScore(int score)
     {
+        if (score < 1 || score > 3)
+            return;
+
         if (score == 1)
         {
             Scores[0].gameObject.SetActive(false);
             Scores[2].gameObject.SetActive(false);
         }
 
-        if (score == 2)
+        else if (score == 2)
         {
             Scores[0].gameObject.SetActive(true);
             Scores[2].gameObject.SetActive(false);
         }
 
-        if (score == 3)
+        else
         {
             Scores[0].gameObject.SetActive(true);
             Scores[2].gameObject.SetActive(true);

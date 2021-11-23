@@ -1,10 +1,5 @@
-using System.Threading;
-using System.Runtime.Serialization;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using System;
 
 public class UserDataInstance : MonoBehaviour 
 {
@@ -26,6 +21,7 @@ public class UserDataInstance : MonoBehaviour
 
     public int CurrentWorld;
     public int CurrentStage;
+    public int[] WorldsLastClearData = new int[FixedValues.WORLDS];
 
 
     private void Awake()
@@ -43,6 +39,16 @@ public class UserDataInstance : MonoBehaviour
         
         LoadData();
         SaveData();
+
+        for (int k=0; k<FixedValues.WORLDS; k++)
+        {
+            WorldsLastClearData[k] = 0;
+            for(int j=0; j<FixedValues.STAGES; j++)
+            {
+                if(UserData.UserClearData[k].userClearData[j])
+                    WorldsLastClearData[k] = WorldsLastClearData[k] < FixedValues.STAGES-1 ? WorldsLastClearData[k]+1 : WorldsLastClearData[k];
+            }
+        }
     }
 
     public T LoadData<T>(string fileName)

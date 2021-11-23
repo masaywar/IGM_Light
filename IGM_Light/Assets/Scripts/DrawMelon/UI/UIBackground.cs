@@ -9,35 +9,17 @@ public class UIBackground : UIWindow
 
     public GameObject[] stars;
 
-    [HideInInspector] public GameController _gameController;
+    public GameController _gameController;
 
-    [HideInInspector] public List<Image> _blockImages;
+    public List<Image> _blockImages;
 
-    [HideInInspector] public Image BackgroundImage;
+    public Image BackgroundImage;
 
     private void Start()
     {
         BackgroundImage = transform.Find("Background").GetComponent<Image>();
-        BackgroundImage.sprite = _gameController
-                            .GetComponent<BoardManager>()
-                            ._spriteDatabase.BackgroundSprites[_gameController.Worlds-1]
-                            .sprites[_gameController.Stages-1];
 
-        int index =0;
-        while(index < _blockImages.Count)
-        {
-            foreach(var row in _gameController.TargetTable)
-            {
-                foreach(var block in row.Blocks)
-                {
-                    _blockImages[index].gameObject.SetActive(true);
-                    _blockImages[index].sprite = block.ShowingBlock;
-                    index++;
-                }
-            }
-
-            break;
-        }
+        StartCoroutine(waitForReset());
     }
     
     private void Update()
@@ -46,11 +28,11 @@ public class UIBackground : UIWindow
 
         if (!_gameController.IsSolved)
         {
+            if(stars.Length != 3) return;
+
             int step =  _gameController.Player.Step;
 
             int[] standards = _gameController.Standard;
-            string standard = step <= standards[0] ? standards[0].ToString() : standards[1].ToString();
-
             _text.text = step.ToString();
 
             if(step <= _gameController.Standard[0]) //star=3
@@ -72,6 +54,40 @@ public class UIBackground : UIWindow
                 stars[2].SetActive(true);
             }
         }
+    }
+
+    public void ResetBackground()
+    {
+        BackgroundImage.sprite = _gameController
+                            .GetComponent<BoardManager>()
+                            ._spriteDatabase.BackgroundSprites[_gameController.Worlds-1]
+                            .sprites[UserDataInstance.Instance.WorldsLastClearData[_gameController.Worlds-1]];
+
+        int index =0;
+        while(index < _blockImages.Count)
+        {
+            foreach(var row in _gameController.TargetTable)
+            {
+                foreach(var block in row.Blocks)
+                {
+                    _blockImages[index].gameObject.SetActive(true);
+                    _blockImages[index].sprite = block.ShowingBlock;
+                    _blockImages[index].SetNativeSize();
+                    index++;
+                }
+            }
+
+            break;
+        }
+    }
+
+    private IEnumerator waitForReset()
+    {
+        while(!_gameController)
+            yield return new WaitForSeconds(0.02f);
+
+        if(!_gameController.isHack)
+            ResetBackground();
     }
 
     public void OnClickReset()
