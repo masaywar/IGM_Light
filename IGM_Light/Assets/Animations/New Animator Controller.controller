@@ -14,6 +14,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 4
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -788511651426059875}
   m_Solo: 0
@@ -68,6 +71,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 1
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1057429692013898518}
   m_Solo: 0
@@ -278,6 +284,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1209595872787932295}
   m_Solo: 0
@@ -410,6 +419,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 6
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7242224865328207838}
   m_Solo: 0
@@ -464,6 +476,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: direction
     m_EventTreshold: 1
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1495145222829327833}
   m_Solo: 0
@@ -518,6 +533,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 6
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5491806463813813214}
   m_Solo: 0
@@ -546,6 +564,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 4
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -388435075014042270}
   m_Solo: 0
@@ -573,6 +594,9 @@ AnimatorStateTransition:
     m_EventTreshold: 1
   - m_ConditionMode: 6
     m_ConditionEvent: color
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -109798372611854304}
@@ -602,6 +626,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 5
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -828253479376343778}
   m_Solo: 0
@@ -708,6 +735,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 2
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4252682148257001977}
   m_Solo: 0
@@ -762,6 +792,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 2
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6645689303706340427}
   m_Solo: 0
@@ -816,6 +849,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 7
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 9127988590753846100}
   m_Solo: 0
@@ -843,6 +879,9 @@ AnimatorStateTransition:
     m_EventTreshold: 3
   - m_ConditionMode: 6
     m_ConditionEvent: color
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8228704888461101195}
@@ -872,6 +911,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 7
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -229733967187739471}
   m_Solo: 0
@@ -900,6 +942,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 3
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7270065902059346145}
   m_Solo: 0
@@ -1132,6 +1177,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7689453005532272048}
   m_Solo: 0
@@ -1186,6 +1234,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 3
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3375251835446430794}
   m_Solo: 0
@@ -1240,13 +1291,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: color
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: sliding
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1274,6 +1331,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 5
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7822474555844276218}
   m_Solo: 0
@@ -1302,6 +1362,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 4
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5771315262528534870}
   m_Solo: 0
@@ -1382,6 +1445,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 1
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5500702976903223143}
   m_Solo: 0
@@ -1436,6 +1502,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 2
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -596268137963430684}
   m_Solo: 0
@@ -1464,6 +1533,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 5
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5534302473770643180}
   m_Solo: 0
@@ -1518,6 +1590,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 6
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7299641852644306538}
   m_Solo: 0
@@ -1598,6 +1673,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8596676452321139982}
   m_Solo: 0
@@ -1652,6 +1730,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 7
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6465268570621041543}
   m_Solo: 0
@@ -1758,6 +1839,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 3
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3155382208383659600}
   m_Solo: 0
@@ -1786,6 +1870,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 4
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3138765564979760430}
   m_Solo: 0
@@ -1814,6 +1901,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 5
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -838312391136057924}
   m_Solo: 0
@@ -1894,6 +1984,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 2
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5686650784672736613}
   m_Solo: 0
@@ -1948,6 +2041,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 6
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6951857829028313493}
   m_Solo: 0
@@ -1976,6 +2072,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 4
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1042252856027698204}
   m_Solo: 0
@@ -2056,6 +2155,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 1
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8303536779334236516}
   m_Solo: 0
@@ -2136,6 +2238,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 2
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3742551027279625381}
   m_Solo: 0
@@ -2216,6 +2321,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 7
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4334571170266505089}
   m_Solo: 0
@@ -2244,6 +2352,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 3
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6841389518773615504}
   m_Solo: 0
@@ -2324,6 +2435,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 3
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2500455587766077163}
   m_Solo: 0
@@ -2378,6 +2492,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 7
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6200390852867229267}
   m_Solo: 0
@@ -2432,6 +2549,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 1
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2900714447664654248}
   m_Solo: 0
@@ -2460,6 +2580,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 1
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4526615355142952801}
   m_Solo: 0
@@ -2514,6 +2637,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: color
     m_EventTreshold: 5
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6570333937962749291}
   m_Solo: 0

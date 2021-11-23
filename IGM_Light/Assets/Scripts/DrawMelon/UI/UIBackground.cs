@@ -8,30 +8,8 @@ public class UIBackground : UIWindow
     [SerializeField] Text _text;
 
     public GameController _gameController;
-    public GameObject[] stars;
+    public Image[] stars;
 
-    public List<Image> _images;
-
-    private void Start()
-    {
-        int index =0;
-        while(index < _images.Count)
-        {
-            foreach(var row in _gameController.TargetTable)
-            {
-                foreach(var block in row.Blocks)
-                {
-                    _images[index].gameObject.SetActive(true);
-                    _images[index].sprite = block.ShowingBlock;
-                    index++;
-                }
-            }
-
-            break;
-        }
-        
-    }
-    
     private void Update()
     {
         if(_gameController == null) return;
@@ -45,23 +23,23 @@ public class UIBackground : UIWindow
 
             _text.text = step.ToString();
 
-            if(step <= _gameController.Standard[0]) //star=3
+            if (step <= _gameController.Standard[0]) //star=3
             {
-                stars[1].SetActive(false);
-                stars[2].SetActive(false);
-                stars[0].SetActive(true);
+                stars[1].gameObject.SetActive(false);
+                stars[2].gameObject.SetActive(false);
+                stars[0].gameObject.SetActive(true);
             }
-            else if(step <= _gameController.Standard[1])
+            else if (step <= _gameController.Standard[1])
             {
-                stars[0].SetActive(false);
-                stars[2].SetActive(false);
-                stars[1].SetActive(true);
+                stars[0].gameObject.SetActive(false);
+                stars[2].gameObject.SetActive(false);
+                stars[1].gameObject.SetActive(true);
             }
             else
             {
-                stars[0].SetActive(false);
-                stars[1].SetActive(false);
-                stars[2].SetActive(true);
+                stars[0].gameObject.SetActive(false);
+                stars[1].gameObject.SetActive(false);
+                stars[2].gameObject.SetActive(true);
             }
         }
     }
