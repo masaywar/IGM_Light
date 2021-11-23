@@ -20,19 +20,40 @@ public class Anim : MonoBehaviour
         animator.SetInteger("direction", direction);
     }
     
-    public void Direction(Vector2Int direction)
+    public int Direction(Vector2Int direction)
     {
         if(direction.y<0)
+        {
             animator.SetInteger("direction", (int)States.up);
+            return 1;
+        }
+           
         else if(direction.y > 0)
+        {
             animator.SetInteger("direction", (int)States.down);
+            return 2;
+        }
+            
         if(direction.x < 0)
+        {
             animator.SetInteger("direction", (int)States.right);
+            return 4;    
+        }
         else if (direction.x > 0)
+        {
             animator.SetInteger("direction", (int)States.left);
+            return 3;
+        }
+
+        return 0;
     }
     public void Coloring(int color)
     {
         animator.SetInteger("color", color);
+    }
+
+    public void Sliding()
+    {
+
     }
 }

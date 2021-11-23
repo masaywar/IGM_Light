@@ -17,8 +17,6 @@ public class UIBackground : UIWindow
 
     private void Start()
     {
-        BackgroundImage = transform.Find("Background").GetComponent<Image>();
-
         StartCoroutine(waitForReset());
     }
     
