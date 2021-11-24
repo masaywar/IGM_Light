@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Runtime;
+using System.Collections;
+using System.Collections.Generic;
+using DG.Tweening;
+using Lean.Common;
 using Lean.Touch;
 
 public class UIWorldSelect : UIWindow
@@ -8,7 +13,10 @@ public class UIWorldSelect : UIWindow
     private Image _backGroundImage;
     private UIManager _uiManager;
     public SpriteDatabaseLoader SpriteDatabase;
+
     [SerializeField]private int _showingIndex = 0;
+    [SerializeField] private Transform _worldContainer;
+    [SerializeField] private Transform[] _buttons;
 
     public float Threshold;
     
@@ -27,6 +35,28 @@ public class UIWorldSelect : UIWindow
         _leanTouch = FindObjectOfType<LeanTouch>();
 
         base.Awake();
+    }
+
+    public override void Close()
+    {
+        _worldContainer.localPosition = Vector3.zero;
+        _fingerSwipe.enabled = true;
+        _leanTouch.enabled = true;
+        base.Close();
+    }
+
+    public override void Close(bool isAnim)
+    {
+        if (isAnim)
+        {
+            _worldContainer.DOLocalMoveX(0, 0.5f).
+            OnStepComplete(() => Close());
+        }
+
+        else
+        {
+            Close();
+        }
     }
 
     public void SetNextWorld()
