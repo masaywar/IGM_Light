@@ -3256,9 +3256,9 @@ MonoBehaviour:
   canvasGroup: {fileID: 0}
   _text: {fileID: 1024642804}
   stars:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 329131625}
+  - {fileID: 1891682097}
+  - {fileID: 1018463176}
   _gameController: {fileID: 0}
   _blockImages:
   - {fileID: 1596876852}

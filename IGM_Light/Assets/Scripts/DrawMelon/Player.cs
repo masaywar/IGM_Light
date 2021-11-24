@@ -116,6 +116,26 @@ public class Player : MonoBehaviour
                 enterNum++;
             }
 
+            if (onTile.HasFilter)
+                PlayerColorType = onTile.Filter.color;
+
+            direc.y = row - Row;
+            direc.x = Column - col;
+            anim.Direction(direc);
+
+            //Debug.Log(onTile.transform.position);
+
+            transform
+           .DOMove(onTile.transform.position, 0.5f)
+           .OnComplete(() => {
+               if(!onTile.HasIceTile) Step++;
+               if (onTile.HasFilter)
+               {
+                   onTile.Filter.gameObject.SetActive(false);
+                   ChangeColor(PlayerColorType);
+               }
+           });
+
             if (onTile.HasIceTile)
             {
                 direc.y = row - Row;
@@ -146,36 +166,6 @@ public class Player : MonoBehaviour
                 }
                 return TryMove(r, c);
             }
-
-            if (onTile.HasWeakTile)
-            {
-                if (broke)
-                {
-                    return false;
-                }
-                onTile.wt.gameObject.GetComponent<SpriteRenderer>().sprite = brokeTile;
-                broke = true;
-            }
-
-            if (onTile.HasFilter)
-              PlayerColorType = onTile.Filter.color;
-
-            direc.y = row - Row;
-            direc.x = Column - col;
-            anim.Direction(direc);
-
-            //Debug.Log(onTile.transform.position);
-
-             transform
-            .DOMove(onTile.transform.position, 0.5f)
-            .OnComplete(()=>{
-                Step++;
-                if (onTile.HasFilter)
-                {
-                    onTile.Filter.gameObject.SetActive(false);
-                    ChangeColor(PlayerColorType);
-                }
-            });
             return true;
         }
 

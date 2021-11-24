@@ -18,9 +18,9 @@ public class BoardGenerator : BaseGenerator
 
     public override void OnInspectorGUI()
     {
-        base.OnInspectorGUI(); 
-        
-        boardManager = FindObjectOfType<BoardManager>();
+        base.OnInspectorGUI();
+
+        boardManager = target as BoardManager;
         _tilesParentTransform = boardManager.transform;
 
         EditorGUILayout.Space(16);
