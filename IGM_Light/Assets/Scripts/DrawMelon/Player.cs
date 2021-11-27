@@ -147,18 +147,8 @@ public class Player : MonoBehaviour
                 return TryMove(r, c);
             }
 
-            if (onTile.HasWeakTile)
-            {
-                if (broke)
-                {
-                    return false;
-                }
-                onTile.wt.gameObject.GetComponent<SpriteRenderer>().sprite = brokeTile;
-                broke = true;
-            }
-
             if (onTile.HasFilter)
-              PlayerColorType = onTile.Filter.color;
+                PlayerColorType = onTile.Filter.color;
 
             direc.y = row - Row;
             direc.x = Column - col;
