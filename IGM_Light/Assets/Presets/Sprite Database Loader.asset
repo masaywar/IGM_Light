@@ -30,7 +30,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1a7946f50db00d444a6a233ce602985e, type: 3}
   - {fileID: 21300000, guid: 359b1af931d85884e8f62371a2f590f4, type: 3}
   - {fileID: 21300000, guid: 31c1e5f660ad2a2479212b32de9e603c, type: 3}
-  BackgroundSprites: []
+  BackgroundSprites:
+  - sprites:
+    - {fileID: 21300000, guid: 5e19dcf58f31f1149b000ae2de6aa420, type: 3}
   CharacterSprites:
   - sprites:
     - {fileID: -4819162595855872403, guid: 208b9b5facfd4c140866d62e786adabd, type: 3}

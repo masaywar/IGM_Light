@@ -490,10 +490,11 @@ MonoBehaviour:
   UserData:
     Worlds: 0
     Stages: 0
-    UserClearData: 
-    UserScoreData: 
+    UserClearData: []
+    UserScoreData: []
   CurrentWorld: 0
   CurrentStage: 0
+  WorldsLastClearData: 00000000000000000000000000000000
 --- !u!1 &982159342
 GameObject:
   m_ObjectHideFlags: 0
