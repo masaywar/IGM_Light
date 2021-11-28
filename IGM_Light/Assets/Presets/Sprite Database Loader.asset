@@ -336,9 +336,11 @@ MonoBehaviour:
     - {fileID: -1846617907904955007, guid: 45edb464bd118304885da2693138dfd7, type: 3}
     - {fileID: 1359325416843721194, guid: 45edb464bd118304885da2693138dfd7, type: 3}
     - {fileID: 7440764629506916341, guid: 45edb464bd118304885da2693138dfd7, type: 3}
+  WorldsSprites: []
   path:
   - Assets/Resources/Sprites/TileColor
   - Assets/Resources/Sprites/character_sprite
   - Assets/Resources/Sprites/Filter
   - Assets/Resources/Sprites/Backgrounds
   - Assets/Resources/Sprites/TargetBlocks
+  - Assets/Resources/Sprites/Worlds

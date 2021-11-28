@@ -40,6 +40,11 @@ public class SpriteDatabaseInspector : Editor
         {
             LoadBlocks();
         }
+
+        if(GUILayout.Button("Load Worlds Image"))
+        {
+            LoadWorldImages();
+        }
     }
 
     public void LoadTile()
@@ -137,6 +142,25 @@ public class SpriteDatabaseInspector : Editor
             var spriteSheet = Resources.LoadAll<Sprite>(directory).ToList();
 
             backgroundSprites.Add(new SpriteDatabaseLoader.Sprites(spriteSheet));
+        });      
+    }
+
+    public void LoadWorldImages()
+     {
+        var path = _spriteDatabase.path[5];
+        var worldsSprites = _spriteDatabase.WorldsSprites;
+
+        worldsSprites.Clear();
+
+        Directory
+        .GetDirectories(path)
+        .Where(directory=>!directory.Contains(".meta"))
+        .ForEach(directory=>{
+            directory = directory.Split(new string[]{"Resources/"}, StringSplitOptions.None)[1];
+            directory = directory.Replace('\\', '/');
+            var spriteSheet = Resources.LoadAll<Sprite>(directory).ToList();
+
+            worldsSprites.Add(new SpriteDatabaseLoader.Sprites(spriteSheet));
         });      
     }
 }

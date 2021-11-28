@@ -34,11 +34,8 @@ public partial class GameController : MonoBehaviour
 
     public int Worlds;
     public int Stages;
-
     public Player Player;
     public int[] Standard;
-
-   
 
     [Tooltip("0 : Basic, 1 : Blue, 2 : Cyan, 3 : Green, 4 : Pink, 5 : Purple, 6 : Red, 7 : Yellow")]
     public CustomBlocks[] TargetTable;
@@ -136,13 +133,13 @@ public partial class GameController : MonoBehaviour
 
         var uiScore = UIManager.Instance.GetWindow<UIScore>("UIScore");
         UserDataInstance.Instance.WorldsLastClearData[Worlds-1] 
-                = UserDataInstance.Instance.WorldsLastClearData[Worlds-1] < FixedValues.STAGES-1 ? 
+                = UserDataInstance.Instance.WorldsLastClearData[Worlds-1] < FixedValues.STAGES-1 && UserDataInstance.Instance.WorldsLastClearData[Worlds-1] < Stages? 
                   UserDataInstance.Instance.WorldsLastClearData[Worlds-1]+1 : UserDataInstance.Instance.WorldsLastClearData[Worlds-1];
 
         if(!uiScore.IsOpen())
         {
             uiScore.Open(true);
-            uiScore.ShowScore(score);
+            uiScore.ShowScore(score);   
 
             if (UserDataInstance.Instance.UserData.Stages != FixedValues.STAGES 
                 && UserDataInstance.Instance.CurrentStage > UserDataInstance.Instance.UserData.Stages)

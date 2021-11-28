@@ -13,15 +13,8 @@ public class UIStageSelect : UIWindow
     [SerializeField] private Transform _stageContainer;
     [SerializeField] private Transform[] _buttons;
 
-    private LeanFingerSwipe _fingerSwipe;
-    private LeanTouch _leanTouch;
-
-
     protected override void Awake()
     {
-        _fingerSwipe = FindObjectOfType<LeanFingerSwipe>();
-        _leanTouch = FindObjectOfType<LeanTouch>();
-
         base.Awake();
         Close();
     }
@@ -29,8 +22,6 @@ public class UIStageSelect : UIWindow
     public override void Close()
     {
         _stageContainer.localPosition = Vector3.zero;
-        _fingerSwipe.enabled = true;
-        _leanTouch.enabled = true;
         base.Close();
     }
 
@@ -51,9 +42,6 @@ public class UIStageSelect : UIWindow
     public override void Open()
     {
         base.Open();
-
-        _fingerSwipe.enabled = false;
-        _leanTouch.enabled = false;
 
         if(UserDataInstance.Instance.CurrentWorld == 0)
             return;

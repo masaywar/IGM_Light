@@ -210,6 +210,7 @@ public class Player : MonoBehaviour
 
     public void ResetPlayer()
     {
+        Step = 0;
         Row = _originRow;
         Column = _originCol;
 
