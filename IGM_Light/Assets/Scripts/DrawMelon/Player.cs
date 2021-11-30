@@ -25,7 +25,6 @@ public class Player : MonoBehaviour
     private int _originRow;
     private int _originCol;
     public Vector2Int direc;
-    public int enterNum = 1;
     private int r;
     private int c;
     // public ColorType standard;
@@ -69,21 +68,25 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             //anim.Directioning((int)States.up);
+            anim.Moving();
             Row = TryMove(Row-1, Column) ? Row-1 : Row;
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             //anim.Directioning((int)States.down);
+            anim.Moving();
             Row = TryMove(Row+1, Column) ? Row+1 : Row;
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             //anim.Directioning((int)States.left);
+            anim.Moving();
             Column = TryMove(Row, Column-1) ? Column-1 : Column;
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             //anim.Directioning((int)States.right);
+            anim.Moving();
             Column = TryMove(Row, Column+1) ? Column+1 : Column;
         }
 #else
@@ -93,6 +96,7 @@ public class Player : MonoBehaviour
 
     public void Move(Vector2Int direction)
     {
+        anim.Moving();
         if (TryMove(Row+direction.x, Column+direction.y))
         {
             Row = Row + direction.x;
@@ -111,9 +115,9 @@ public class Player : MonoBehaviour
 
             if (onTile.HasWeakTile)
             {
-                if (!onTile.wt.Weakproperty(onTile,enterNum))
+                if (!onTile.wt.Weakproperty(onTile))
                     return false;
-                enterNum++;
+                onTile.enterNum++;
             }
 
             if (onTile.HasIceTile)
@@ -144,6 +148,7 @@ public class Player : MonoBehaviour
                         c = Column + 1;
                         break;
                 }
+                anim.Sliding();
                 return TryMove(r, c);
             }
 
