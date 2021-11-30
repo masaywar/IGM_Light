@@ -12,6 +12,8 @@ public class CustomTile : MonoBehaviour
 
     public int Column;
 
+    public int enterNum = 1;
+
     public Vector2Int Position
     {
         get => new Vector2Int(Row, Column);

@@ -24,12 +24,14 @@ public class Anim : MonoBehaviour
     {
         if(direction.y<0)
         {
+            //Debug.Log("up");
             animator.SetInteger("direction", (int)States.up);
             return 1;
         }
            
         else if(direction.y > 0)
         {
+            //Debug.Log("down");
             animator.SetInteger("direction", (int)States.down);
             return 2;
         }
@@ -54,6 +56,13 @@ public class Anim : MonoBehaviour
 
     public void Sliding()
     {
+       // Debug.Log("sliding");
+        animator.SetBool("sliding", true);
+    }
 
+    public void Moving()
+    {
+        //Debug.Log("moving");
+        animator.SetBool("sliding", false);
     }
 }
