@@ -86,6 +86,7 @@ public class Player : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             //anim.Directioning((int)States.right);
+            //Debug.Log("black Row: " + Row + "Col: " + Column);
             anim.Moving();
             Column = TryMove(Row, Column+1) ? Column+1 : Column;
         }
@@ -106,20 +107,50 @@ public class Player : MonoBehaviour
 
     public bool TryMove(int row, int col)
     {
+        Debug.Log("Row: " + row + "Col: " + col);
         if (_boardManager.TryGetTile(row, col, out var onTile))  //onTile에는 갈 위치
         {
             if (onTile.HasObstacle)
             {
                 return false;
             }
-
             if (onTile.HasWeakTile)
             {
                 if (!onTile.wt.Weakproperty(onTile))
                     return false;
                 onTile.enterNum++;
             }
+            if (onTile.HasWhitePortal)
+            {
+                gameObject.transform.position = onTile.transform.position;
+                //gameObject.transform.Translate(onTile.transform.position);
+                //transform.DOMove(onTile.transform.position, 0.5f);
+                Step++;
+                direc.y = row - Row;
+                direc.x = Column - col;
+                anim.Direction(direc);
 
+                Row = Math.Abs((int)_boardManager.b_pos.y);
+                Column = Math.Abs((int)_boardManager.b_pos.x);
+                gameObject.transform.position = _boardManager.b_pos;
+                Debug.Log("black Row: " + Row + "Col: " + Column);
+                return false;
+            }
+            if (onTile.HasBlackPortal)
+            {
+                direc.y = row - Row;
+                direc.x = Column - col;
+                anim.Direction(direc);
+                gameObject.transform.position = onTile.transform.position;
+                //transform.DOMove(onTile.transform.position, 0.5f);
+                Step++;
+                 
+                Row = Math.Abs((int)_boardManager.w_pos.y);
+                Column = Math.Abs((int)_boardManager.w_pos.x);
+                gameObject.transform.position = _boardManager.w_pos;
+                //Debug.Log("White Row: " + Row + "Col: " + Column);
+                return false;
+            }
             if (onTile.HasIceTile)
             {
                 direc.y = row - Row;
@@ -158,8 +189,6 @@ public class Player : MonoBehaviour
             direc.y = row - Row;
             direc.x = Column - col;
             anim.Direction(direc);
-
-            //Debug.Log(onTile.transform.position);
 
              transform
             .DOMove(onTile.transform.position, 0.5f)

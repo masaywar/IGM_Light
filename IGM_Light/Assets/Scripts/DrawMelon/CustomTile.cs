@@ -66,12 +66,36 @@ public class CustomTile : MonoBehaviour
         }
     }
 
+    public bool HasWhitePortal
+    {
+        get
+        {
+            if (w_portal == null)
+                return false;
+
+            return w_portal.gameObject.activeSelf;
+        }
+    }
+
+    public bool HasBlackPortal
+    {
+        get
+        {
+            if (b_portal == null)
+                return false;
+
+            return b_portal.gameObject.activeSelf;
+        }
+    }
+
     public bool IsInteractable = true;
 
     public Filter Filter;
     public Obstacle Obstacle;
     public WeakTile wt;
     public IceTile it;
+    public Portal w_portal;
+    public Portal b_portal;
 
     private void Awake()
     {

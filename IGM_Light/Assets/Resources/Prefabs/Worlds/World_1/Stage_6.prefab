@@ -96,12 +96,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 0
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 41362270}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &111373086
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +356,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -321.61194, y: -292.28467, z: -1.9977814}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2844521770624057114}
   m_Father: {fileID: 851461846}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -418,12 +425,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 3
   Column: 2
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 2, y: -3, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 264077282}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 3016671508535050213}
 --- !u!1 &431330783
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,12 +534,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 0
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 431330785}
   IsInteractable: 1
   Filter: {fileID: 111373087}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &474373223
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,12 +737,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 3
   Column: 0
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 728077513}
   IsInteractable: 1
   Filter: {fileID: 3506149485661204037}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &750588115
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,7 +777,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -321.61194, y: -289.28467, z: -1.9977814}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2986782452301022672}
   m_Father: {fileID: 851461846}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -820,12 +846,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 2
+  enterNum: 1
+  w_PortalPos: {x: 2, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 750588117}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 2123660054454303915}
+  b_portal: {fileID: 0}
 --- !u!1 &773186129
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,12 +954,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 1
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 773186131}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &851461845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,12 +1180,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 3
   Column: 1
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 984738434}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1143026693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,12 +1288,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 3
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 1143026695}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1151845646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,12 +1396,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 2
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 1151845648}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1215773813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,12 +1504,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 1
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 1215773815}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1827640489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,12 +1613,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 0
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 1827640491}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 7136223534345551154}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1906805254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,12 +1721,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 3
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 1906805256}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1940008588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,12 +1829,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 3
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 1940008590}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1967952099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,12 +1937,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 3
   Column: 3
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 1967952102}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &2046711803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,12 +2046,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 2
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 2046711806}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 474373224}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &2068616729
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,12 +2155,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 1
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 2068616732}
   IsInteractable: 1
   Filter: {fileID: 1653692112809578999}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1929581658236887874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,6 +2262,207 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 7
+--- !u!1 &2498031640451201486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2986782452301022672}
+  - component: {fileID: 2796660158037327686}
+  - component: {fileID: 2123660054454303915}
+  m_Layer: 0
+  m_Name: WhitePortal(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2986782452301022672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2498031640451201486}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 6.834956, y: 6.829688, z: 1.1734382}
+  m_Children: []
+  m_Father: {fileID: 750588118}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &2796660158037327686
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2498031640451201486}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 932994975
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.16}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &2123660054454303915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2498031640451201486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb028e7e48040634384b1a23b8a8214e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &4190344804595853096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2844521770624057114}
+  - component: {fileID: 4544058300704711580}
+  - component: {fileID: 2094238107019220833}
+  - component: {fileID: 3016671508535050213}
+  m_Layer: 0
+  m_Name: BlackPortal(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2844521770624057114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4190344804595853096}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 6.834956, y: 6.829688, z: 1.1734382}
+  m_Children: []
+  m_Father: {fileID: 264077281}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &4544058300704711580
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4190344804595853096}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 932994975
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.16}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &2094238107019220833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4190344804595853096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87e2b2f772f714408d7f23f8939f6a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3016671508535050213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4190344804595853096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff8dd2ad8aec55946824766bb072c532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4784668097403062795
 GameObject:
   m_ObjectHideFlags: 0

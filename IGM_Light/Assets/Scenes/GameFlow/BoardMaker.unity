@@ -262,6 +262,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 3
   Column: 2
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 93610075}
   IsInteractable: 1
@@ -269,6 +272,8 @@ MonoBehaviour:
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &93610075
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -532,6 +537,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 2
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 202394781}
   IsInteractable: 1
@@ -539,6 +547,8 @@ MonoBehaviour:
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &202394781
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -766,6 +776,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 2
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 241668445}
   IsInteractable: 1
@@ -773,6 +786,8 @@ MonoBehaviour:
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &241668445
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1268,6 +1283,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 2
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 670556859}
   IsInteractable: 1
@@ -1275,6 +1293,8 @@ MonoBehaviour:
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &670556859
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1371,6 +1391,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 1
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 715024398}
   IsInteractable: 1
@@ -1378,6 +1401,8 @@ MonoBehaviour:
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &715024398
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1474,6 +1499,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 3
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 723667939}
   IsInteractable: 1
@@ -1481,6 +1509,8 @@ MonoBehaviour:
   Obstacle: {fileID: 1633861519}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &723667939
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1870,6 +1900,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 3
   Column: 1
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 976783398}
   IsInteractable: 1
@@ -1877,6 +1910,8 @@ MonoBehaviour:
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &976783398
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1973,6 +2008,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 0
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 1015200617}
   IsInteractable: 1
@@ -1980,6 +2018,8 @@ MonoBehaviour:
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &1015200617
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2220,6 +2260,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 3
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 1081775757}
   IsInteractable: 1
@@ -2227,6 +2270,8 @@ MonoBehaviour:
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &1081775757
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2542,6 +2587,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 1
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 1284376213}
   IsInteractable: 1
@@ -2549,6 +2597,8 @@ MonoBehaviour:
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &1284376213
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3132,6 +3182,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 0
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 1726006013}
   IsInteractable: 1
@@ -3139,6 +3192,8 @@ MonoBehaviour:
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &1726006013
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3406,6 +3461,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 1
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 1773022241}
   IsInteractable: 1
@@ -3413,6 +3471,8 @@ MonoBehaviour:
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &1773022241
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4062,7 +4122,6 @@ MonoBehaviour:
   broke: 0
   PlayerColorType: 0
   direc: {x: 0, y: 0}
-  enterNum: 1
 --- !u!1 &1956396501
 GameObject:
   m_ObjectHideFlags: 0
@@ -4095,6 +4154,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 3
   Column: 0
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 1956396503}
   IsInteractable: 1
@@ -4102,6 +4164,8 @@ MonoBehaviour:
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &1956396503
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4308,6 +4372,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 0
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 1971245825}
   IsInteractable: 1
@@ -4315,6 +4382,8 @@ MonoBehaviour:
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &1971245825
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4555,6 +4624,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 3
   Column: 3
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 2039076978}
   IsInteractable: 1
@@ -4562,6 +4634,8 @@ MonoBehaviour:
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &2039076978
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4658,6 +4732,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 3
+  enterNum: 1
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
   TileColor: 0
   SpriteRenderer: {fileID: 2117921285}
   IsInteractable: 1
@@ -4665,6 +4742,8 @@ MonoBehaviour:
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
   it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!212 &2117921285
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -12,6 +12,8 @@ public class BoardManager: MonoBehaviour
     
     public int World=0;
     public int Stage=0;
+    public Vector3 w_pos;
+    public Vector3 b_pos;
 
     [Range(3, 5)]
     [SerializeField] private int _length=3;

@@ -9,6 +9,18 @@ public class TileGUIInspector : Editor {
     private CustomTile _tile;
     public ColorType _colorType;
     public Object spriteDatabase;
+    private Portal wPortalObject;
+    private Portal bPortalObject;
+   
+    /*public override void Update()
+    {
+        if (wPortalObject!=null&&bPortalObject!=null)
+        {
+            Debug.Log("portal pair");
+            wPortalObject.b_PortalPos = bPortalObject.b_PortalPos;
+            bPortalObject.w_PortalPos = wPortalObject.w_PortalPos;
+        }
+    }*/
 
     public override void OnInspectorGUI() {
         base.OnInspectorGUI();
@@ -35,6 +47,8 @@ public class TileGUIInspector : Editor {
             DestroyImmediate(_tile.Obstacle?.gameObject);
             DestroyImmediate(_tile.wt?.gameObject);
             DestroyImmediate(_tile.it?.gameObject);
+            DestroyImmediate(_tile.w_portal?.gameObject);
+            DestroyImmediate(_tile.b_portal?.gameObject);
 
             var filter = AssetDatabase.LoadAssetAtPath<Filter>("Assets/Resources/Prefabs/Filters/TestFilter.prefab");
             var filterObject = Instantiate(filter, _tile.transform.position, Quaternion.identity, _tile.transform);
@@ -48,6 +62,8 @@ public class TileGUIInspector : Editor {
             DestroyImmediate(_tile.Obstacle?.gameObject);
             DestroyImmediate(_tile.wt?.gameObject);
             DestroyImmediate(_tile.it?.gameObject);
+            DestroyImmediate(_tile.w_portal?.gameObject);
+            DestroyImmediate(_tile.b_portal?.gameObject);
 
             //Instantiate obstacles;
             var obstacle = AssetDatabase.LoadAssetAtPath<Obstacle>("Assets/Resources/Prefabs/Obstacles/Basic.prefab");
@@ -62,6 +78,8 @@ public class TileGUIInspector : Editor {
             DestroyImmediate(_tile.Obstacle?.gameObject);
             DestroyImmediate(_tile.wt?.gameObject);
             DestroyImmediate(_tile.it?.gameObject);
+            DestroyImmediate(_tile.w_portal?.gameObject);
+            DestroyImmediate(_tile.b_portal?.gameObject);
 
             //Instantiate obstacles;
             var WeakTile = AssetDatabase.LoadAssetAtPath<WeakTile>("Assets/Resources/Prefabs/Gimmick/WeakTile.prefab");
@@ -76,6 +94,8 @@ public class TileGUIInspector : Editor {
             DestroyImmediate(_tile.Obstacle?.gameObject);
             DestroyImmediate(_tile.wt?.gameObject);
             DestroyImmediate(_tile.it?.gameObject);
+            DestroyImmediate(_tile.w_portal?.gameObject);
+            DestroyImmediate(_tile.b_portal?.gameObject);
 
             //Instantiate obstacles;
             var IceTile = AssetDatabase.LoadAssetAtPath<IceTile>("Assets/Resources/Prefabs/Gimmick/IceTile.prefab");
@@ -84,12 +104,57 @@ public class TileGUIInspector : Editor {
             _tile.it = IceTileObject.GetComponent<IceTile>();
         }
 
+        if (GUILayout.Button("Set White Portal"))
+        {
+            DestroyImmediate(_tile.Filter?.gameObject);
+            DestroyImmediate(_tile.Obstacle?.gameObject);
+            DestroyImmediate(_tile.wt?.gameObject);
+            DestroyImmediate(_tile.it?.gameObject);
+            DestroyImmediate(_tile.w_portal?.gameObject);
+            DestroyImmediate(_tile.b_portal?.gameObject);
+
+            //Instantiate obstacles;
+            var wPortal = AssetDatabase.LoadAssetAtPath<Portal>("Assets/Resources/Prefabs/Gimmick/WhitePortal.prefab");
+            wPortalObject = Instantiate(wPortal, _tile.transform.position, Quaternion.identity, _tile.transform);
+
+            //Debug.Log("WhitePortal Position: "+_tile.transform.position);
+            wPortalObject.w_PortalPos = _tile.transform.position;
+            manager.w_pos = _tile.transform.position;
+            _tile.w_portal = wPortalObject.GetComponent<Portal>();
+        }
+
+        if (GUILayout.Button("Set Black Portal"))
+        {
+            DestroyImmediate(_tile.Filter?.gameObject);
+            DestroyImmediate(_tile.Obstacle?.gameObject);
+            DestroyImmediate(_tile.wt?.gameObject);
+            DestroyImmediate(_tile.it?.gameObject);
+            DestroyImmediate(_tile.w_portal?.gameObject);
+            DestroyImmediate(_tile.b_portal?.gameObject);
+
+            //Instantiate obstacles;
+            var bPortal = AssetDatabase.LoadAssetAtPath<Portal>("Assets/Resources/Prefabs/Gimmick/BlackPortal.prefab");
+            bPortalObject = Instantiate(bPortal, _tile.transform.position, Quaternion.identity, _tile.transform);
+
+            manager.b_pos = _tile.transform.position;
+            bPortalObject.b_PortalPos = _tile.transform.position;
+            /*if (wPortalObject!=null)
+            {
+                Debug.Log("enter");
+                wPortalObject.b_PortalPos = b_pos;
+                bPortalObject.w_PortalPos = w_pos;
+            }*/
+            _tile.b_portal = bPortalObject.GetComponent<Portal>();
+        }
+
         if (GUILayout.Button("Clear"))
         {
             DestroyImmediate(_tile.Filter?.gameObject);
             DestroyImmediate(_tile.Obstacle?.gameObject);
             DestroyImmediate(_tile.wt?.gameObject);
             DestroyImmediate(_tile.it?.gameObject);
+            DestroyImmediate(_tile.w_portal?.gameObject);
+            DestroyImmediate(_tile.b_portal?.gameObject);
             _tile.Filter = null;
         }
 

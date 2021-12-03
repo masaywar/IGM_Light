@@ -14,6 +14,11 @@ public class Gimmick : MonoBehaviour
         return true;
     }
 
+    public void Portal() 
+    {
+
+    }
+
     public void Slide(CustomTile onTile,Anim anim)  //iceTile, iceTile 다음 타일로 계속 이동
     {
         Debug.Log("Sliding");
