@@ -96,12 +96,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 0
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 41362270}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &100905499
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,12 +299,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 3
   Column: 2
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 264077282}
   IsInteractable: 1
   Filter: {fileID: 100905500}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &431330783
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,12 +406,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 0
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 431330785}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &471040596
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +660,7 @@ MonoBehaviour:
   broke: 0
   PlayerColorType: 0
   direc: {x: 0, y: 0}
+  canInteract: 1
 --- !u!212 &553133759
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -812,12 +828,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 3
   Column: 0
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 728077513}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 2041399721}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &750588115
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,12 +935,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 2
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 750588117}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &773186129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,12 +1042,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 1
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 773186131}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &835625610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1212,10 @@ MonoBehaviour:
   _spriteDatabase: {fileID: 11400000, guid: 72a73b9f48b09b244912ae5a7d806cd5, type: 2}
   World: 1
   Stage: 5
+  w_pos: {x: 0, y: 0, z: 0}
+  b_pos: {x: 0, y: 0, z: 0}
+  w_poslist: []
+  b_poslist: []
   _length: 4
   Tiles:
   - {fileID: 41362269}
@@ -1216,7 +1251,7 @@ MonoBehaviour:
   Worlds: 0
   Stages: 0
   Player: {fileID: 0}
-  Standard: 000000000000000000000000
+  Standard: 0c0000001000000011000000
   TargetTable:
   - Blocks: []
   - Blocks: []
@@ -1331,12 +1366,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 3
   Column: 1
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 984738434}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1143026693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,12 +1473,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 3
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1143026695}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1151845646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,12 +1580,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 2
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1151845648}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1215773813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,12 +1687,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 1
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1215773815}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1827640489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1739,12 +1794,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 0
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1827640491}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1906805254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,12 +1901,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 3
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1906805256}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1940008588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,12 +2008,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 3
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1940008590}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1967952099
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,12 +2116,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 3
   Column: 3
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1967952102}
   IsInteractable: 1
   Filter: {fileID: 835625611}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &2041399720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,12 +2318,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 2
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 2046711806}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 549943404}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &2068616729
 GameObject:
   m_ObjectHideFlags: 0
@@ -2346,9 +2426,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 1
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 2068616732}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 471040597}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}

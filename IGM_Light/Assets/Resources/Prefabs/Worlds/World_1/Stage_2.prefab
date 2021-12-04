@@ -96,12 +96,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 1
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 26958428}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &145585314
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,12 +203,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 2
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 145585316}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &174360437
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,12 +310,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 0
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 174360439}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &529020937
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,12 +417,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 1
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 529020939}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &656251222
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,12 +525,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 0
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 656251224}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 1989576421}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &851461845
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,6 +593,10 @@ MonoBehaviour:
   _spriteDatabase: {fileID: 11400000, guid: 72a73b9f48b09b244912ae5a7d806cd5, type: 2}
   World: 1
   Stage: 2
+  w_pos: {x: 0, y: 0, z: 0}
+  b_pos: {x: 0, y: 0, z: 0}
+  w_poslist: []
+  b_poslist: []
   _length: 3
   Tiles:
   - {fileID: 174360438}
@@ -596,7 +625,7 @@ MonoBehaviour:
   Worlds: 0
   Stages: 0
   Player: {fileID: 0}
-  Standard: 000000000000000000000000
+  Standard: 0a0000000e0000000f000000
   TargetTable:
   - Blocks: []
   - Blocks: []
@@ -711,12 +740,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 2
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 971647325}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1097793736
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,12 +847,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 1
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1097793738}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1100847682
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,6 +913,7 @@ MonoBehaviour:
   broke: 0
   PlayerColorType: 0
   direc: {x: 0, y: 0}
+  canInteract: 1
 --- !u!212 &1100847685
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1041,12 +1081,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 0
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1598780826}
   IsInteractable: 1
   Filter: {fileID: 1753276937}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1653453366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,12 +1188,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 2
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1653453368}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1753276936
 GameObject:
   m_ObjectHideFlags: 0

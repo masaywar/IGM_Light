@@ -35,21 +35,21 @@ public class UIBackground : UIWindow
 
             if(step <= _gameController.Standard[0]) //star=3
             {
-                stars[1].gameObject.SetActive(false);
-                stars[2].gameObject.SetActive(false);
-                stars[0].gameObject.SetActive(true);
+                //stars[1].gameObject.SetActive(false);
+                //stars[2].gameObject.SetActive(false);
+                //stars[0].gameObject.SetActive(true);
             }
             else if(step <= _gameController.Standard[1])  //star2
             {
                 stars[0].gameObject.SetActive(false);
-                stars[2].gameObject.SetActive(false);
-                stars[1].gameObject.SetActive(true);
+                //stars[2].gameObject.SetActive(false);
+                //stars[1].gameObject.SetActive(true);
             }
             else  //star1
             {
                 stars[0].gameObject.SetActive(false);
                 stars[1].gameObject.SetActive(false);
-                stars[2].gameObject.SetActive(true);
+                //stars[2].gameObject.SetActive(true);
             }
         }
     }

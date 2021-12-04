@@ -13,6 +13,7 @@ public class CustomTile : MonoBehaviour
     public int Column;
 
     public int enterNum = 1;
+    public int index;
 
     public Vector2Int Position
     {
