@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
 
     private Animator _animator;
 
+    public bool canInteract = true;
+
     private Queue<CustomTile> AnimationQueue = new Queue<CustomTile>();
 
     // Start is called before the first frame update
@@ -39,7 +41,7 @@ public class Player : MonoBehaviour
         //moving = GameObject.Find("Steps").GetComponent<Text>();
         _animator = GetComponent<Animator>();
 
-        _boardManager   = transform.parent.GetComponent<BoardManager>();
+        _boardManager = transform.parent.GetComponent<BoardManager>();
         _gameController = transform.parent.GetComponent<GameController>();
 
         _waits = new WaitForSeconds[]{
@@ -97,8 +99,10 @@ public class Player : MonoBehaviour
 
     public void Move(Vector2Int direction)
     {
+        if (!canInteract) return;
         anim.Moving();
-        if (TryMove(Row+direction.x, Column+direction.y))
+
+        if (TryMove(Row + direction.x, Column + direction.y))
         {
             Row = Row + direction.x;
             Column = Column + direction.y;
@@ -107,7 +111,11 @@ public class Player : MonoBehaviour
 
     public bool TryMove(int row, int col)
     {
-        Debug.Log("Row: " + row + "Col: " + col);
+#if UNITY_EDITOR
+        if(!canInteract) return false;
+#endif
+
+        //Debug.Log("Row: " + row + "Col: " + col);
         if (_boardManager.TryGetTile(row, col, out var onTile))  //onTile에는 갈 위치
         {
             if (onTile.HasObstacle)
@@ -122,33 +130,12 @@ public class Player : MonoBehaviour
             }
             if (onTile.HasWhitePortal)
             {
-                gameObject.transform.position = onTile.transform.position;
-                //gameObject.transform.Translate(onTile.transform.position);
-                //transform.DOMove(onTile.transform.position, 0.5f);
-                Step++;
-                direc.y = row - Row;
-                direc.x = Column - col;
-                anim.Direction(direc);
-
-                Row = Math.Abs((int)_boardManager.b_pos.y);
-                Column = Math.Abs((int)_boardManager.b_pos.x);
-                gameObject.transform.position = _boardManager.b_pos;
-                Debug.Log("black Row: " + Row + "Col: " + Column);
+                Portal(onTile,row,col, true);
                 return false;
             }
             if (onTile.HasBlackPortal)
             {
-                direc.y = row - Row;
-                direc.x = Column - col;
-                anim.Direction(direc);
-                gameObject.transform.position = onTile.transform.position;
-                //transform.DOMove(onTile.transform.position, 0.5f);
-                Step++;
-                 
-                Row = Math.Abs((int)_boardManager.w_pos.y);
-                Column = Math.Abs((int)_boardManager.w_pos.x);
-                gameObject.transform.position = _boardManager.w_pos;
-                //Debug.Log("White Row: " + Row + "Col: " + Column);
+                Portal(onTile, row, col, false);
                 return false;
             }
             if (onTile.HasIceTile)
@@ -157,7 +144,6 @@ public class Player : MonoBehaviour
                 direc.x = Column - col;
                 int dir = anim.Direction(direc);
 
-                //onTile.it.Slide(onTile, anim);  //animation
                 r = Row;
                 c = Column;
                 switch (dir)
@@ -190,9 +176,9 @@ public class Player : MonoBehaviour
             direc.x = Column - col;
             anim.Direction(direc);
 
-             transform
+            transform
             .DOMove(onTile.transform.position, 0.5f)
-            .OnComplete(()=>{
+            .OnComplete(() => {
                 Step++;
                 if (onTile.HasFilter)
                 {
@@ -207,12 +193,52 @@ public class Player : MonoBehaviour
         return false;
     }
 
+    private void Portal(CustomTile onTile,int row,int col, bool white)
+    {
+        int index = onTile.index;
+
+        //Debug.Log("w_index" + index);
+
+        direc.y = row - Row;
+        direc.x = Column - col;
+        anim.Direction(direc);
+
+        canInteract = false;
+
+        transform
+        .DOMove(onTile.transform.position, 0.5f)
+        .OnComplete(() =>
+        {
+            Step++;
+            if (white)
+                gameObject.transform.position = _boardManager.b_poslist[index];
+            else
+                gameObject.transform.position = _boardManager.w_poslist[index];
+            canInteract = true;
+            if (onTile.HasFilter)
+            {
+                onTile.Filter.gameObject.SetActive(false);
+                ChangeColor(PlayerColorType);
+            }
+        });
+        if (white)
+        {
+            Row = Math.Abs((int)_boardManager.b_poslist[index].y);
+            Column = Math.Abs((int)_boardManager.b_poslist[index].x);
+        }
+        else
+        {
+            Row = Math.Abs((int)_boardManager.w_poslist[index].y);
+            Column = Math.Abs((int)_boardManager.w_poslist[index].x);
+        }
+    }
+
     private void CheckTile(CustomTile tile)
     {
         if (tile.HasFilter)
         {
             PlayerColorType = tile.Filter.color;
-            
+
         }
     }
 
@@ -225,14 +251,14 @@ public class Player : MonoBehaviour
     {
         _animator.SetInteger("color", (int)color);
     }
-    
-    public void Draw() 
+
+    public void Draw()
     {
         if (PlayerColorType == ColorType.Basic)
             return;
 
-        if(_boardManager.TryGetTile(Row, Column, out var tile))
-            if(!tile.IsInteractable)
+        if (_boardManager.TryGetTile(Row, Column, out var tile))
+            if (!tile.IsInteractable)
                 return;
 
         if (_boardManager.TryGetTileSprite(PlayerColorType, out var sprite))
@@ -250,7 +276,7 @@ public class Player : MonoBehaviour
 
         PlayerColorType = ColorType.Basic;
 
-        if(_boardManager.TryGetTile(Row, Column, out var tile))
+        if (_boardManager.TryGetTile(Row, Column, out var tile))
         {
             transform.position = tile.transform.position;
             _animator.SetInteger("color", (int)PlayerColorType);

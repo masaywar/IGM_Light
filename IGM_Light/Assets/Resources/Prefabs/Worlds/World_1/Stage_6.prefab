@@ -97,8 +97,7 @@ MonoBehaviour:
   Row: 0
   Column: 0
   enterNum: 1
-  w_PortalPos: {x: 0, y: 0, z: 0}
-  b_PortalPos: {x: 0, y: 0, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 41362270}
   IsInteractable: 1
@@ -258,6 +257,7 @@ MonoBehaviour:
   broke: 0
   PlayerColorType: 0
   direc: {x: 0, y: 0}
+  canInteract: 1
 --- !u!212 &127295074
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -426,8 +426,7 @@ MonoBehaviour:
   Row: 3
   Column: 2
   enterNum: 1
-  w_PortalPos: {x: 0, y: 0, z: 0}
-  b_PortalPos: {x: 2, y: -3, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 264077282}
   IsInteractable: 1
@@ -535,8 +534,7 @@ MonoBehaviour:
   Row: 1
   Column: 0
   enterNum: 1
-  w_PortalPos: {x: 0, y: 0, z: 0}
-  b_PortalPos: {x: 0, y: 0, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 431330785}
   IsInteractable: 1
@@ -738,8 +736,7 @@ MonoBehaviour:
   Row: 3
   Column: 0
   enterNum: 1
-  w_PortalPos: {x: 0, y: 0, z: 0}
-  b_PortalPos: {x: 0, y: 0, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 728077513}
   IsInteractable: 1
@@ -847,8 +844,7 @@ MonoBehaviour:
   Row: 0
   Column: 2
   enterNum: 1
-  w_PortalPos: {x: 2, y: 0, z: 0}
-  b_PortalPos: {x: 0, y: 0, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 750588117}
   IsInteractable: 1
@@ -955,8 +951,7 @@ MonoBehaviour:
   Row: 0
   Column: 1
   enterNum: 1
-  w_PortalPos: {x: 0, y: 0, z: 0}
-  b_PortalPos: {x: 0, y: 0, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 773186131}
   IsInteractable: 1
@@ -1030,6 +1025,10 @@ MonoBehaviour:
   _spriteDatabase: {fileID: 11400000, guid: 72a73b9f48b09b244912ae5a7d806cd5, type: 2}
   World: 1
   Stage: 6
+  w_pos: {x: 0, y: 0, z: 0}
+  b_pos: {x: 0, y: 0, z: 0}
+  w_poslist: []
+  b_poslist: []
   _length: 4
   Tiles:
   - {fileID: 41362269}
@@ -1065,7 +1064,7 @@ MonoBehaviour:
   Worlds: 0
   Stages: 0
   Player: {fileID: 0}
-  Standard: 000000000000000000000000
+  Standard: 0a0000000f00000010000000
   TargetTable:
   - Blocks: []
   - Blocks: []
@@ -1181,8 +1180,7 @@ MonoBehaviour:
   Row: 3
   Column: 1
   enterNum: 1
-  w_PortalPos: {x: 0, y: 0, z: 0}
-  b_PortalPos: {x: 0, y: 0, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 984738434}
   IsInteractable: 1
@@ -1289,8 +1287,7 @@ MonoBehaviour:
   Row: 0
   Column: 3
   enterNum: 1
-  w_PortalPos: {x: 0, y: 0, z: 0}
-  b_PortalPos: {x: 0, y: 0, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1143026695}
   IsInteractable: 1
@@ -1397,8 +1394,7 @@ MonoBehaviour:
   Row: 2
   Column: 2
   enterNum: 1
-  w_PortalPos: {x: 0, y: 0, z: 0}
-  b_PortalPos: {x: 0, y: 0, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1151845648}
   IsInteractable: 1
@@ -1505,8 +1501,7 @@ MonoBehaviour:
   Row: 2
   Column: 1
   enterNum: 1
-  w_PortalPos: {x: 0, y: 0, z: 0}
-  b_PortalPos: {x: 0, y: 0, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1215773815}
   IsInteractable: 1
@@ -1614,8 +1609,7 @@ MonoBehaviour:
   Row: 2
   Column: 0
   enterNum: 1
-  w_PortalPos: {x: 0, y: 0, z: 0}
-  b_PortalPos: {x: 0, y: 0, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1827640491}
   IsInteractable: 1
@@ -1722,8 +1716,7 @@ MonoBehaviour:
   Row: 2
   Column: 3
   enterNum: 1
-  w_PortalPos: {x: 0, y: 0, z: 0}
-  b_PortalPos: {x: 0, y: 0, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1906805256}
   IsInteractable: 1
@@ -1830,8 +1823,7 @@ MonoBehaviour:
   Row: 1
   Column: 3
   enterNum: 1
-  w_PortalPos: {x: 0, y: 0, z: 0}
-  b_PortalPos: {x: 0, y: 0, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1940008590}
   IsInteractable: 1
@@ -1938,8 +1930,7 @@ MonoBehaviour:
   Row: 3
   Column: 3
   enterNum: 1
-  w_PortalPos: {x: 0, y: 0, z: 0}
-  b_PortalPos: {x: 0, y: 0, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1967952102}
   IsInteractable: 1
@@ -2047,8 +2038,7 @@ MonoBehaviour:
   Row: 1
   Column: 2
   enterNum: 1
-  w_PortalPos: {x: 0, y: 0, z: 0}
-  b_PortalPos: {x: 0, y: 0, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 2046711806}
   IsInteractable: 1
@@ -2156,8 +2146,7 @@ MonoBehaviour:
   Row: 1
   Column: 1
   enterNum: 1
-  w_PortalPos: {x: 0, y: 0, z: 0}
-  b_PortalPos: {x: 0, y: 0, z: 0}
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 2068616732}
   IsInteractable: 1
@@ -2356,6 +2345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb028e7e48040634384b1a23b8a8214e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
 --- !u!1 &4190344804595853096
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,6 +2442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87e2b2f772f714408d7f23f8939f6a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
 --- !u!114 &3016671508535050213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2463,6 +2456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8dd2ad8aec55946824766bb072c532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  w_PortalPos: {x: 0, y: 0, z: 0}
+  b_PortalPos: {x: 0, y: 0, z: 0}
 --- !u!1 &4784668097403062795
 GameObject:
   m_ObjectHideFlags: 0

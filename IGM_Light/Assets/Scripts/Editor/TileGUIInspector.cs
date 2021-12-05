@@ -11,7 +11,7 @@ public class TileGUIInspector : Editor {
     public Object spriteDatabase;
     private Portal wPortalObject;
     private Portal bPortalObject;
-   
+    
     /*public override void Update()
     {
         if (wPortalObject!=null&&bPortalObject!=null)
@@ -117,9 +117,9 @@ public class TileGUIInspector : Editor {
             var wPortal = AssetDatabase.LoadAssetAtPath<Portal>("Assets/Resources/Prefabs/Gimmick/WhitePortal.prefab");
             wPortalObject = Instantiate(wPortal, _tile.transform.position, Quaternion.identity, _tile.transform);
 
-            //Debug.Log("WhitePortal Position: "+_tile.transform.position);
-            wPortalObject.w_PortalPos = _tile.transform.position;
-            manager.w_pos = _tile.transform.position;
+            _tile.index = manager.w_poslist.Count;
+            //Debug.Log("w index:::" + _tile.index);
+            manager.w_poslist.Add(_tile.transform.position);
             _tile.w_portal = wPortalObject.GetComponent<Portal>();
         }
 
@@ -136,14 +136,10 @@ public class TileGUIInspector : Editor {
             var bPortal = AssetDatabase.LoadAssetAtPath<Portal>("Assets/Resources/Prefabs/Gimmick/BlackPortal.prefab");
             bPortalObject = Instantiate(bPortal, _tile.transform.position, Quaternion.identity, _tile.transform);
 
-            manager.b_pos = _tile.transform.position;
-            bPortalObject.b_PortalPos = _tile.transform.position;
-            /*if (wPortalObject!=null)
-            {
-                Debug.Log("enter");
-                wPortalObject.b_PortalPos = b_pos;
-                bPortalObject.w_PortalPos = w_pos;
-            }*/
+            //manager.b_pos = _tile.transform.position;
+            _tile.index = manager.b_poslist.Count;
+            //Debug.Log("b index:::" + _tile.index);
+            manager.b_poslist.Add(_tile.transform.position);
             _tile.b_portal = bPortalObject.GetComponent<Portal>();
         }
 

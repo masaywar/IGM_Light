@@ -12,8 +12,11 @@ public class BoardManager: MonoBehaviour
     
     public int World=0;
     public int Stage=0;
-    public Vector3 w_pos;
-    public Vector3 b_pos;
+    //public Vector3 w_pos;
+    //public Vector3 b_pos;
+
+    public List<Vector3> w_poslist = new List<Vector3>();
+    public List<Vector3> b_poslist = new List<Vector3>();
 
     [Range(3, 5)]
     [SerializeField] private int _length=3;

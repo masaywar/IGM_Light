@@ -191,12 +191,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 0
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 174360439}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &493757781
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,12 +299,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 0
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 493757784}
   IsInteractable: 1
   Filter: {fileID: 1778770}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &671564418
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,12 +406,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 1
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 671564420}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &704231502
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,12 +513,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 1
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 704231504}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &851461845
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +581,10 @@ MonoBehaviour:
   _spriteDatabase: {fileID: 11400000, guid: 72a73b9f48b09b244912ae5a7d806cd5, type: 2}
   World: 1
   Stage: 3
+  w_pos: {x: 0, y: 0, z: 0}
+  b_pos: {x: 0, y: 0, z: 0}
+  w_poslist: []
+  b_poslist: []
   _length: 3
   Tiles:
   - {fileID: 174360438}
@@ -589,7 +613,7 @@ MonoBehaviour:
   Worlds: 0
   Stages: 0
   Player: {fileID: 0}
-  Standard: 000000000000000000000000
+  Standard: 0b0000001200000013000000
   TargetTable:
   - Blocks: []
   - Blocks: []
@@ -704,12 +728,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 1
   Column: 2
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1073641727}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1133627375
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,12 +835,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 2
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1133627377}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1142898848
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,6 +901,7 @@ MonoBehaviour:
   broke: 0
   PlayerColorType: 0
   direc: {x: 0, y: 0}
+  canInteract: 1
 --- !u!212 &1142898851
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1034,12 +1069,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 1
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1248826861}
   IsInteractable: 1
   Filter: {fileID: 1249973046}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1249973045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,12 +1366,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 2
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1682685079}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 1512780022}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}
 --- !u!1 &1791296316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,9 +1473,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 2
   Column: 0
+  enterNum: 1
+  index: 0
   TileColor: 0
   SpriteRenderer: {fileID: 1791296318}
   IsInteractable: 1
   Filter: {fileID: 0}
   Obstacle: {fileID: 0}
   wt: {fileID: 0}
+  it: {fileID: 0}
+  w_portal: {fileID: 0}
+  b_portal: {fileID: 0}

@@ -45,6 +45,12 @@ public class BoardGenerator : BaseGenerator
             CreatePrefab();
         }
 
+        if (GUILayout.Button("Clear"))
+        {
+            boardManager.w_poslist.Clear();
+            boardManager.b_poslist.Clear();
+        }
+
         EditorGUILayout.EndVertical();
     }
 
