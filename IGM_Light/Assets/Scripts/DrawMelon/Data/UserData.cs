@@ -21,9 +21,6 @@ public class UserData
         Stages = stages;
         UserClearData = userClearData;
         UserScoreData = userScoreData;
-
-        Debug.Log(UserClearData.Length);
-        Debug.Log(UserScoreData.Length);
     }
 }
 

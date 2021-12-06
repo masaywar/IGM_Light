@@ -56,10 +56,13 @@ public class UIBackground : UIWindow
 
     public void ResetBackground()
     {
-        BackgroundImage.sprite = _gameController
-                            .GetComponent<BoardManager>()
-                            ._spriteDatabase.BackgroundSprites[_gameController.Worlds-1]
-                            .sprites[UserDataInstance.Instance.WorldsLastClearData[_gameController.Worlds-1]];
+        int lastData = UserDataInstance.Instance.WorldsLastClearData[_gameController.Worlds-1];
+
+        lastData = lastData == FixedValues.STAGES ? lastData - 1 : lastData;
+
+        BackgroundImage.sprite = GameManager.Instance
+                            .SpriteDatabase.BackgroundSprites[_gameController.Worlds-1]
+                            .sprites[lastData];
 
         int index =0;
         while(index < _blockImages.Count)

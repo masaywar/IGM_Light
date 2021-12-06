@@ -494,6 +494,7 @@ MonoBehaviour:
     UserScoreData: []
   CurrentWorld: 0
   CurrentStage: 0
+  LastClearStage: 0
   WorldsLastClearData: 00000000000000000000000000000000
 --- !u!1 &982159342
 GameObject:
@@ -716,6 +717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WorldsLoader: {fileID: 11400000, guid: ed480ea82d81ad541827147014eb5dde, type: 2}
+  SpriteDatabase: {fileID: 11400000, guid: 72a73b9f48b09b244912ae5a7d806cd5, type: 2}
   _fadePanel: {fileID: 2126885266}
   _fadeSpeed: 0.037
 --- !u!1 &1805657557
@@ -911,7 +913,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -935,7 +937,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146933389}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

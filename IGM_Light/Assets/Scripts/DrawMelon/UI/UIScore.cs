@@ -2,19 +2,26 @@
 using UnityEngine.UI;
 using DG.Tweening;
 
+using Lean.Touch;
+
 public class UIScore : UIWindow
 {
     public Image[] Scores;
     public GameController _gameController;
 
+    private SwipeInteract _swipe;
+
     private void Start() 
     {
         Close();
+        _swipe = FindObjectOfType<SwipeInteract>();        
     }
 
     public override void Open(bool isAnim)
     {
         base.Open();
+
+        _swipe.enabled = false;
 
         if(isAnim)        
             transform.DOScale(new Vector3(1, 1, 1), 1f);
@@ -66,12 +73,17 @@ public class UIScore : UIWindow
     {
         UserDataInstance.Instance.CurrentStage++;
         GameManager.Instance.FadeOut(SceneController.activeSceneIndex);
+        UnableBlockRaycast();
     }
 
     public void OnClickHome()
     {
-        GameManager.Instance.FadeOut(
-            SceneController.activeSceneIndex - _gameController.Worlds
-        );
+        if(UserDataInstance.Instance.LastClearStage >= UserDataInstance.Instance.WorldsLastClearData[UserDataInstance.Instance.CurrentWorld-1])
+        {
+            GameManager.Instance.FadeOut(1);
+            return;
+        }
+
+        GameManager.Instance.FadeOut("ShowProgress");
     }
 }

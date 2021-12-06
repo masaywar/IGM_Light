@@ -10,45 +10,16 @@ using Lean.Touch;
 
 public class UIWorldSelect : UIWindow
 {
-    private Image[] _worldImages;
     private UIManager _uiManager;
     public SpriteDatabaseLoader SpriteDatabase;
-
-    [SerializeField] private Transform _worldContainer;
+    private WorldSelectScrollRect _worldSelectScrollRect;
 
     private float _distance;
     protected override void Awake()
     {
         _uiManager = UIManager.Instance;
-
-        for(int k=0; k < SpriteDatabase.WorldsSprites.Count; k++)
-        {
-            int index = k;
-            _worldImages[k].sprite = SpriteDatabase.WorldsSprites[k].sprites[UserDataInstance.Instance.WorldsLastClearData[k]];
-            _worldImages[k].GetComponent<Button>().onClick.AddListener(()=>OnSelectWorld(index+1));
-        }    
-
+        _worldSelectScrollRect = FindObjectOfType<WorldSelectScrollRect>();
         base.Awake();
-    }
-
-    public override void Close()
-    {
-        _worldContainer.localPosition = Vector3.zero;
-        base.Close();
-    }
-
-    public override void Close(bool isAnim)
-    {
-        if (isAnim)
-        {
-            _worldContainer.DOLocalMoveX(0, 0.5f).
-            OnStepComplete(() => Close());
-        }
-
-        else
-        {
-            Close();
-        }
     }
 
     public void OnSelectWorld(int index)
@@ -57,6 +28,12 @@ public class UIWorldSelect : UIWindow
 
         var uiStage = _uiManager.GetWindow<UIStageSelect>("UIStageSelect");
         uiStage.World = UserDataInstance.Instance.CurrentWorld;
+
+        foreach(var world in _worldSelectScrollRect.WorldTransforms)
+        {
+            world.GetComponent<Image>().DOFade(0, 1);
+        }
+
         uiStage.Open(true);
     }
 }

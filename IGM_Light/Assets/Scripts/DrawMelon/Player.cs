@@ -99,6 +99,9 @@ public class Player : MonoBehaviour
 
     public void Move(Vector2Int direction)
     {
+        if(_gameController.IsSolved) return;
+
+
         if (!canInteract) return;
         anim.Moving();
 

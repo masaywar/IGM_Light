@@ -6,6 +6,19 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "IGM_Light/SpriteDatabaseLoader")]
 public class SpriteDatabaseLoader : ScriptableObject
 {
+    private static SpriteDatabaseLoader instance;
+
+    public static SpriteDatabaseLoader Instance
+    {
+        get
+        {
+            if(instance != null)
+                return Instance;
+
+            return null;
+        }
+    }
+
     [Serializable]
     public class Sprites
     {

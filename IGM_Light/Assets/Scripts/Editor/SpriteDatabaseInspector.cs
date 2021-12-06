@@ -45,6 +45,16 @@ public class SpriteDatabaseInspector : Editor
         {
             LoadWorldImages();
         }
+
+        if(GUILayout.Button("LoadAll"))
+        {
+            LoadTile();
+            LoadCharacter();
+            LoadFilters();
+            LoadBackgrounds();
+            LoadBlocks();
+            LoadWorldImages();
+        }
     }
 
     public void LoadTile()

@@ -82,9 +82,9 @@ public partial class GameController : MonoBehaviour
                 return;
             }
 
-            for(int dRow=0; dRow<Size; dRow++)
+            for(int dRow=0; dRow<_length; dRow++)
             {
-                for(int dCol=0; dCol<Size; dCol++)
+                for(int dCol=0; dCol<_length; dCol++)
                 {
                     int count = 0;
                     foreach(var form in block.Form)
@@ -133,7 +133,7 @@ public partial class GameController : MonoBehaviour
 
         var uiScore = UIManager.Instance.GetWindow<UIScore>("UIScore");
         UserDataInstance.Instance.WorldsLastClearData[Worlds-1] 
-                = UserDataInstance.Instance.WorldsLastClearData[Worlds-1] < FixedValues.STAGES-1 && UserDataInstance.Instance.WorldsLastClearData[Worlds-1] < Stages? 
+                = UserDataInstance.Instance.WorldsLastClearData[Worlds-1] < FixedValues.STAGES && UserDataInstance.Instance.WorldsLastClearData[Worlds-1] < Stages? 
                   UserDataInstance.Instance.WorldsLastClearData[Worlds-1]+1 : UserDataInstance.Instance.WorldsLastClearData[Worlds-1];
 
         if(!uiScore.IsOpen())
@@ -141,9 +141,15 @@ public partial class GameController : MonoBehaviour
             uiScore.Open(true);
             uiScore.ShowScore(score);   
 
-            if (UserDataInstance.Instance.UserData.Stages != FixedValues.STAGES 
-                && UserDataInstance.Instance.CurrentStage > UserDataInstance.Instance.UserData.Stages)
+            if (UserDataInstance.Instance.CurrentStage > UserDataInstance.Instance.UserData.Stages)
+            {
                 UserDataInstance.Instance.UserData.Stages++;
+                if(UserDataInstance.Instance.UserData.Stages == FixedValues.STAGES)
+                {
+                    UserDataInstance.Instance.UserData.Worlds++;
+                    UserDataInstance.Instance.UserData.Stages = 0;
+                }
+            }    
             
             else if(UserDataInstance.Instance.UserData.Stages == FixedValues.STAGES)
             {
@@ -169,14 +175,16 @@ public partial class GameController : MonoBehaviour
 
     public void ResetGame()
     {
-        int loop = SolvedList.Count;
-        SolvedList.Clear();
+        GameManager.Instance.FadeOut(UserDataInstance.Instance.CurrentWorld+1);
 
-        Player.ResetPlayer();
-        _boardManager.ResetBoard();
+        // int loop = SolvedList.Count;
+        // SolvedList.Clear();
 
-        if(!isHack)
-            UIManager.Instance.GetWindow<UIBackground>("UIBackground").ResetBackground();
+        // Player.ResetPlayer();
+        // _boardManager.ResetBoard();
+
+        // if(!isHack)
+        //     UIManager.Instance.GetWindow<UIBackground>("UIBackground").ResetBackground();
     }
 }
 

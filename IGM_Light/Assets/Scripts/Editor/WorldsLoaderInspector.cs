@@ -20,7 +20,6 @@ public class WorldsLoaderInspector : Editor
             Load();
         }
     }
-
     
     public void Load()
     {

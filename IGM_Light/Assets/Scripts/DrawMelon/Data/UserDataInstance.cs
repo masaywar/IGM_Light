@@ -1,41 +1,22 @@
 using UnityEngine;
 using System.IO;
 
-public class UserDataInstance : MonoBehaviour 
+public class UserDataInstance : Singleton<UserDataInstance> 
 {
-    private static UserDataInstance instance = null;
-
-    public static UserDataInstance Instance
-    {
-        get
-        {
-            if(instance == null)
-                return null;
-
-            return instance;
-        }
-    }
-
 
     public UserData UserData;
 
     public int CurrentWorld;
     public int CurrentStage;
+
+    public int LastClearStage;
+
     public int[] WorldsLastClearData = new int[FixedValues.WORLDS];
 
 
     private void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-
-        else
-        {
-            Destroy(this.gameObject);
-        }
+        DontDestroyOnLoad(this.gameObject);
         
         LoadData();
         SaveData();
@@ -46,7 +27,7 @@ public class UserDataInstance : MonoBehaviour
             for(int j=0; j<FixedValues.STAGES; j++)
             {
                 if(UserData.UserClearData[k].userClearData[j])
-                    WorldsLastClearData[k] = WorldsLastClearData[k] < FixedValues.STAGES-1 ? WorldsLastClearData[k]+1 : WorldsLastClearData[k];
+                    WorldsLastClearData[k] = WorldsLastClearData[k] < FixedValues.STAGES ? WorldsLastClearData[k]+1 : WorldsLastClearData[k];
             }
         }
     }
