@@ -91,6 +91,13 @@ public class UIScore : UIWindow
     public void OnClickNext()
     {
         UserDataInstance.Instance.CurrentStage++;
+        if(UserDataInstance.Instance.CurrentStage > FixedValues.STAGES)
+        {
+            UserDataInstance.Instance.CurrentStage--;
+            OnClickHome();
+            return;
+        }
+
         GameManager.Instance.FadeOut(SceneController.activeSceneIndex);
         UnableBlockRaycast();
     }

@@ -1384,7 +1384,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 24064370}
+      - m_Target: {fileID: 1924557252}
         m_MethodName: OnClickHome
         m_Mode: 1
         m_Arguments:
@@ -3533,7 +3533,7 @@ MonoBehaviour:
   ignoreStartedOverGui: 1
   ignoreIsOverGui: 0
   requiredSelectable: {fileID: 0}
-  Threshold: 200
+  Threshold: 85
   _player: {fileID: 0}
 --- !u!1 &1956424763
 GameObject:

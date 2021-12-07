@@ -57,7 +57,7 @@ public class SwipeInteract : LeanFingerSwipe
 
             else if (swipe.x >= 0 && swipe.y < 0)
             {
-                if(-swipe.x >= -swipe.y)
+                if(swipe.x >= -swipe.y)
                     direction = new Vector2Int(0, 1);
                 else 
                     direction = new Vector2Int(1, 0);
@@ -69,7 +69,9 @@ public class SwipeInteract : LeanFingerSwipe
                 else 
                     direction = new Vector2Int(1, 0);
             }
-
+            print(direction);
+            print(swipe);
+            // print(direction);
             _player.Move(direction);
         }
         _coroutine = null;
