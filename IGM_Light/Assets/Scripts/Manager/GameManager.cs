@@ -42,8 +42,16 @@ public class GameManager : Singleton<GameManager>
                 #endif
                 break;
             case 1: //World, Stage Select.
-            case 2:
+                break;
+            case 2: 
             case 3:
+            #if UNITY_EDITOR
+            if(Input.GetKeyDown(KeyCode.A))
+            {
+                FindObjectOfType<GameController>().OnSolved();
+            }
+            #endif
+            break;
             case 4:
             case 5:
             default:

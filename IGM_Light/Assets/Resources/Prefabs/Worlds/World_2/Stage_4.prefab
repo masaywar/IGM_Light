@@ -2853,7 +2853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteDatabase: {fileID: 11400000, guid: 72a73b9f48b09b244912ae5a7d806cd5, type: 2}
   World: 2
-  Stage: 1
+  Stage: 4
   w_poslist: []
   b_poslist: []
   _length: 4

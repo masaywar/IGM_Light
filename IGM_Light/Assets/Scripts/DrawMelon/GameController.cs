@@ -132,45 +132,44 @@ public partial class GameController : MonoBehaviour
             score = 1;
 
         var uiScore = UIManager.Instance.GetWindow<UIScore>("UIScore");
-        UserDataInstance.Instance.WorldsLastClearData[Worlds-1] 
-                = UserDataInstance.Instance.WorldsLastClearData[Worlds-1] < FixedValues.STAGES && UserDataInstance.Instance.WorldsLastClearData[Worlds-1] < Stages? 
-                  UserDataInstance.Instance.WorldsLastClearData[Worlds-1]+1 : UserDataInstance.Instance.WorldsLastClearData[Worlds-1];
 
-        if(!uiScore.IsOpen())
+        uiScore.Open(true);
+        uiScore.ShowScore(score);   
+
+        int currentWorld = UserDataInstance.Instance.CurrentWorld;
+        int currentStage = UserDataInstance.Instance.CurrentStage;
+        
+        if(currentWorld == UserDataInstance.Instance.UserData.Worlds)
         {
-            uiScore.Open(true);
-            uiScore.ShowScore(score);   
+            if(UserDataInstance.Instance.WorldsLastClearData[currentWorld-1] < currentStage)
+                UserDataInstance.Instance.UserData.Stages++;    
 
-            if (UserDataInstance.Instance.CurrentStage > UserDataInstance.Instance.UserData.Stages)
-            {
-                UserDataInstance.Instance.UserData.Stages++;
-                if(UserDataInstance.Instance.UserData.Stages == FixedValues.STAGES)
-                {
-                    UserDataInstance.Instance.UserData.Worlds++;
-                    UserDataInstance.Instance.UserData.Stages = 0;
-                }
-            }    
-            
-            else if(UserDataInstance.Instance.UserData.Stages == FixedValues.STAGES)
+            if(UserDataInstance.Instance.UserData.Stages == FixedValues.STAGES)
             {
                 UserDataInstance.Instance.UserData.Worlds++;
                 UserDataInstance.Instance.UserData.Stages = 0;
             }
+        }        
+        
+        UserDataInstance.Instance.UserData.UserClearData[
+            UserDataInstance.Instance.CurrentWorld-1].userClearData[
+            UserDataInstance.Instance.CurrentStage-1] = true;
+        
+        UserDataInstance.Instance.UserData.UserScoreData[
+            UserDataInstance.Instance.CurrentWorld-1].userScoreData[
+            UserDataInstance.Instance.CurrentStage-1]
+        = Mathf.Max(score, UserDataInstance.Instance.UserData.UserScoreData[
+            UserDataInstance.Instance.CurrentWorld-1].userScoreData[
+            UserDataInstance.Instance.CurrentStage-1]);
 
-            UserDataInstance.Instance.UserData.UserClearData[
-                UserDataInstance.Instance.CurrentWorld-1].userClearData[
-                UserDataInstance.Instance.CurrentStage-1] = true;
-            
-            UserDataInstance.Instance.UserData.UserScoreData[
-                UserDataInstance.Instance.CurrentWorld-1].userScoreData[
-                UserDataInstance.Instance.CurrentStage-1]
-            = Mathf.Max(score, UserDataInstance.Instance.UserData.UserScoreData[
-                UserDataInstance.Instance.CurrentWorld-1].userScoreData[
-                UserDataInstance.Instance.CurrentStage-1]);
+        UserDataInstance.Instance.SaveData();
+        UserDataInstance.Instance.LoadData();
 
-            UserDataInstance.Instance.SaveData();
-            UserDataInstance.Instance.LoadData();
-        }
+        UserDataInstance.Instance.WorldsLastClearData[Worlds-1] 
+                = UserDataInstance.Instance.WorldsLastClearData[Worlds-1] < FixedValues.STAGES && UserDataInstance.Instance.WorldsLastClearData[Worlds-1] < Stages? 
+                  UserDataInstance.Instance.WorldsLastClearData[Worlds-1]+1 : UserDataInstance.Instance.WorldsLastClearData[Worlds-1];
+
+      
     }
 
     public void ResetGame()

@@ -75,7 +75,7 @@ public class WorldSelectScrollRect : MonoBehaviour
                 int minIdx = FixedValues.WORLDS+1;
                 float min = Mathf.Infinity;
 
-                for(int k=0; k<FixedValues.WORLDS; k++)
+                for(int k=0; k<GameManager.Instance.SpriteDatabase.WorldsSprites.Count; k++)
                 {
                     float distance = Vector3.Distance(_pivot.position, _positions[k]);
                     if (distance < min)

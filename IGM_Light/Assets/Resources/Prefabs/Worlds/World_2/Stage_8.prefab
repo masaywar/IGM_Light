@@ -3263,7 +3263,7 @@ GameObject:
   - component: {fileID: 5276415449821839061}
   - component: {fileID: 5276415449821839058}
   m_Layer: 0
-  m_Name: Board
+  m_Name: Stage_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3323,7 +3323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteDatabase: {fileID: 11400000, guid: 72a73b9f48b09b244912ae5a7d806cd5, type: 2}
   World: 2
-  Stage: 1
+  Stage: 8
   w_poslist: []
   b_poslist: []
   _length: 5

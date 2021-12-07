@@ -24,4 +24,15 @@ public class UISetting : UIWindow
         _swipe.enabled = true;
         base.Close();
     }
+
+    public void OnClickHome()
+    {
+         if(UserDataInstance.Instance.LastClearStage >= UserDataInstance.Instance.WorldsLastClearData[UserDataInstance.Instance.CurrentWorld-1])
+        {
+            GameManager.Instance.FadeOut(1);
+            return;
+        }
+
+        GameManager.Instance.FadeOut("ShowProgress");
+    }
 }
