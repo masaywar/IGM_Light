@@ -51,6 +51,7 @@ public class Anim : MonoBehaviour
     }
     public void Coloring(int color)
     {
+        Debug.Log(color);
         animator.SetInteger("color", color);
     }
 
