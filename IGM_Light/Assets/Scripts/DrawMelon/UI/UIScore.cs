@@ -6,6 +6,7 @@ using Lean.Touch;
 
 public class UIScore : UIWindow
 {
+    public Image Successimg;
     public Image[] Scores;
     public GameController _gameController;
 
@@ -50,23 +51,41 @@ public class UIScore : UIWindow
         if (score < 1 || score > 3)
             return;
 
-        if (score == 1)
+        
+        //Invoke("showSuccess", 0.1f);
+        Invoke("showCenter", 0.5f);
+
+        if (score == 2) //가운데>왼쪽
         {
-            Scores[0].gameObject.SetActive(false);
-            Scores[2].gameObject.SetActive(false);
+            Invoke("showLeft", 1f);
         }
 
-        else if (score == 2)
+        else if(score == 3)//가운데>왼쪽>오른쪽
         {
-            Scores[0].gameObject.SetActive(true);
-            Scores[2].gameObject.SetActive(false);
+            Invoke("showLeft", 1f);
+            Invoke("showRight", 1.5f);
         }
+    }
 
-        else
-        {
-            Scores[0].gameObject.SetActive(true);
-            Scores[2].gameObject.SetActive(true);
-        }
+    public void showCenter()
+    {
+        Scores[0].color = new Color(Scores[0].color.r, Scores[0].color.g, Scores[0].color.b, 0f);//.SetActive(false);
+        Scores[1].color = new Color(Scores[1].color.r, Scores[1].color.g, Scores[1].color.b, 1f);
+        Scores[2].color = new Color(Scores[2].color.r, Scores[2].color.g, Scores[2].color.b, 0f);//.gameObject.color.alpha = 0;//.SetActive(false);
+    }
+    public void showLeft()
+    {
+        Scores[0].color = new Color(Scores[0].color.r, Scores[0].color.g, Scores[0].color.b, 1f);//.SetActive(false);
+    }
+
+    public void showRight()
+    {
+        Scores[2].color = new Color(Scores[2].color.r, Scores[2].color.g, Scores[2].color.b, 1f);//.SetActive(true);
+    }
+
+    public void ShowSuccess()
+    {
+        Successimg.color = new Color(Successimg.color.r, Successimg.color.g, Successimg.color.b, 1f);//.SetActive(true);
     }
 
     public void OnClickNext()

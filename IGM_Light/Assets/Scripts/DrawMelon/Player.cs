@@ -142,7 +142,7 @@ public class Player : MonoBehaviour
                 return false;
             }
             if (onTile.HasIceTile)
-            {
+            { 
                 direc.y = row - Row;
                 direc.x = Column - col;
                 int dir = anim.Direction(direc);

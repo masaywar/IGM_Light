@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4fafdf40c4c33124d81f2a8616ba3b9e
+guid: 5e2248bfb7331074da3c8d4788b5b83d
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -98,18 +98,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -117,10 +105,10 @@ TextureImporter:
       name: stand_Green_0
       rect:
         serializedVersion: 2
-        x: 87
-        y: 97
-        width: 847
-        height: 811
+        x: 89
+        y: 99
+        width: 867
+        height: 831
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
