@@ -7,13 +7,21 @@ public class chageImage : MonoBehaviour
 {
     public Sprite button;
     public Sprite button2;
+    public GameObject buttonobj;
 
     public void Change()
     {
-        this.gameObject.GetComponent<Image>().sprite = button;
-    }
-    public void Origin()
-    {
-        this.gameObject.GetComponent<Image>().sprite = button2;
+        if(buttonobj.GetComponent<Image>().sprite != button)
+        {
+            //Debug.Log("enter");
+            buttonobj.GetComponent<Image>().sprite = button;
+            return;
+        }
+        if (buttonobj.GetComponent<Image>().sprite != button2)
+        {
+            //Debug.Log("Enter");
+            buttonobj.GetComponent<Image>().sprite = button2;
+            return;
+        }
     }
 }
