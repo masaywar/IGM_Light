@@ -18,12 +18,12 @@ public class backgroundSound : MonoBehaviour
         if (backmusic.isPlaying)
         {
             backmusic.Pause();
-            GetComponent<Image>().sprite = muteImage;
+            GetComponent<Image>().sprite = playImage;
         } 
         else
         {
             backmusic.Play();
-            GetComponent<Image>().sprite = playImage;
+            GetComponent<Image>().sprite = muteImage;
         } 
     }
 }

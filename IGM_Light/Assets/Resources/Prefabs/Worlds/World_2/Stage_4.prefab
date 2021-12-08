@@ -2887,7 +2887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHack: 0
-  Size: 4
+  Size: 3
   Worlds: 0
   Stages: 0
   Player: {fileID: 0}

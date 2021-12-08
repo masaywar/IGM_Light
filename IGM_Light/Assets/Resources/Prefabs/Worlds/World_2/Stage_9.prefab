@@ -4098,20 +4098,20 @@ MonoBehaviour:
   Standard: 100000001500000016000000
   TargetTable:
   - Blocks: []
-  - Blocks: []
-  - Blocks: []
-  - Blocks: []
-  - Blocks: []
+  - Blocks:
+    - BlockType: 9
+      ColorType: 1
+      ShowingBlock: {fileID: 3232907124002220463, guid: 0afdf8498da9dab40a3eaff9a5a6adfd,
+        type: 3}
   - Blocks: []
   - Blocks:
-    - BlockType: 0
-      ColorType: 6
-      ShowingBlock: {fileID: -7928086408885332036, guid: 16cb8ad2b274eda448944febdff1fc4a,
+    - BlockType: 19
+      ColorType: 3
+      ShowingBlock: {fileID: -8528337568614419829, guid: 03875a6ad7fca6141990f4c23cb37ec4,
         type: 3}
-    - BlockType: 0
-      ColorType: 6
-      ShowingBlock: {fileID: -7928086408885332036, guid: 16cb8ad2b274eda448944febdff1fc4a,
-        type: 3}
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
   - Blocks: []
   SolvedList: []
 --- !u!1 &9167151419521879966

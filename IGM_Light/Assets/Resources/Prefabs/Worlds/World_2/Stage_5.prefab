@@ -1950,20 +1950,16 @@ MonoBehaviour:
   Standard: 090000000c0000000d000000
   TargetTable:
   - Blocks: []
-  - Blocks: []
-  - Blocks: []
-  - Blocks: []
-  - Blocks: []
-  - Blocks: []
   - Blocks:
-    - BlockType: 0
-      ColorType: 6
-      ShowingBlock: {fileID: -7928086408885332036, guid: 16cb8ad2b274eda448944febdff1fc4a,
+    - BlockType: 12
+      ColorType: 1
+      ShowingBlock: {fileID: -3115442370719709026, guid: 0afdf8498da9dab40a3eaff9a5a6adfd,
         type: 3}
-    - BlockType: 0
-      ColorType: 6
-      ShowingBlock: {fileID: -7928086408885332036, guid: 16cb8ad2b274eda448944febdff1fc4a,
-        type: 3}
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
+  - Blocks: []
   - Blocks: []
   SolvedList: []
 --- !u!1 &2135289189547142276

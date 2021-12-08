@@ -1328,7 +1328,11 @@ MonoBehaviour:
   Standard: 060000000a0000000b000000
   TargetTable:
   - Blocks: []
-  - Blocks: []
+  - Blocks:
+    - BlockType: 21
+      ColorType: 1
+      ShowingBlock: {fileID: 3776511260014570681, guid: 0afdf8498da9dab40a3eaff9a5a6adfd,
+        type: 3}
   - Blocks: []
   - Blocks: []
   - Blocks: []
