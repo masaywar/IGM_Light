@@ -12,7 +12,7 @@ public class BoardLoader : MonoBehaviour
         if(isHack)
         {
             GameController controller = FindObjectOfType<GameController>(); 
-            UIManager.Instance.GetWindow<UIBackground>("UIBackground")._gameController = controller;
+            UIManager.Instance.GetWindow<UIBackground>("UIBackground").gameController = controller;
             FindObjectOfType<Anim>().animator = controller.Player.GetComponent<Animator>();
             FindObjectOfType<SwipeInteract>()._player = controller.Player;
             Camera.main.GetComponent<CameraModify>().SetCameraPositionAndSize(
@@ -39,8 +39,8 @@ public class BoardLoader : MonoBehaviour
              yield return new WaitForSeconds(0.05f);
 
         
-        UIManager.Instance.GetWindow<UIBackground>("UIBackground")._gameController = controller;
-        UIManager.Instance.GetWindow<UIScore>("UIScore")._gameController = controller;
+        UIManager.Instance.GetWindow<UIBackground>("UIBackground").gameController = controller;
+        UIManager.Instance.GetWindow<UIScore>("UIScore").gameController = controller;
         FindObjectOfType<Anim>().animator = controller.Player.GetComponent<Animator>();
         FindObjectOfType<SwipeInteract>()._player = controller.Player;
         Camera.main.GetComponent<CameraModify>().SetCameraPositionAndSize(

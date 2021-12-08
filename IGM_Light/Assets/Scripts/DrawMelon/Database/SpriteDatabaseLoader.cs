@@ -53,4 +53,17 @@ public class SpriteDatabaseLoader : ScriptableObject
     ///  4 : Blocks Sprite
     /// </summary>
     public string[] path;
+
+
+    public Sprite GetWorldSprite(int world, int stage)
+    {
+        if(WorldsSprites.Count > world)
+            return null;
+
+        if(WorldsSprites[world].sprites.Count > stage)
+            return null;
+
+        return WorldsSprites[world].sprites[stage];
+    }
+
 }

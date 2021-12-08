@@ -126,4 +126,48 @@ public class UserDataInstance : Singleton<UserDataInstance>
             Debug.Log("The file could not be opened:" + e.Message);
         }
     }
+
+    public int GetLastClearStageOfWorld(int world)
+    {
+        return WorldsLastClearData[world];
+    }
+
+    public void UpdateUserData(int? score=null)
+    {
+        if(UserData.UserClearData[CurrentWorld-1].userClearData[CurrentStage-1]) return;
+
+        UserData.UserClearData[CurrentWorld-1].userClearData[CurrentStage-1] = true;
+
+        if(score != null)
+        {
+            int lastScore = UserData.UserScoreData[CurrentWorld-1].userScoreData[CurrentStage-1];
+
+            UserData.UserScoreData[CurrentWorld-1].userScoreData[CurrentStage-1]
+                = Mathf.Max(score.Value, lastScore);
+        }
+
+        for(int k=0; k<FixedValues.WORLDS; k++)
+        {
+            bool breakFlag = false;
+
+            for(int j=0; j<FixedValues.STAGES; j++)
+            {
+                if(!UserData.UserClearData[k].userClearData[j])
+                {
+                    UserData.Worlds = k+1;
+                    UserData.Stages = j;
+                    breakFlag = true;
+                    break;
+                }
+            }        
+            if(breakFlag) break;
+        }
+
+        SaveData();
+        LoadData();
+
+        WorldsLastClearData[CurrentWorld-1] 
+        = WorldsLastClearData[CurrentWorld-1] < FixedValues.STAGES && WorldsLastClearData[CurrentWorld-1] < CurrentStage? 
+            WorldsLastClearData[CurrentWorld-1]+1 :WorldsLastClearData[CurrentWorld-1];
+    }
 }
