@@ -103,6 +103,7 @@ SpriteAtlas:
   - {fileID: 431880505520864148, guid: af9f85444c563974088e51ea5e352d07, type: 3}
   - {fileID: -6789327159459123722, guid: 075e2b44c0d8ba041b30d664d08f66f8, type: 3}
   - {fileID: 6296275664943522318, guid: 4349b474ce1dac94686b06546dc84551, type: 3}
+  - {fileID: -3557345311467675316, guid: 69ea1584c4511de4488e547e481b0d17, type: 3}
   - {fileID: -1910651195507823806, guid: 8cb02994c24f9d742a820792a51f0864, type: 3}
   - {fileID: -5103774297068511883, guid: 54c68a9480e3b4c4e9351a78afca3daf, type: 3}
   - {fileID: 4937511651284365799, guid: ebe860a44063c624abf2a2a668d87b65, type: 3}
@@ -289,6 +290,7 @@ SpriteAtlas:
   - slideDown1_Red_0
   - side4_0
   - slide1_Green_0
+  - side3_Blue_0
   - up2_Pink_0
   - stand_Red_0
   - slideUp1_Yellow_0

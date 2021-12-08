@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: 69ea1584c4511de4488e547e481b0d17
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3557345311467675316
+    second: side3_Blue_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,7 +112,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: side3_Blue_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 102
+        width: 979
+        height: 805
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c41619e6945c1aec0800000000000000
+      internalID: -3557345311467675316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
