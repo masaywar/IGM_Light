@@ -16,7 +16,7 @@ TagManager:
   - Tile
   - Player
   - IgnoreLean
-  - 
+  - Gimmick
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Tile
     uniqueID: 932994975
+    locked: 0
+  - name: Gimmick
+    uniqueID: 3538174485
     locked: 0
   - name: Filter
     uniqueID: 1251341963

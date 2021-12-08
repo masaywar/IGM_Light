@@ -49,8 +49,7 @@ public class UIScore : UIWindow
         if (score < 1 || score > 3)
             return;
 
-        
-        //Invoke("showSuccess", 0.1f);
+        Invoke("ShowSuccess", 0.1f);
         Invoke("showCenter", 0.5f);
 
         if (score == 2) //가운데>왼쪽
