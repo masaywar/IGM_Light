@@ -101,7 +101,6 @@ public class Player : MonoBehaviour
     {
         if(_gameController.IsSolved) return;
 
-
         if (!canInteract) return;
         anim.Moving();
 
@@ -117,8 +116,6 @@ public class Player : MonoBehaviour
 #if UNITY_EDITOR
         if(!canInteract) return false;
 #endif
-
-        //Debug.Log("Row: " + row + "Col: " + col);
         if (_boardManager.TryGetTile(row, col, out var onTile))  //onTile에는 갈 위치
         {
             if (onTile.HasObstacle)
@@ -142,7 +139,7 @@ public class Player : MonoBehaviour
                 return false;
             }
             if (onTile.HasIceTile)
-            { 
+            {
                 direc.y = row - Row;
                 direc.x = Column - col;
                 int dir = anim.Direction(direc);
@@ -153,22 +150,51 @@ public class Player : MonoBehaviour
                 {
                     case 1:  //up
                         Row--;
-                        r = Row - 1;
+                        if (Row > 0)
+                            r = Row - 1;
+                        else
+                        {
+                            Row++;
+                            Transfer(onTile);
+                            return true;
+                        }
                         break;
                     case 2:   //down
                         Row++;
-                        r = Row + 1;
+                        if (Row < _boardManager.Length - 1)
+                            r = Row + 1;
+                        else
+                        {
+                            Row--;
+                            Transfer(onTile);
+                            return true;
+                        }
                         break;
                     case 3:   //left
                         Column--;
-                        c = Column - 1;
+                        if (Column > 0)
+                            c = Column - 1;
+                        else
+                        {
+                            Column++;
+                            Transfer(onTile);
+                            return true;
+                        }
                         break;
                     case 4:   //right
                         Column++;
-                        c = Column + 1;
+                        if (Column < _boardManager.Length - 1)
+                            c = Column + 1;
+                        else
+                        {
+                            Column--;
+                            Transfer(onTile);
+                            return true;
+                        }
                         break;
                 }
                 anim.Sliding();
+                //Debug.Log("r:" + r + "c:" + c);
                 return TryMove(r, c);
             }
 
@@ -195,7 +221,19 @@ public class Player : MonoBehaviour
         var animState = anim.animator.GetCurrentAnimatorStateInfo(0);
         return false;
     }
-
+    private void Transfer(CustomTile onTile)
+    {
+        transform
+        .DOMove(onTile.transform.position, 0.5f)
+        .OnComplete(() => {
+              Step++;
+          if (onTile.HasFilter)
+          {
+             onTile.Filter.gameObject.SetActive(false);
+             ChangeColor(PlayerColorType);
+          }
+        });
+    }
     private void Portal(CustomTile onTile,int row,int col, bool white)
     {
         int index = onTile.index;
