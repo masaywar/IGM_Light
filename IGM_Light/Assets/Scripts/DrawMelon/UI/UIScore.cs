@@ -49,8 +49,7 @@ public class UIScore : UIWindow
         if (score < 1 || score > 3)
             return;
 
-        
-        //Invoke("showSuccess", 0.1f);
+        Invoke("ShowSuccess", 0.1f);
         Invoke("showCenter", 0.5f);
 
         if (score == 2) //가운데>왼쪽
@@ -70,20 +69,25 @@ public class UIScore : UIWindow
         Scores[0].color = new Color(Scores[0].color.r, Scores[0].color.g, Scores[0].color.b, 0f);//.SetActive(false);
         Scores[1].color = new Color(Scores[1].color.r, Scores[1].color.g, Scores[1].color.b, 1f);
         Scores[2].color = new Color(Scores[2].color.r, Scores[2].color.g, Scores[2].color.b, 0f);//.gameObject.color.alpha = 0;//.SetActive(false);
+
+        Scores[1].transform.DOShakeScale(1, 0.5f);
     }
     public void showLeft()
     {
         Scores[0].color = new Color(Scores[0].color.r, Scores[0].color.g, Scores[0].color.b, 1f);//.SetActive(false);
+        Scores[0].transform.DOShakeScale(1, 0.5f);
     }
 
     public void showRight()
     {
+        Scores[2].transform.DOShakeScale(1, 0.5f);
         Scores[2].color = new Color(Scores[2].color.r, Scores[2].color.g, Scores[2].color.b, 1f);//.SetActive(true);
     }
 
     public void ShowSuccess()
     {
         Successimg.color = new Color(Successimg.color.r, Successimg.color.g, Successimg.color.b, 1f);//.SetActive(true);
+        Successimg.transform.DOShakeScale(1, 0.5f);
     }
 
     public void OnClickNext()
