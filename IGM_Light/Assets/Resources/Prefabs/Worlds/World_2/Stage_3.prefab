@@ -1321,7 +1321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHack: 0
-  Size: 3
+  Size: 4
   Worlds: 0
   Stages: 0
   Player: {fileID: 0}
@@ -1333,15 +1333,7 @@ MonoBehaviour:
   - Blocks: []
   - Blocks: []
   - Blocks: []
-  - Blocks:
-    - BlockType: 0
-      ColorType: 6
-      ShowingBlock: {fileID: -7928086408885332036, guid: 16cb8ad2b274eda448944febdff1fc4a,
-        type: 3}
-    - BlockType: 0
-      ColorType: 6
-      ShowingBlock: {fileID: -7928086408885332036, guid: 16cb8ad2b274eda448944febdff1fc4a,
-        type: 3}
+  - Blocks: []
   - Blocks: []
   SolvedList: []
 --- !u!1 &6098068360516367539

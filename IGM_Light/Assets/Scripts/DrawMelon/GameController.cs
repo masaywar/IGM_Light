@@ -133,7 +133,7 @@ public partial class GameController : MonoBehaviour
 
         var uiScore = UIManager.Instance.GetWindow<UIScore>("UIScore");
 
-        uiScore.Open(true);
+        uiScore.Open();
         uiScore.ShowScore(score);   
 
         UserDataInstance.Instance.UpdateUserData(score);

@@ -57,10 +57,10 @@ public class SpriteDatabaseLoader : ScriptableObject
 
     public Sprite GetWorldSprite(int world, int stage)
     {
-        if(WorldsSprites.Count > world)
+        if(WorldsSprites.Count <= world)
             return null;
 
-        if(WorldsSprites[world].sprites.Count > stage)
+        if(WorldsSprites[world].sprites.Count <= stage)
             return null;
 
         return WorldsSprites[world].sprites[stage];

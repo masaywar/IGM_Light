@@ -1,6 +1,6 @@
 {
-    "Worlds": 2,
-    "Stages": 0,
+    "Worlds": 1,
+    "Stages": 6,
     "UserClearData": [
         {
             "userClearData": [
@@ -10,9 +10,9 @@
                 true,
                 true,
                 true,
-                true,
-                true,
-                true
+                false,
+                false,
+                false
             ]
         },
         {
@@ -64,9 +64,9 @@
                 3,
                 3,
                 3,
-                3,
-                3,
-                3
+                0,
+                0,
+                0
             ]
         },
         {

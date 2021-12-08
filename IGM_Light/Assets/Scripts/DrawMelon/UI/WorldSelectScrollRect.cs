@@ -65,7 +65,6 @@ public class WorldSelectScrollRect : MonoBehaviour
         if(Input.touchCount>0)
         {
             Touch touch = Input.GetTouch(0);
-            print("touch");
             if(touch.phase == TouchPhase.Ended)
             {
                 int minIdx = FixedValues.WORLDS+1;
