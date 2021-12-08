@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/World1.unity
     guid: e1a4afcc831a7b14f9adbec44fee2f13
   - enabled: 1
-    path: Assets/Scenes/World2.unity
+    path: Assets/Scenes/World1.unity
     guid: d4b63f059b068bd4daa12d06d2c10f92
   - enabled: 1
     path: Assets/Scenes/ShowProgress.unity
