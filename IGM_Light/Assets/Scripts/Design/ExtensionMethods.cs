@@ -52,6 +52,16 @@ public static class ExtensionMethod
         return element;
     }
 
+    public static T RemoveWithReturn<T>(this List<T> source, int index)
+    {
+        if(source.Count == 0 || source.Count >= index) 
+            return default(T);
+
+        T output = source[index];
+        source.RemoveAt(index);
+        return output;
+    }
+
     public static IEnumerator DoWaitForSeconds(float time, System.Action action) 
     {
         yield return new WaitForSeconds(time);

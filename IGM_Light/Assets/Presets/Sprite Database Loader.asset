@@ -345,4 +345,4 @@ MonoBehaviour:
   - Assets/Resources/Sprites/Filter
   - Assets/Resources/Sprites/Backgrounds
   - Assets/Resources/Sprites/TargetBlocks
-  - Assets/Resources/Sprites/Worlds
+  - Assets/Resources/Sprites/world_select

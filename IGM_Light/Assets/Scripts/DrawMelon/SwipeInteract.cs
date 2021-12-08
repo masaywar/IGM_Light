@@ -69,8 +69,7 @@ public class SwipeInteract : LeanFingerSwipe
                 else 
                     direction = new Vector2Int(1, 0);
             }
-            print(direction);
-            print(swipe);
+           
             // print(direction);
             _player.Move(direction);
         }
