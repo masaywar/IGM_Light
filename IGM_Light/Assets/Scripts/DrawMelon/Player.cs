@@ -214,9 +214,19 @@ public class Player : MonoBehaviour
         {
             Step++;
             if (white)
-                gameObject.transform.position = _boardManager.b_poslist[index];
+            {
+                if(index%2==0)
+                    gameObject.transform.position = _boardManager.w_poslist[index+1];
+                else
+                    gameObject.transform.position = _boardManager.w_poslist[index-1];
+            }
             else
-                gameObject.transform.position = _boardManager.w_poslist[index];
+            {
+                if (index % 2 == 0)
+                    gameObject.transform.position = _boardManager.b_poslist[index + 1];
+                else
+                    gameObject.transform.position = _boardManager.b_poslist[index - 1];
+            }
             canInteract = true;
             if (onTile.HasFilter)
             {
@@ -226,13 +236,33 @@ public class Player : MonoBehaviour
         });
         if (white)
         {
-            Row = Math.Abs((int)_boardManager.b_poslist[index].y);
-            Column = Math.Abs((int)_boardManager.b_poslist[index].x);
+            {
+                if (index % 2 == 0)
+                {
+                    Row = Math.Abs((int)_boardManager.w_poslist[index+1].y);
+                    Column = Math.Abs((int)_boardManager.w_poslist[index+1].x);
+                }
+                else
+                {
+                    Row = Math.Abs((int)_boardManager.w_poslist[index -1].y);
+                    Column = Math.Abs((int)_boardManager.w_poslist[index - 1].x);
+                }
+            }
         }
         else
         {
-            Row = Math.Abs((int)_boardManager.w_poslist[index].y);
-            Column = Math.Abs((int)_boardManager.w_poslist[index].x);
+            {
+                if (index % 2 == 0)
+                {
+                    Row = Math.Abs((int)_boardManager.b_poslist[index + 1].y);
+                    Column = Math.Abs((int)_boardManager.b_poslist[index + 1].x);
+                }
+                else
+                {
+                    Row = Math.Abs((int)_boardManager.b_poslist[index - 1].y);
+                    Column = Math.Abs((int)_boardManager.b_poslist[index - 1].x);
+                }
+            }
         }
     }
 
