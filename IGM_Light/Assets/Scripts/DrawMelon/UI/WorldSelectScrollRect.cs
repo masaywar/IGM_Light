@@ -14,10 +14,13 @@ public class WorldSelectScrollRect : MonoBehaviour
 
     [SerializeField] private float _distance = 0.00f;
 
+    private WorldIncicator _indicators;
+
     private void Awake()
     {   
         _pivot = transform.Find("Pivot") as RectTransform;
         _content = transform.Find("Content") as RectTransform;
+        _indicators = FindObjectOfType<WorldIncicator>();
 
         WorldTransforms = new RectTransform[GameManager.Instance.SpriteDatabase.WorldsSprites.Count];
         _positions = new Vector3[FixedValues.WORLDS];
@@ -57,7 +60,7 @@ public class WorldSelectScrollRect : MonoBehaviour
                     minIdx = k;
                 }
             }
-
+            _indicators.OnChangeScrollPivot(minIdx);
             _content.position = new Vector3(-_distance*minIdx, _content.position.y, _content.position.z);
         }
         #endif
@@ -79,7 +82,7 @@ public class WorldSelectScrollRect : MonoBehaviour
                         minIdx = k;
                     }
                 }
-
+                _indicators.OnChangeScrollPivot(minIdx);
                 _content.position = new Vector3(-_distance*minIdx, _content.position.y, _content.position.z); 
             }
         }

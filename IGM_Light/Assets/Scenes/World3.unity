@@ -364,7 +364,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -449,6 +449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86da819786a7f745bc4d5c3e6117145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  muteImage: {fileID: 21300000, guid: fdbd057e8dc877c4b9d31ee161f49f6e, type: 3}
+  playImage: {fileID: 21300000, guid: 02084cd67f25de64698583cafd836be3, type: 3}
 --- !u!1 &117364895
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +464,7 @@ GameObject:
   - component: {fileID: 117364898}
   - component: {fileID: 117364897}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Replay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -800,8 +802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7635013726552783190, guid: 4197b8b3e71cc87479dd01ac28dbb5d0,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 33d17fbf105563a459a58b8530a14bcc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1461,7 +1462,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 92.32
 --- !u!222 &804853892
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1548,7 +1549,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -128.87177}
+  m_AnchoredPosition: {x: 64.57999, y: -128.87177}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &914435053
@@ -3130,7 +3131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 530, y: -128.87177}
+  m_AnchoredPosition: {x: 564.57996, y: -128.87177}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1923995029
@@ -3231,7 +3232,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3292,7 +3293,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3329,7 +3330,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2135727523}
-        m_MethodName: Origin
+        m_MethodName: Change
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3928,7 +3929,7 @@ GameObject:
   - component: {fileID: 2135727520}
   - component: {fileID: 2135727523}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Setting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4069,4 +4070,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 21300000, guid: 7285526fc45e7c54ba6fe1a055d73242, type: 3}
   button2: {fileID: 21300000, guid: 07b74a25dd521bf4ca9259875cd0a7ed, type: 3}
-  buttonobj: {fileID: 0}
