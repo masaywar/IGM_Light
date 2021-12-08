@@ -2,13 +2,11 @@
 using UnityEngine.UI;
 using DG.Tweening;
 
-using Lean.Touch;
-
 public class UIScore : UIWindow
 {
     public Image Successimg;
     public Image[] Scores;
-    public GameController _gameController;
+    public GameController gameController;
 
     private SwipeInteract _swipe;
 

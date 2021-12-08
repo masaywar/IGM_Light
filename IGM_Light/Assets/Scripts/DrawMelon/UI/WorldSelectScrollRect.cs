@@ -27,12 +27,8 @@ public class WorldSelectScrollRect : MonoBehaviour
             int index = k;
 
             WorldTransforms[k] = _content.GetChild(k) as RectTransform;
-            WorldTransforms[k].GetComponent<Image>().sprite = GameManager.Instance.SpriteDatabase.WorldsSprites[k].sprites[UserDataInstance.Instance.WorldsLastClearData[k]];
-            WorldTransforms[k].GetComponent<Button>().onClick.AddListener(()=>
-            {
-                UIManager.Instance.GetWindow<UIWorldSelect>("UIWorldSelect").OnSelectWorld(index+1);
-            }
-            );
+            WorldTransforms[k].GetComponent<Image>().sprite = GameManager.Instance.SpriteDatabase.GetWorldSprite(k, UserDataInstance.Instance.WorldsLastClearData[k]);
+            WorldTransforms[k].GetComponent<Button>().onClick.AddListener(()=>UIManager.Instance.GetWindow<UIWorldSelect>("UIWorldSelect").OnSelectWorld(index+1));
             WorldTransforms[k].gameObject.SetActive(true);
         }
     }

@@ -9,7 +9,7 @@ public class UIBackground : UIWindow
 
     public Image[] stars;
 
-    public GameController _gameController;
+    public GameController gameController;
 
     public List<Image> _blockImages;
 
@@ -22,24 +22,24 @@ public class UIBackground : UIWindow
     
     private void Update()
     {
-        if(_gameController == null) return;
+        if(gameController == null) return;
 
-        if (!_gameController.IsSolved)
+        if (!gameController.IsSolved)
         {
             if(stars.Length != 3) return;
 
-            int step =  _gameController.Player.Step;
+            int step =  gameController.Player.Step;
 
-            int[] standards = _gameController.Standard;
+            int[] standards = gameController.Standard;
             _text.text = step.ToString();
 
-            if(step <= _gameController.Standard[0]) //star=3
+            if(step <= gameController.Standard[0]) //star=3
             {
                 //stars[1].gameObject.SetActive(false);
                 //stars[2].gameObject.SetActive(false);
                 //stars[0].gameObject.SetActive(true);
             }
-            else if(step <= _gameController.Standard[1])  //star2
+            else if(step <= gameController.Standard[1])  //star2
             {
                 stars[0].gameObject.SetActive(false);
                 //stars[2].gameObject.SetActive(false);
@@ -56,18 +56,18 @@ public class UIBackground : UIWindow
 
     public void ResetBackground()
     {
-        int lastData = UserDataInstance.Instance.WorldsLastClearData[_gameController.Worlds-1];
+        int lastData = UserDataInstance.Instance.WorldsLastClearData[gameController.Worlds-1];
 
         lastData = lastData == FixedValues.STAGES ? lastData - 1 : lastData;
 
         BackgroundImage.sprite = GameManager.Instance
-                            .SpriteDatabase.BackgroundSprites[_gameController.Worlds-1]
+                            .SpriteDatabase.BackgroundSprites[gameController.Worlds-1]
                             .sprites[lastData];
 
         int index =0;
         while(index < _blockImages.Count)
         {
-            foreach(var row in _gameController.TargetTable)
+            foreach(var row in gameController.TargetTable)
             {
                 foreach(var block in row.Blocks)
                 {
@@ -84,16 +84,16 @@ public class UIBackground : UIWindow
 
     private IEnumerator waitForReset()
     {
-        while(!_gameController)
+        while(!gameController)
             yield return new WaitForSeconds(0.02f);
 
-        if(!_gameController.isHack)
+        if(!gameController.isHack)
             ResetBackground();
     }
 
     public void OnClickReset()
     {
-        _gameController.ResetGame();
+        gameController.ResetGame();
     }
 
     public void OnClickPause()
