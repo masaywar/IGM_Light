@@ -4069,3 +4069,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 21300000, guid: 7285526fc45e7c54ba6fe1a055d73242, type: 3}
   button2: {fileID: 21300000, guid: 07b74a25dd521bf4ca9259875cd0a7ed, type: 3}
+  buttonobj: {fileID: 0}

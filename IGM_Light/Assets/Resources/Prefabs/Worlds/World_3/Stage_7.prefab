@@ -2457,7 +2457,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1097117597
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 2779023822413464520, guid: 54c15ccca11e88741a9170793d8bd0a3,
     type: 3}
@@ -3242,7 +3242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHack: 0
-  Size: 3
+  Size: 4
   Worlds: 3
   Stages: 6
   Player: {fileID: 0}
@@ -3256,11 +3256,11 @@ MonoBehaviour:
   - Blocks: []
   - Blocks: []
   - Blocks:
-    - BlockType: 11
+    - BlockType: 15
       ColorType: 7
       ShowingBlock: {fileID: 7527161470818445974, guid: 45edb464bd118304885da2693138dfd7,
         type: 3}
-    - BlockType: 13
+    - BlockType: 17
       ColorType: 7
       ShowingBlock: {fileID: 1704139881968746935, guid: 45edb464bd118304885da2693138dfd7,
         type: 3}
@@ -3845,7 +3845,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1097117597
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 31c1e5f660ad2a2479212b32de9e603c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

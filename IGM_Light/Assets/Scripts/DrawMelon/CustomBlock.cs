@@ -42,8 +42,4 @@ public class CustomBlock
     {
         get => BlockFormation.Formations[(int)BlockType];
     }
-
-    public void OnSolved()
-    {
-    }
 }

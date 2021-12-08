@@ -45,6 +45,7 @@ public class GameManager : Singleton<GameManager>
                 break;
             case 2: 
             case 3:
+            case 4:
             #if UNITY_EDITOR
             if(Input.GetKeyDown(KeyCode.A))
             {
@@ -52,7 +53,6 @@ public class GameManager : Singleton<GameManager>
             }
             #endif
             break;
-            case 4:
             case 5:
             default:
                 break;

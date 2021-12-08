@@ -71,14 +71,15 @@ public partial class GameController : MonoBehaviour
     public void Match(ColorType colorType)
     {
         var valids = TargetTable[(int)colorType];
+        int nums = valids.Blocks.Count;
 
-        for(int index=0; index < valids.Blocks.Count; index++)
+        for(int index=0; index < nums; index++)
         {
-            var block = valids.Blocks[index];
+            var block = valids.Blocks.Pop();
             bool isFind = false;
+
             if(block == null)
             {
-                valids.Blocks.Add(block);
                 return;
             }
 
@@ -89,6 +90,7 @@ public partial class GameController : MonoBehaviour
                     int count = 0;
                     foreach(var form in block.Form)
                     {
+                        
                         if(!_boardManager.TryGetTile(form.x+dRow, form.y+dCol, out var tile))
                             break;
 
@@ -100,6 +102,8 @@ public partial class GameController : MonoBehaviour
                     {
                         foreach(var form in block.Form)
                         {
+                            print(block.BlockType);
+                            print(form);
                             var tile = _boardManager.GetTile(form.x+dRow, form.y+dCol); 
                             tile.OnMadeBlock();
                         }
@@ -112,6 +116,10 @@ public partial class GameController : MonoBehaviour
                 if(isFind)
                     break;
             }
+            if(isFind)
+                break;
+
+            valids.Blocks.Insert(index, block);
         }
 
         if (IsSolved)
@@ -137,38 +145,6 @@ public partial class GameController : MonoBehaviour
         uiScore.ShowScore(score);   
 
         UserDataInstance.Instance.UpdateUserData(score);
-        // int currentWorld = UserDataInstance.Instance.CurrentWorld;
-        // int currentStage = UserDataInstance.Instance.CurrentStage;
-        
-        // if(currentWorld == UserDataInstance.Instance.UserData.Worlds)
-        // {
-        //     if(UserDataInstance.Instance.WorldsLastClearData[currentWorld-1] < currentStage)
-        //         UserDataInstance.Instance.UserData.Stages++;    
-
-        //     if(UserDataInstance.Instance.UserData.Stages == FixedValues.STAGES)
-        //     {
-        //         UserDataInstance.Instance.UserData.Worlds++;
-        //         UserDataInstance.Instance.UserData.Stages = 0;
-        //     }
-        // }        
-        
-        // UserDataInstance.Instance.UserData.UserClearData[
-        //     UserDataInstance.Instance.CurrentWorld-1].userClearData[
-        //     UserDataInstance.Instance.CurrentStage-1] = true;
-        
-        // UserDataInstance.Instance.UserData.UserScoreData[
-        //     UserDataInstance.Instance.CurrentWorld-1].userScoreData[
-        //     UserDataInstance.Instance.CurrentStage-1]
-        // = Mathf.Max(score, UserDataInstance.Instance.UserData.UserScoreData[
-        //     UserDataInstance.Instance.CurrentWorld-1].userScoreData[
-        //     UserDataInstance.Instance.CurrentStage-1]);
-
-        // UserDataInstance.Instance.SaveData();
-        // UserDataInstance.Instance.LoadData();
-
-        // UserDataInstance.Instance.WorldsLastClearData[Worlds-1] 
-        //         = UserDataInstance.Instance.WorldsLastClearData[Worlds-1] < FixedValues.STAGES && UserDataInstance.Instance.WorldsLastClearData[Worlds-1] < Stages? 
-        //           UserDataInstance.Instance.WorldsLastClearData[Worlds-1]+1 : UserDataInstance.Instance.WorldsLastClearData[Worlds-1];
     }
 
     public void ResetGame()
