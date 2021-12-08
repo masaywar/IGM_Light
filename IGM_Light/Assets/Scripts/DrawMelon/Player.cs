@@ -140,6 +140,15 @@ public class Player : MonoBehaviour
             }
             if (onTile.HasIceTile)
             {
+                if (onTile.HasFilter)
+                {
+                    PlayerColorType = onTile.Filter.color;
+                    onTile.Filter.gameObject.SetActive(false);
+                    ChangeColor(PlayerColorType);
+                }
+
+                transform
+                .DOMove(onTile.transform.position, 0.5f);
                 direc.y = row - Row;
                 direc.x = Column - col;
                 int dir = anim.Direction(direc);
@@ -194,7 +203,6 @@ public class Player : MonoBehaviour
                         break;
                 }
                 anim.Sliding();
-                //Debug.Log("r:" + r + "c:" + c);
                 return TryMove(r, c);
             }
 
@@ -223,15 +231,17 @@ public class Player : MonoBehaviour
     }
     private void Transfer(CustomTile onTile)
     {
+        if (onTile.HasFilter)
+        {
+            PlayerColorType = onTile.Filter.color;
+            onTile.Filter.gameObject.SetActive(false);
+            ChangeColor(PlayerColorType);
+        }
+
         transform
         .DOMove(onTile.transform.position, 0.5f)
         .OnComplete(() => {
               Step++;
-          if (onTile.HasFilter)
-          {
-             onTile.Filter.gameObject.SetActive(false);
-             ChangeColor(PlayerColorType);
-          }
         });
     }
     private void Portal(CustomTile onTile,int row,int col, bool white)
