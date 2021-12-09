@@ -134,7 +134,16 @@ public class UserDataInstance : Singleton<UserDataInstance>
 
     public void UpdateUserData(int? score=null)
     {
-        if(UserData.UserClearData[CurrentWorld-1].userClearData[CurrentStage-1]) return;
+        if(score != null)
+        {
+            int lastScore = UserData.UserScoreData[CurrentWorld-1].userScoreData[CurrentStage-1];
+
+            UserData.UserScoreData[CurrentWorld-1].userScoreData[CurrentStage-1]
+                = Mathf.Max(score.Value, lastScore);
+        }
+
+        if(UserData.UserClearData[CurrentWorld-1].userClearData[CurrentStage-1])
+            return;
 
         UserData.UserClearData[CurrentWorld-1].userClearData[CurrentStage-1] = true;
 
