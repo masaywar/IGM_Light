@@ -143,7 +143,11 @@ public class UserDataInstance : Singleton<UserDataInstance>
         }
 
         if(UserData.UserClearData[CurrentWorld-1].userClearData[CurrentStage-1])
+        {
+            SaveData();
+            LoadData();
             return;
+        }
 
         UserData.UserClearData[CurrentWorld-1].userClearData[CurrentStage-1] = true;
 
@@ -172,11 +176,13 @@ public class UserDataInstance : Singleton<UserDataInstance>
             if(breakFlag) break;
         }
 
-        SaveData();
-        LoadData();
+       
 
         WorldsLastClearData[CurrentWorld-1] 
         = WorldsLastClearData[CurrentWorld-1] < FixedValues.STAGES && WorldsLastClearData[CurrentWorld-1] < CurrentStage? 
             WorldsLastClearData[CurrentWorld-1]+1 :WorldsLastClearData[CurrentWorld-1];
+
+        SaveData();
+        LoadData();
     }
 }
