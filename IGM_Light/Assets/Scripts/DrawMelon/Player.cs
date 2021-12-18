@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private BoardManager _boardManager;
     [SerializeField] private GameController _gameController;
     [SerializeField] private Anim anim;
+    //public AudioTest audio = GameObject.Find("Anim").GetComponent<AudioTest>();
 
     private WaitForSeconds[] _waits;
 
@@ -120,6 +121,7 @@ public class Player : MonoBehaviour
         {
             if (onTile.HasObstacle)
             {
+                GameObject.Find("Anim").GetComponent<AudioTest>().PlaySound("Obstacle");
                 return false;
             }
             if (onTile.HasWeakTile)
@@ -130,11 +132,13 @@ public class Player : MonoBehaviour
             }
             if (onTile.HasWhitePortal)
             {
+                GameObject.Find("Anim").GetComponent<AudioTest>().PlaySound("portal");
                 Portal(onTile,row,col, true);
                 return false;
             }
             if (onTile.HasBlackPortal)
             {
+                GameObject.Find("Anim").GetComponent<AudioTest>().PlaySound("portal");
                 Portal(onTile, row, col, false);
                 return false;
             }
@@ -142,11 +146,11 @@ public class Player : MonoBehaviour
             {
                 if (onTile.HasFilter)
                 {
+                    //GameObject.Find("Anim").GetComponent<AudioTest>().PlaySound("filter");
                     PlayerColorType = onTile.Filter.color;
                     onTile.Filter.gameObject.SetActive(false);
                     ChangeColor(PlayerColorType);
                 }
-
                 transform
                 .DOMove(onTile.transform.position, 0.5f);
                 direc.y = row - Row;
@@ -202,12 +206,16 @@ public class Player : MonoBehaviour
                         }
                         break;
                 }
+                GameObject.Find("Anim").GetComponent<AudioTest>().PlaySound("slide");
                 anim.Sliding();
                 return TryMove(r, c);
             }
 
             if (onTile.HasFilter)
+            {
+                GameObject.Find("Anim").GetComponent<AudioTest>().PlaySound("filter");
                 PlayerColorType = onTile.Filter.color;
+            }
 
             direc.y = row - Row;
             direc.x = Column - col;
